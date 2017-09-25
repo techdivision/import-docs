@@ -18,3 +18,32 @@ Put your custom CSS in this file.
     display:none;
 }
 */
+#header {
+	background: #71DA77;
+}
+.searchbox {
+    border: 0;
+    background: #43B442;
+}
+.searchbox input::active {
+	outline: 0;
+	border: 0;
+}
+.button {
+    background: #71DA77;
+    box-shadow: 0 3px 0 #43B442;
+    transition: background 300ms ease;
+}
+.button:hover {
+	background: #2CA927;
+	box-shadow: 0 3px 0 #71DA77;
+}
+#sidebar ul li.visited>a .read-icon {
+	color: #2DAC28;
+}
+a {
+    color: #4CCC46;
+}
+a:hover {
+	color: #71DA77;
+}
