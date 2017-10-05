@@ -19,31 +19,44 @@ Put your custom CSS in this file.
 }
 */
 #header {
-	background: #71DA77;
+	background: #31b0d5;
 }
 .searchbox {
     border: 0;
-    background: #43B442;
+    background: #68B9D5;
 }
 .searchbox input::active {
 	outline: 0;
 	border: 0;
 }
 .button {
-    background: #71DA77;
-    box-shadow: 0 3px 0 #43B442;
+    background: #31b0d5;
     transition: background 300ms ease;
+    box-shadow: 0 3px 0 #3BA3D5;
 }
 .button:hover {
-	background: #2CA927;
-	box-shadow: 0 3px 0 #71DA77;
+	background: #3BA3D5;
+	box-shadow: 0 3px 0 #31b0d5;
 }
 #sidebar ul li.visited>a .read-icon {
-	color: #2DAC28;
+	color: #3BA3D5;
 }
 a {
-    color: #4CCC46;
+    color: #31b0d5;
+    transition: color 300ms ease;
 }
 a:hover {
-	color: #71DA77;
+	color: #4A97D5;
+}
+.cc-banner .cc-btn:last-child {
+    transition: background 300ms ease;
+}
+code {
+    font-size: 90%;
+    color: #222 !important;
+    background-color: #f4f4f4 !important;
+    border-radius: 4px;
+}
+.copy-to-clipboard {
+	display: none !important;
 }
