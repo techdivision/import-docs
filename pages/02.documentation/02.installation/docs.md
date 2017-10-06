@@ -82,6 +82,7 @@ Installation and basic usage are the same as on Fedora, but we [provide differen
 
 > Please install the runtime first, as it is a dependency of the distribution.
 
+<a name="building-it-yourself"></a>
 ## Building it yourself
 
 The following steps describe how to build appserver.io for other environments using the provided [ANT](http://ant.apache.org/) targets, which is the recommended build tool.
