@@ -1,5 +1,8 @@
 ---
 title: Configuration
+taxonomy:
+    category:
+        - docs
 ---
 
 We fancy the fact that we made appserver highly configurable. We've provided a centralized configuration file located at `/opt/appserver/etc/appserver/appserver.xml`.
