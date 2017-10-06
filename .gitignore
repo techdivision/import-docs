@@ -1,1 +1,13 @@
 .DS_Store
+.dependencies
+CHANGELOG.md
+CODEOFCONDUCT.md
+LICENSE
+accounts/
+assets/
+blueprints.yaml
+config/
+data/
+plugins/
+screenshot.jpg
+themes/
