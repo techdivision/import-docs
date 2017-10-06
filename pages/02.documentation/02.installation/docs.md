@@ -18,7 +18,7 @@ The package is installed with the following basic default characteristics:
 
 * Install directory: `/opt/appserver` (`C:\Program Files\appserver` on Windows)
 * Autostart after installation, no autostart on reboot
-* Reachable under pre-configured ports as described [here](#)
+* Reachable under pre-configured ports as described [here](../configuration)
 
 For OS specific steps and characteristics review the tested environments in the section below.
 
