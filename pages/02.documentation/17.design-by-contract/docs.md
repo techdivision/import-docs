@@ -1,5 +1,8 @@
 ---
 title: 'Design by Contract'
+taxonomy:
+    category:
+        - docs
 ---
 
 In addition to AOP, appserver also offers [Design-by-Contract](http://en.wikipedia.org/wiki/Design_by_contract) out of the box, which is another interesting architectural approach.
