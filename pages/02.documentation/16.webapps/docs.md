@@ -1,5 +1,8 @@
 ---
 title: Webapps
+taxonomy:
+    category:
+        - docs
 ---
 
 appserver.io introduces the concept of so-called `webapps` as a new naming for PHP applications.
