@@ -1,7 +1,9 @@
 ---
 title: 'Timer Service'
+taxonomy:
+    category:
+        - docs
 ---
-
 
 In most of your projects, you need to schedule things at regular intervals
 or at a given date in future. As PHP itself is a scripting language, it lacks this functionality. Thus, developers use utilities like CRON when working on Mac OS X or a Linux distribution. If you
