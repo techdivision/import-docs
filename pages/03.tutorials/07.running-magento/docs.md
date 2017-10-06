@@ -1,5 +1,8 @@
 ---
 title: 'Running Magento'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 appserver.io is a pretty cool and sophisticated infrastructure fully built upon the PHP stack. This makes it truly easy to develop and extend the platform. appserver.io comes with a built in webserver module that provides Fast-CGI support. Therefore it is possible to run and install any PHP application. The following tutorial guides you through the Magento installation process necessary to run on appserver.io.
