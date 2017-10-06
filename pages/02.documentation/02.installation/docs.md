@@ -1,9 +1,10 @@
 ---
 title: Installation
 taxonomy:
-    tag: docs
-    author: jdoe
-    category: docs
+    category:
+        - docs
+    author:
+        - jdoe
 ---
 
 In addition to supporting several operating systems and specific ways of installing the respective software, we'll
