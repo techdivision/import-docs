@@ -1,5 +1,8 @@
 ---
 title: Managers
+taxonomy:
+    category:
+        - docs
 ---
 
 The default managers implements the main part of the functionality appserver.io provides when writing applications.
