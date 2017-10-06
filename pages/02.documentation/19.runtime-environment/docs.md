@@ -1,5 +1,8 @@
 ---
 title: 'Runtime Environment'
+taxonomy:
+    category:
+        - docs
 ---
 
 The appserver.io runtime environment is delivered by the package [runtime](<https://github.com/appserver-io-php/runtime>).
