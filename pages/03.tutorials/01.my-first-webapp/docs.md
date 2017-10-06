@@ -1,5 +1,8 @@
 ---
 title: 'My First WebApp'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 [PSR-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
