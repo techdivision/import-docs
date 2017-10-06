@@ -1,5 +1,8 @@
 ---
 title: 'DNS Server'
+taxonomy:
+    category:
+        - docs
 ---
 
 The appserver.io DNS server is **NOT** a fully featured DNS server that can be used in production mode, it has been designed and implemented to make development a bit more comfortable. In the context of appserver.io, by default it uses the virtual host configuration to resolve the DNS names without the need to add each of them to the `/etc/hosts` file. So, whenever a new virtual host configuration will be added to the `etc/appserver/conf.d/virtual-hosts.xml` or in a application's `META-INF/containers.xml` file, the DNS name can be resolved by the DNS server, after it has been [restarted](#).
