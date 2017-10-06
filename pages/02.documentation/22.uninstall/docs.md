@@ -1,5 +1,8 @@
 ---
 title: Uninstall
+taxonomy:
+    category:
+        - docs
 ---
 
 Before uninstalling you should stop all running services, otherwise there might
