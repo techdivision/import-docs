@@ -1,5 +1,8 @@
 ---
 title: 'Naming Directory'
+taxonomy:
+    category:
+        - docs
 ---
 
 Every container running in the application server has an internal registry; we name it Naming Directory. In Java, it is called `Enterprise Naming Context` or in short `ENC`. The naming directory an object store; the container registers references to its resources. Resources can be beans or contexts provided by an application. All resources are registered in the `Naming Directory` to ensure accessability.
