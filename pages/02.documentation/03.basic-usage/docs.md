@@ -1,5 +1,8 @@
 ---
 title: 'Basic Usage'
+taxonomy:
+    category:
+        - docs
 ---
 
 After the installation wizard (or package manager) has finished, the application server starts automatically. You can now use it without limitations.
