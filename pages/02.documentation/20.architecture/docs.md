@@ -1,5 +1,8 @@
 ---
 title: Architecture
+taxonomy:
+    category:
+        - docs
 ---
 
 appserver.io makes heavy use of threads and their context to inherit instances, configuration values, constants, functions, class definitions and comments in a selective way. In addition to making good use of inheritance, appserver also takes advantage of threads and their context to also allow a separation of concerns where necessary. As opposed to processes, threads allow separation, yet gives developers the possibility to share data whenever needed.
