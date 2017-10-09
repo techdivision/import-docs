@@ -14,15 +14,14 @@ of the requirements that usually needs manual tweaks will be already set-up for 
 
 So installing Magento 2 in an appserver.io Docker container needs basically five steps.
 
-### Step 1 - Docker Installation
+### Step 1: Docker Installation
 
 Download and install [Docker](https://www.docker.com/community-edition) for your system.
 
 If you already have a running Docker installation, you can skip this step and proceed with 
 [Step 2](#step-2-starting-a-mysql-docker-container).
 
-<a name="step-2-starting-a-mysql-docker-container"></a>
-### Step 2 - Starting a MySQL Docker container 
+### Step 2: Starting a MySQL Docker container 
 
 > If you already have MySQL running on your system, you have to stop this temporarily,
 > because port `3306` will already be in use and the Docker container can not be started.
@@ -41,7 +40,7 @@ MacBook-Pro:~ docker run -d \
 This downloads a MySQL 5.6 Docker image and starts a container with MySQL listen on port
 `127.0.0.1:3306` of your local machine.
 
-### Step 3 - Starting a appserver.io Docker container
+### Step 3: Starting a appserver.io Docker container
 
 > If you already have a webserver running that listens either to one of the ports `80` and `443` 
 > you'll also have to stop it temporarly.
@@ -64,10 +63,10 @@ PHP-FPM listening to the ports `127.0.0.1:80` and `127.0.0.1:443`. Additionally 
 container, that we've created in [Step 2](#step-2-starting-a-mysql-docker-container) and makes it 
 available as service with the name `mysql`.
 
-### Step 4 - Download and deploy Magento 2 as PHAR archive
+### Step 4: Download and deploy Magento 2 as PHAR archive
 
 Beside the possiblity to copy the files to the webserver root directory, appserver.io also supports
-a PHAR based [deployment](). This
+a PHAR based [deployment](../../documentation/deployment). This
 allows us to deploy Magento 2 by downloading the sources - including all composer dependencies - as 
 a PHAR archive and copy it to the deployment directory inside the Docker container. To do this,
 execute the following lines on the commandline
@@ -95,7 +94,7 @@ has successfully been deployed.
 
 > The Magento 2 deployment process could take up to 1 minute, depending on your hardware!
 
-#### Step 5 - Magento 2 Setup
+#### Step 5: Magento 2 Setup
 
 The final step is the Magento 2 installation and restart the CRON. This can either be done by running 
 the setup in your browser or on the commandline by executing the following lines

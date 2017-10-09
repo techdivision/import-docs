@@ -19,7 +19,7 @@ Within the application server's environment, this solution is enabled by default
 
 ## How it works
 
-AOP is often accomplished using [`Proxy Classes`](https://en.wikipedia.org/wiki/Proxy_pattern) that wrap around actual classes and can be used to invoke code hooks on certain points in the program flow. Solutions injecting calls to a managing component, which handles the execution of cross-cutting logic are also possible.
+AOP is often accomplished using [Proxy Classes](https://en.wikipedia.org/wiki/Proxy_pattern) that wrap around actual classes and can be used to invoke code hooks on certain points in the program flow. Solutions injecting calls to a managing component, which handles the execution of cross-cutting logic are also possible.
 
 With appserver.io, we have two things in mind: good performance and accessibility for the community.
 To accommodate these concerns, we implemented everything in PHP and did as much work during bootstrapping as possible.
@@ -102,7 +102,7 @@ The classloader configuration might look like the following.
 </classLoaders>
 ```
 
-The concepts we have described [above](#how-does-it-work) can be used in very complex and powerful ways.
+The concepts we have described [above](#how-it-works) can be used in very complex and powerful ways.
 
 ## Important terms
 

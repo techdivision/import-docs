@@ -10,7 +10,7 @@ taxonomy:
 In addition to supporting several operating systems and specific ways of installing the respective software, we'll
 also demonstrate how to get an appserver.io package. You can do any of the following:
 
-* Download one of our <a href="{{site.home_url}}downloads#osx" target="_blank" class="external no-image">releases</a> right from our download page, which provide tested install packages.
+* Download one of our <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">releases</a> right from our download page, which provide tested install packages.
 * Get any of our [developer builds](http://builds.appserver.io/) from our project page to get the most bleeding edge install packages (possibly including minor issues)
 * Build your own packages using [ANT](http://ant.apache.org/) as described [below](#building-it-yourself)
 
@@ -18,7 +18,7 @@ The package is installed with the following basic default characteristics:
 
 * Install directory: `/opt/appserver` (`C:\Program Files\appserver` on Windows)
 * Autostart after installation, no autostart on reboot
-* Reachable under pre-configured ports as described [here](../configuration)
+* Reachable under pre-configured ports as described [here](../configuration#configuration-defaults)
 
 For OS specific steps and characteristics review the tested environments in the section below.
 
@@ -28,9 +28,9 @@ For OS specific steps and characteristics review the tested environments in the 
 
 > Runs and tested on Mac OS X 10.8.x and higher.
 
-For Mac OS X > 10.8.x we provide a `.pkg` file for [download](#), which contains the `runtime` and the `distribution`. A double-click on the `.pkg` triggers the installation process.
+For Mac OS X > 10.8.x we provide a `.pkg` file for <a href="{{site.home_url}}downloads#osx" target="_blank" class="external no-images">download</a>, which contains the `runtime` and the `distribution`. A double-click on the `.pkg` triggers the installation process.
 
-Optionally you can install the appserver using [Homebrew Cask](http://caskroom.io/) as we do offer an appserver cask now.
+Optionally you can install the appserver using [Homebrew Cask](https://caskroom.github.io/) as we do offer an appserver cask now.
 To do so use the following command:
 
 ```bash
@@ -42,7 +42,7 @@ brew cask install appserver
 > Runs and tested on Windows 7 (32-bit) and higher.
 
 As we deliver the Windows application server as a .exe file, which packages everything, there are no further dependencies.
-You can [download](#) it and install it on your machine, as you would with other software.
+You can <a href="{{site.home_url}}downloads#windows" target="_blank" class="external no-images">download</a> it and install it on your machine, as you would with other software.
 
 appserver.io will be added as a service daemon bundle to your Windows service management tool.
 
@@ -62,7 +62,7 @@ root@debian:~# aptitude update
 root@debian:~# aptitude install appserver-dist
 ```
 
-Optionally you can [download](#) the `.deb` files for `runtime` and `distribution`. A double-click triggers the installation process. Doing this will invoke the system default package manager and guides you through the installation process.
+Optionally you can <a href="{{site.home_url}}downloads#debian" target="_blank" class="external no-images">download</a> the `.deb` files for `runtime` and `distribution`. A double-click triggers the installation process. Doing this will invoke the system default package manager and guides you through the installation process.
 
 > Please install the runtime first, as it is a dependency of the distribution.
 
@@ -70,7 +70,7 @@ Optionally you can [download](#) the `.deb` files for `runtime` and `distributio
 
 > Runs and tested on version Fedora 20 (64-bit).
 
-We  also provide `.rpm` [files for Fedora](#), one for `runtime` and `distribution` for download. A double-click triggers the installation process. Doing this will invoke the system default package manager and will guide you through the installation process.
+We  also provide `.rpm` <a href="{{site.home_url}}downloads#fedora" target="_blank" class="external no-images">files for fedora</a>, one for `runtime` and `distribution` for download. A double-click triggers the installation process. Doing this will invoke the system default package manager and will guide you through the installation process.
 
 > Please install the runtime first, as it is a dependency of the distribution.
 
@@ -78,11 +78,10 @@ We  also provide `.rpm` [files for Fedora](#), one for `runtime` and `distributi
 
 > Runs and tested on CentOS 6 (64-bit).
 
-Installation and basic usage are the same as on Fedora, but we [provide different packages](#) for `runtime` and `distribution`. CentOS requires additional repositories like [remi](http://rpms.famillecollet.com/) or [EPEL](http://fedoraproject.org/wiki/EPEL) to satisfy additional dependencies.
+Installation and basic usage are the same as on Fedora, but we <a href="{{site.home_url}}downloads#centos" target="_blank" class="external no-images">provide different packages</a> for `runtime` and `distribution`. CentOS requires additional repositories like [remi](http://rpms.famillecollet.com/) or [EPEL](http://fedoraproject.org/wiki/EPEL) to satisfy additional dependencies.
 
 > Please install the runtime first, as it is a dependency of the distribution.
 
-<a name="building-it-yourself"></a>
 ## Building it yourself
 
 The following steps describe how to build appserver.io for other environments using the provided [ANT](http://ant.apache.org/) targets, which is the recommended build tool.

@@ -14,8 +14,8 @@ install appserver.io on a Mac and run wordpress on it.
 **Prerequisite**: *Up and running installation of MySQL*
 
 You will need a running installation of appserver.io *(>= Version 1.0.0-rc3)*. If you are new to this
-project you can easily [download](#) and follow the
-[installation guide](#) for your specific OS.
+project you can easily <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">download</a> and follow the
+[installation guide](../../documentation/installation) for your specific OS.
 
 After the setup has finished the appserver.io is up and running and you can call the welcome page with
 

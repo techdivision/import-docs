@@ -7,7 +7,7 @@ taxonomy:
 
 Before uninstalling you should stop all running services, otherwise there might
 be problems with existing pid-files on Linux and Mac the next time you install it. You can
-have a look on how to do so [here](#start-and-stop-scripts).
+have a look on how to do so [here](../basic-usage#start-and-stop-scripts).
 
 To uninstall appserver.io on Linux, you can rely on your package management system.
 On Windows, you can use the normal uninstall process provided by the operating system.

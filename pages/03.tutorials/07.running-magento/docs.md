@@ -11,8 +11,8 @@ appserver.io is a pretty cool and sophisticated infrastructure fully built upon 
 **Prerequisite**: *Up and running installation of MySQL*
 
 You will need a running installation of appserver.io *(>= Version 1.0.0-rc3)*. If you are new to this
-project you can easily [download](#) and follow the
-[installation guide](#) for your specific OS.
+project you can easily <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">download</a> and follow the
+[installation guide](../../documentation/installation) for your specific OS.
 
 After the setup has finished the appserver.io is up and running and you can call the welcome page with
 
@@ -69,7 +69,7 @@ mysql> grant all on magento.* to "magento"@"localhost" identified by "magento";
 mysql> flush privileges;
 ```
 
-Optional you can use another database administration tool like `phpMyAdmin` to create the database. Of course you can also install [phpMyAdmin](#) on appserver.io.
+Optional you can use another database administration tool like `phpMyAdmin` to create the database. Of course you can also install [phpMyAdmin](../running-phpmyadmin) on appserver.io.
 
 Now, as you are prepared to step through the Magento installer, start your favorite browser and open 
 `http://127.0.0.1:9080/magento`.
@@ -184,7 +184,7 @@ Now the `appserver.xml` file should look like this
 </appserver>
 ```
 
-[Restart](#) the application server and open the dashboard again. The security warning should have been gone!
+[Restart](../../documentation/basic-usage#start-and-stop-scripts) the application server and open the dashboard again. The security warning should have been gone!
 
 ## Adding Rewrites
 
@@ -197,7 +197,7 @@ Adding rewrite funtionality for your Magento installation is a very similar proc
 </rewrites>
 ```
 
-[Restart](#) the application server and proceed to activate the Magento Rewrite functionality in the `admin` panel.
+[Restart](../../documentation/basic-usage#start-and-stop-scripts) the application server and proceed to activate the Magento Rewrite functionality in the `admin` panel.
 
 ## Virtual Host Configuration
 
@@ -236,7 +236,7 @@ Then add a virtual host node to the webserver configuration that you will find i
 </virtualHost>
 ```
 
-After adding the virtual host [restart](#) the application server.
+After adding the virtual host [restart](../../documentation/basic-usage#start-and-stop-scripts) the application server.
 
 As Magento stores the base URL of the shop in the database, you  **MUST** change these URLs in the database. Again, login to the `MySQL` command line with 
 
@@ -292,7 +292,7 @@ Rotating the Magento Logfiles can also be activated by adding the following line
 
 > Keep in mind, that the directory `webapps/magento/var/log` has to be relative from the application servers base directory. You can also add multiple `<directory>` nodes pointing to directories containing files to be rotated.
 
-After [restarting](#) the application server, your Magento log files will be rotated every day, or if they reached 1 MB.
+After [restarting](../../documentation/basic-usage#start-and-stop-scripts) the application server, your Magento log files will be rotated every day, or if they reached 1 MB.
 
 ## Executing Magento CRON Jobs
 
@@ -470,7 +470,7 @@ class CronSessionBean implements TimedObjectInterface
 
 You have the choice. Either, save the PHP code from above into your Magento application folder `/opt/appserver/webapps/magento` under `META-INF/classes/AppserverIo/Apps/Magento/Cron/SessionBeans/CronSessionBean.php` or read the [installation](https://github.com/appserver-io-apps/magento-cron#installation) instructions of the repository.
 
-After [restarting](#) the application server, your Magento CRON jobs will be executed every minute.
+After [restarting](../../documentation/basic-usage#start-and-stop-scripts) the application server, your Magento CRON jobs will be executed every minute.
 
 ## Summary
 

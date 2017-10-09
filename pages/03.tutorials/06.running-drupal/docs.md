@@ -14,8 +14,8 @@ install appserver.io on a Mac and run wordpress.
 **Prerequisite**: *Up and running installation of MySQL*
 
 You will need a running installation of appserver.io *(>= Version 1.0.0-rc3)*. If you are new to this
-project you can easily [download](#) and follow the
-[installation guide](#) for your specific OS.
+project you can easily <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">download</a> and follow the
+[installation guide](../../documentation/installation) for your specific OS.
 
 After the setup has finished the appserver.io is up and running and you can call the welcome page with
 
@@ -65,8 +65,7 @@ chmod -R 775 /opt/appserver/webapps/drupal/
 
 Now you are free to step through the installation wizard and therefore it is necessary to create a MySQL database. To create a database you can use the MySQL command line or just use another database administration tool
 like phpMyAdmin. Of course you can also install phpMyAdmin on appserver.io. 
-<a href="{{ "/get-started/tutorials/running-phpmyadmin-on-appserver-io.html" | prepend: site.baseurl }}">
-Just read the tutorial.</a>
+[Just read the tutorial](../running-phpmyadmin)
 
 To create the database by the command line just use the following line
 

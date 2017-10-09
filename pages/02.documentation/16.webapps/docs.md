@@ -70,4 +70,4 @@ The purpose of this separation is hinted at by the use of the term "service" and
 When having a closer look at [app construction](https://github.com/appserver-io-apps/example) one can see that servlets (`WEB-INF`) and processors (`META-INF`) communicate over a proxy object.
 This proxy allows to communicate using [remote method invocations](http://en.wikipedia.org/wiki/Java_remote_method_invocation) and supports scalability by allowing for asymmetrical scaling of application services.
 
-Thus, a central [Persistence Container](#) could handle several server instances serving servlets and static files to connected clients.
+Thus, a central [Persistence Container](../persistence-container) could handle several server instances serving servlets and static files to connected clients.

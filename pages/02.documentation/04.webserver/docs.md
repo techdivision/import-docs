@@ -52,7 +52,7 @@ In the following section, the server params are discussed.
 ```
 
 They are used to define several key/value pairs for the Webserver implementation. Some of them are common to all HTTP servers.
-Their descriptions can be found [within the server configuration documentation](#)
+Their descriptions can be found [within the server configuration documentation](../configuration#server-configuration)
 
 Descriptions for webserver specific params are available below.
 
@@ -145,7 +145,7 @@ All modules are described in the overview below.
 | `CoreModule`                | HTTP server features, which are always available, such as serving static resources and finding defined file handlers. |
 | `PhpModule`                 | Acts like a classic PHP Webserver module (such as `mod_php` for apache) which calls and runs your requested PHP scripts in an isolated context with all globals (such as `$_SERVER`, `$_GET`, `$_POST` etc.) prepared in the common way. |
 | `FastCgiModule`             | The Module allows you to connect several FastCGI backends (such as `php-fpm` or `hhvm`) based on configured file-handlers. |
-| `ServletEngine`             | The ServletEngine introduces a super fast and simple way to implement an entry point to handle HTTP requests, which allows you to execute all performance critical tasks. Please see [Servlet Engine](#) for full documentation. |
+| `ServletEngine`             | The ServletEngine introduces a super fast and simple way to implement an entry point to handle HTTP requests, which allows you to execute all performance critical tasks. Please see [Servlet Engine](../servlet-engine) for full documentation. |
 | `DeflateModule`             | It provides the `deflate` output filter that enables output from your server to be compressed before being sent to the client via the network. |
 | `ProfileModule`             | Allows request based realtime profiling using external tools like logstash and kibana. |
 
@@ -176,7 +176,7 @@ The configuration above is positioned within the server element and opens up the
 which has a different document root than the global configuration. The virtual host is born.
 
 > Most of the `params` that are available in the `server` node can be overwritten. Also, you can define all the following
-> configurations like [Environment Variables](#configure-your-environment-variables), [Authentications](#configure-authentications), [Accesses](#configure-accesses) and of course [Locations](#configure-locations) for every virtual host.
+> configurations like [Environment Variables](#environment-variables), [Authentications](#authentications), [Accesses](#accesses) and of course [Locations](#locations) for every virtual host.
 
 The `virtualHost` element can hold params, rewrite rules or environment variables which are only
 available for the specific host.
@@ -198,8 +198,8 @@ The example below shows the basic usage of environment variables in XML format.
 ```
 
 There are several ways of using this feature. You can get a rough idea by having a
-look at Apache modules [mod_env](http://httpd.apache.org/docs/2.2/mod/mod_env.html>) and
-[mod_setenvif](<http://httpd.apache.org/docs/2.2/mod/mod_setenvif.html) which we adopted.
+look at Apache modules [mod_env](http://httpd.apache.org/docs/2.2/mod/mod_env.html) and
+[mod_setenvif](http://httpd.apache.org/docs/2.2/mod/mod_setenvif.html) which we adopted.
 
 You can make definitions of environment variables dependent on REGEX based conditions, which are performed on so called backreferences. These backreferences are request related server variables
 like `HTTP_USER_AGENT`.

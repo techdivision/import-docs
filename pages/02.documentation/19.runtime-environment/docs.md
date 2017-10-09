@@ -5,7 +5,7 @@ taxonomy:
         - docs
 ---
 
-The appserver.io runtime environment is delivered by the package [runtime](<https://github.com/appserver-io-php/runtime>).
+The appserver.io runtime environment is delivered by the package [runtime](https://github.com/appserver-io-php/runtime).
 This package  provides a runtime that is system independent and encloses a thread-safe
 compiled PHP environment. Besides, the most recent PHP 5.5.x version the package comes with follows installed
 extensions:

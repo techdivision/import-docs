@@ -5,7 +5,7 @@ taxonomy:
         - docs
 ---
 
-As we use Dependency Injection (DI) to inject instances of [Server-Side Component Types](#) this section gives you a brief introduction of how DI works in the `Persistence-Container` context.
+As we use Dependency Injection (DI) to inject instances of [Server-Side Component Types](../persistence-container#server-side-component-types) this section gives you a brief introduction of how DI works in the `Persistence-Container` context.
 
 DI enables developers to write cleaner, reusable and maintainable code with less coupling by injecting necessary instances at runtime instead of instantiating them in the class itself. Within the application server, each application has its scope, and, therefore, an  own dependency injection container. This prevents your application from fatal errors like `Cannot redeclare class ...`.
 

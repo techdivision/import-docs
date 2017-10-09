@@ -18,8 +18,8 @@ This tutorial explains how to implement your first webapp on **appserver.io** fr
 ## Prerequisite
 
 First you will need a running installation of appserver.io *(>= Version 1.0.0-rc3)*. If you are new to this
-project you can easily [download](#) and follow the
-[installation guide](#) for your specific OS.
+project you can easily <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">download</a> and follow the
+[installation guide](../../documentation/installation) for your specific OS.
 
 <br/>
 ## Preparations
@@ -92,9 +92,9 @@ git commit -m "added hello-world script"
 
 Ok now do the same thing using the Servlet-Engine by creating your first simple *Hello-World* Servlet. In the
 beginning create the `WEB-INF/classes` folder where all Servlets are. In this folder the namespaces
-and classes MUST follow an *autoloading* PSR: [PSR-0].
+and classes MUST follow an *autoloading* PSR: [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md).
 
-> [PSR-4] support is comming in one of the next appserver.io releases.
+> [PSR-4] support is coming in one of the next appserver.io releases.
 
 If our vendor name is `MyVendor` the folder should look like `WEB-INF/classes/MyVendor/MyApp`
 
@@ -152,9 +152,9 @@ git commit -m "added hello-world servlet"
 ## Using Services
 
 As the most business logic should be separated into services now *implement a simple `HelloService` which is getting
-inject into the `HelloServlet` via [Dependency-Injection](#).
+inject into the `HelloServlet` via [Dependency-Injection](../../documentation/dependency-injection).
 To use Dependency-Injection you have to put the service classes at `META-INF/classes` where the namespaces
-and classes MUST also follow an *autoloading* PSR: [PSR-0].
+and classes MUST also follow an *autoloading* PSR: [PSR-0](https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md).
 
 ```bash
 mkdir -p META-INF/classes/MyVendor/MyApp
@@ -237,8 +237,8 @@ To use servlets without configuration, it is necessary to add a `@Route` annotat
  ```
  
  This annotation maps the URL `http://127.0.0.1:9080/myapp/hello.do` and `http://127.0.0.1:9080/myapp/hello.do/anything/you/want` to the servlet.
- For more servelt details checkout out [Servlet Engine](#)
- section in our [Documentation](#)
+ For more servelt details checkout out [Servlet Engine](../../documentation/servlet-engine)
+ section in our [Documentation](../../)
 
 You also use annotations to use Dependency-Injection. To make our `HelloService` injectable add an annotation
 above the class definition. In this case we want to have a stateless Session-Bean so put `@Stateless` to class doc block.
@@ -251,7 +251,7 @@ above the class definition. In this case we want to have a stateless Session-Bea
 class HelloService
 ```
 
-To inject our `HelloService` to the `HelloServlet` via [Property-Injection](#) we just have to put the annotation above the member property like this...
+To inject our `HelloService` to the `HelloServlet` via [Property-Injection](../../documentation/dependency-injection#how-to-inject-an-instance) we just have to put the annotation above the member property like this...
 
 ```php
 <?php

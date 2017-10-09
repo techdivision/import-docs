@@ -60,4 +60,4 @@ $pattern = $reflectionAnnotation->newInstance()->getPattern();
 ```
 
 Most of the annotation implementations provided by our [Enterprise Beans](https://github.com/appserver-io-psr/epb)
-PSR and used for [Dependency Injection](#dependency-injection), are based on the [lang](https://github.com/appserver-io/lang) package.
+PSR and used for [Dependency Injection](../dependency-injection), are based on the [lang](https://github.com/appserver-io/lang) package.

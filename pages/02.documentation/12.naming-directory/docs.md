@@ -67,7 +67,7 @@ You can bundle your application with a customized `context.xml` file. This has t
 
 > Keep in mind that the directory must be relative to your applications root directory and start with a `/`.
 
-Detailed information about an application's configuration is available in the section [Application Configuration](#) of the documentation.
+Detailed information about an application's configuration is available in the section [Application Configuration](../configuration#application-configuration) of the documentation.
 
 ## Register Resources
 
@@ -148,7 +148,7 @@ The `@Startup` annotation configures a `Singleton` Session Bean to be initialize
 
 ### Post-Construct Callback (@PostConstruct)
 
-The `@PostConstruct` annotation marks a method as `post-construct` lifecycle callback and has to be set at the methods DocBlock. The annotation can be used on all [Server-Side Component Types](#) and does not accept any attributes.
+The `@PostConstruct` annotation marks a method as `post-construct` lifecycle callback and has to be set at the methods DocBlock. The annotation can be used on all [Server-Side Component Types](../persistence-container#server-side-component-types) and does not accept any attributes.
 
 ### Pre-Destroy Callback (@PreDestroy)
 
@@ -185,6 +185,20 @@ In the simplest case, no attribute is needed. If so, the member or parameter nam
 | `description`               | `string`    | Short description for the created reference.                       |
 | `name`                      | `string`    | Name of the reference will be registered in the `Naming Directory`.|
 | `type`                      | `string`    | The `name` of the resource we want to reference.                   |
+
+### Persistence Unit (@PersistenceUnit)
+
+This annotation is used to inject a [Persistence Unit](../persistence-container#persistence-unit) into components.
+
+Similar to the resources, a real Entity Manager instance will be injected instead of a proxy.
+
+In the simplest case, you have to specify the `unitName` attribute, which has to reference a `Persistence Unit`, you have declared in your application's `META-INF/persistence.xml` file. If you do not specify the `name` attribute the name of the member, the annotation is defined for, will be used for registration in the `Naming Directory`.
+
+| Node Name                   | Type        | Description                                                        |
+| --------------------------- | ----------- | -------------------------------------------------------------------|
+| `name`                      | `string`    | Name of the reference will be registered in the `Naming Directory`.|
+| `unitName`                  | `string`    | The `name` of the `Persistence Unit` we want to reference.                   |
+
 
 ### Example
 

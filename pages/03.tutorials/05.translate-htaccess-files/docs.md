@@ -59,7 +59,7 @@ This is something one can completely ignore as appserver.io does not have such a
 
 ### The rewrite base
 
-The [`RewriteBase directive`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase) allows to specify a prefix which will be at the beginning of each rewrite target: 
+The [RewriteBase directive](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritebase) allows to specify a prefix which will be at the beginning of each rewrite target: 
 
 ```bash
 RewriteBase /myApp/
@@ -74,7 +74,7 @@ In appserver.io there is no such thing. If a certain prefix is required it has t
 
 ### Conditions and rules
 
-In `.htaccess` files the main workhorse of rewrites are the [`RewriteCond`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond) and [`RewriteRule directive`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriterule).
+In `.htaccess` files the main workhorse of rewrites are the [RewriteCond](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewritecond) and [`RewriteRule directive`](http://httpd.apache.org/docs/current/mod/mod_rewrite.html#rewriterule).
 Both have their specialities but roughly said the `RewriteCond` has a more elaborate set of conditions to check for when determining if a rewrite rule should be applied.
 A `RewriteCond` can use different backreferences as strings to test certain patterns against. This as well as special pattern flags allow for very specific conditions.
 The syntax of a `RewriteCond` is as follows:

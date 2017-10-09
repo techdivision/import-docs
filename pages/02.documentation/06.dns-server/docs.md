@@ -5,7 +5,7 @@ taxonomy:
         - docs
 ---
 
-The appserver.io DNS server is **NOT** a fully featured DNS server that can be used in production mode, it has been designed and implemented to make development a bit more comfortable. In the context of appserver.io, by default it uses the virtual host configuration to resolve the DNS names without the need to add each of them to the `/etc/hosts` file. So, whenever a new virtual host configuration will be added to the `etc/appserver/conf.d/virtual-hosts.xml` or in a application's `META-INF/containers.xml` file, the DNS name can be resolved by the DNS server, after it has been [restarted](#).
+The appserver.io DNS server is **NOT** a fully featured DNS server that can be used in production mode, it has been designed and implemented to make development a bit more comfortable. In the context of appserver.io, by default it uses the virtual host configuration to resolve the DNS names without the need to add each of them to the `/etc/hosts` file. So, whenever a new virtual host configuration will be added to the `etc/appserver/conf.d/virtual-hosts.xml` or in a application's `META-INF/containers.xml` file, the DNS name can be resolved by the DNS server, after it has been [restarted](../basic-usage#start-and-stop-scripts).
 
 ## Configuration
 
@@ -55,7 +55,7 @@ In the following section, the server params used to configure the DNS server are
 </params>
 ```
 
-They are used to define several key/value pairs for the DNS server implementation. Beside the `flags` param, all of them are common to all servers. Their descriptions can be found [within the server configuration documentation](#)
+They are used to define several key/value pairs for the DNS server implementation. Beside the `flags` param, all of them are common to all servers. Their descriptions can be found [within the server configuration documentation](../configuration#server-configuration)
 
 The description for the DNS server specific param is available below.
 
@@ -135,7 +135,7 @@ Why do i have to activate the DNS server? By default, a DNS server has to listen
 To activate the appserver.io internal DNS server, the following steps are necessary
 
 1. Switch the port from `9053` to `53` in `etc/appserver/appserver.xml` by changing the `port` [server parameter](#server-parameters)
-2. Restart appserver.io with the default [start/stop scripts](#)
+2. Restart appserver.io with the default [start/stop scripts](../basic-usage#start-and-stop-scripts)
 
 The DNS server should now listen to port `53` and should be ready to resolve DNS queries. To make sure everything works invoke the following command
 

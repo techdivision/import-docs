@@ -14,15 +14,15 @@ the default user credentials `appserver/appserver.i0`.
 
 ## Service availability
 
-appserver.io does expose several [servers](#) which are reachable using their respective address and port.
+appserver.io does expose several [servers](../configuration#server-configuration) which are reachable using their respective address and port.
 Per default, we only allow for local access using the `localhost` address `127.0.0.1`.
 
-If the servers' availability has to be changed, it can be done using the appropriate configuration file as [described here](#) by altering the `address` param.
+If the servers' availability has to be changed, it can be done using the appropriate configuration file as [described here](../configuration#server-configuration) by altering the `address` param.
 
 Please also make sure that the configured port is forwarded within your environment.
 
 Server availability can be tested using tools like `telnet`, `CURL` or something similar.
-On a successful request, a response should be given. The configured [access log](#) will show the handled request.
+On a successful request, a response should be given. The configured [access log](../configuration#optional-configuration) will show the handled request.
 
 ## Start and Stop Scripts
 
@@ -84,3 +84,24 @@ This is how it should be executed to be ready for local development.
 sudo /opt/appserver/server.php -s dev
 # Should return: Setup for mode 'dev' done successfully.
 ```
+
+## Runner
+
+Another option is the possiblity to use the appserver.io `runner`. In contrast to the default behaviour, which starts appserver.io as a daemon like `nginx` or `Apache`, the `runner` starts appserver.io on demand and expects the application that has to be started in the actual working directory. This is more a `nodejs` like behaviour.
+
+To use the `runner`, it is necessary that the appserver.io `runner` environment has been switched to `dev` mode like described [before](#setup-script).
+
+After switching to `dev` mode and assumed the example application has been cloned with
+
+```sh
+$ git clone https://github.com/appserver-io-apps/example
+```
+
+the runner can be started with
+
+```sh
+$ cd example/src
+$ sudo appserver-runner
+```
+
+> Using the runner mode restricts appserver.io to deploy exactly one application, even the one that has been found in the actual working directory. Beside that, the log output will be redirected to the actual terminal window, which makes debugging quite more comfortable.

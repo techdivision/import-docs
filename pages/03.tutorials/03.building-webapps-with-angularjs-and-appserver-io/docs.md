@@ -9,7 +9,6 @@ taxonomy:
 This tutorial shows how to build a webapp using AngularJS as a single page app in the frontend and **appserver.io** as
 a RESTful service in the backend using **Servlets**, **Dependency-Injection**, **AOP** and **Annotated-Validation**.
 
-<br/>
 ## Prerequisite
 
 Your system should be well prepared for Javascript, HTML, and CSS/SASS development.
@@ -19,11 +18,9 @@ So please check out and follow the [Instructions](http://yeoman.io/codelab/setup
 system correctly.
 
 You will need a running installation of **appserver.io** *(>= Version 1.0.1)*. If you are new to this
-project you can easily [download](#) and follow the
-[installation guide](#) for your specific OS.
+project you can easily <a href="{{site.home_url}}downloads" target="_blank" class="external no-image">download</a> and follow the
+[installation guide](../../documentation/installation) for your specific OS.
 
-
-<br/>
 ## Preparations
 
 At first switch your local **appserver.io** installation to *dev mode*. This will set the correct filesystem
@@ -329,7 +326,7 @@ where you can find a collection of ideas for authentication and access control.
 ## RESTful Service
 
 Here is where the **appserver** comes into place. Make use of the **Servlet-Engine** and **Dependency-Injection**
-as we did in the [My First WebApp](#)
+as we did in the [My First WebApp](../my-first-webapp)
 for providing as [Service-Oriented architecture](http://en.wikipedia.org/wiki/Service-oriented_architecture).
 Also take advantage of **AOP** for the need of building a RESTful service api based on json format to keep it solid.
 
@@ -500,7 +497,7 @@ class JsonHandlingAspect
 ```
 
 I hope the inline comments are good enough to understand whats going on. You may also checkout our
-[AOP Documentation Section](#)
+[AOP Documentation Section](../../documentation/aop)
 if you want to get more details about AOP within the appserver.
 
 Let's give it a try if that works! :) Restart the **appserver** and do a browser-refresh at [http://myapp.dev:9080].

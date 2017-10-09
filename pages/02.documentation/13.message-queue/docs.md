@@ -16,7 +16,7 @@ preventing the calling process to continue.
 
 Before sending a message, you have to specify what has to happen, when you received one. The
 Message-Queue allows you to specify so-called `Queues`. Each `Queue` can have a receiver that
-has to be a `MessageBean`. A `MessageBean` is very similar to a [@Stateless SessionBean](#@stateless-session-bean)
+has to be a `MessageBean`. A `MessageBean` is very similar to a [@Stateless SessionBean](../persistence-container#stateless-session-beans-slsbs)
 but has only one single point of entry, the `onMessage()` message method. Whenever a message
 is sent to the queue, the Message-Queue simple pushes it on the stack. In the background a
 `QueueWorker` is running in another context and queries the stack for new messages. If a new
@@ -240,3 +240,16 @@ class HelloWorldServlet extends HttpServlet
 
 > To make it simpler, as shown above, you can use the `@Resource` annotation. With this annotation, the container will inject a sender
 > instance, which will send the name of the file.
+
+## Working remote
+
+Maybe there is a case, where the Message-Queue needs to be installed on another machine. So it is necessary to have a possiblity to configure where to send a message. This can be done with a properties file `META-INF/pms-client.properties` with the following content
+
+```ini
+transport  = http
+address    = 127.0.0.2
+port       = 8587
+indexFile  = index.mq
+```
+
+The example from above assumes, that the Message-Queue instance is running on a appserver.io installation with the IP `127.0.0.2` listening on port `8587`.
