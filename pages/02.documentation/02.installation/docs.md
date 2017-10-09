@@ -10,7 +10,7 @@ taxonomy:
 In addition to supporting several operating systems and specific ways of installing the respective software, we'll
 also demonstrate how to get an appserver.io package. You can do any of the following:
 
-* Download one of our [releases](http://appserver.io/get-started/downloads.html) right from our download page, which provide tested install packages.
+* Download one of our <a href="{{site.home_url}}downloads#osx" target="_blank">releases</a> right from our download page, which provide tested install packages.
 * Get any of our [developer builds](http://builds.appserver.io/) from our project page to get the most bleeding edge install packages (possibly including minor issues)
 * Build your own packages using [ANT](http://ant.apache.org/) as described [below](#building-it-yourself)
 
