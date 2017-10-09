@@ -1,5 +1,8 @@
 ---
 title: 'Message Queue'
+taxonomy:
+    category:
+        - docs
 ---
 
 A Message-Queue provides a means to process long running tasks in an encapsulated context.

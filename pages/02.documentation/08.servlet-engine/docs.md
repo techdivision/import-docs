@@ -1,5 +1,8 @@
 ---
 title: 'Servlet Engine'
+taxonomy:
+    category:
+        - docs
 ---
 
 Originally Servlets are the Java counterpart to other dynamic web technologies like PHP or the

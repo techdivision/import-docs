@@ -1,5 +1,10 @@
 ---
 title: Installation
+taxonomy:
+    category:
+        - docs
+    author:
+        - jdoe
 ---
 
 In addition to supporting several operating systems and specific ways of installing the respective software, we'll
@@ -13,7 +18,7 @@ The package is installed with the following basic default characteristics:
 
 * Install directory: `/opt/appserver` (`C:\Program Files\appserver` on Windows)
 * Autostart after installation, no autostart on reboot
-* Reachable under pre-configured ports as described [here](#)
+* Reachable under pre-configured ports as described [here](../configuration)
 
 For OS specific steps and characteristics review the tested environments in the section below.
 
@@ -77,6 +82,7 @@ Installation and basic usage are the same as on Fedora, but we [provide differen
 
 > Please install the runtime first, as it is a dependency of the distribution.
 
+<a name="building-it-yourself"></a>
 ## Building it yourself
 
 The following steps describe how to build appserver.io for other environments using the provided [ANT](http://ant.apache.org/) targets, which is the recommended build tool.

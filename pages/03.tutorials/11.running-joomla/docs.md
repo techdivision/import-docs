@@ -1,5 +1,8 @@
 ---
 title: 'Running Joomla'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 Appserver.io is a cool and sophiscated infrastructure fully built upon the PHP stack. This makes it truely easy

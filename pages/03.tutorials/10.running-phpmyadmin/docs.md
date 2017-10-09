@@ -1,5 +1,8 @@
 ---
 title: 'Running phpMyAdmin'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 Appserver.io is a pretty cool and sophiscated infrastructure fully built upon the PHP stack. This makes it truely easy

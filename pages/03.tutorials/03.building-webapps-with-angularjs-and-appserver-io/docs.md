@@ -1,5 +1,8 @@
 ---
 title: 'Building WebApps with AngularJS and appserver.io'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 ![Angular and Appserver](../../images/tutorials/webapps-with-angularjs/angular_and_appserver.jpg "Angular and Appserver")

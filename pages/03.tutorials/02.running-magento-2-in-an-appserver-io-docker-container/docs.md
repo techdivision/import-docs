@@ -1,5 +1,8 @@
 ---
 title: 'Running Magento 2 in an appserver.io Docker container'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 Running Magento 2 on our appserver.io Docker container provides some advantages because some 

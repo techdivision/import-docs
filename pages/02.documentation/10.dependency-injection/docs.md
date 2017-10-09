@@ -1,5 +1,8 @@
 ---
 title: 'Dependency Injection'
+taxonomy:
+    category:
+        - docs
 ---
 
 As we use Dependency Injection (DI) to inject instances of [Server-Side Component Types](#) this section gives you a brief introduction of how DI works in the `Persistence-Container` context.

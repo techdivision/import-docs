@@ -1,5 +1,8 @@
 ---
 title: Deployment
+taxonomy:
+    category:
+        - docs
 ---
 
 The deploy directory in an appserver.io distribution is the location where end users can place their deployment content (e.g. phar files) to have it deployed into the server runtime.

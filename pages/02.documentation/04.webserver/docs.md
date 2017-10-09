@@ -1,5 +1,8 @@
 ---
 title: Webserver
+taxonomy:
+    category:
+        - docs
 ---
 
 The Webserver is built and configured like any other server component using our

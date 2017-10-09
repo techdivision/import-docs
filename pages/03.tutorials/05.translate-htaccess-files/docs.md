@@ -1,5 +1,8 @@
 ---
 title: 'Translate .htaccess files'
+taxonomy:
+    category:
+        - tutorials
 ---
 
 A basic tutorial on how to translate real life `.htaccess` files based on a given example.

@@ -1,5 +1,8 @@
 ---
 title: AOP
+taxonomy:
+    category:
+        - docs
 ---
 
 [Aspect-oriented programming](http://en.wikipedia.org/wiki/Aspect-oriented_programming) (AOP) is the concept of decoupling so-called *cross-cutting concerns*, a logic which is duplicated throughout the complete codebase, and implements and coordinates those cross-cutting concerns in a more centralized manner.

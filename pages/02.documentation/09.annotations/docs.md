@@ -1,5 +1,8 @@
 ---
 title: Annotations
+taxonomy:
+    category:
+        - docs
 ---
 
 Since one of our main goals is making the configuration of appserver as simple as possible, we have decided to use
