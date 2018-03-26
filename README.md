@@ -1,2 +1,2 @@
-# pages
-Repository for m2if.com pages
+# import-docs
+Documentation Repository for M2IF.
