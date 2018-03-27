@@ -3,10 +3,9 @@ title: 'Core Libraries'
 visible: true
 ---
 
-As this is the main library that provides Magento 2 import core functionality, the specific
-functionality to import products, category etc. is part of additional libraries.
+As this is the main library that provides Magento 2 import core functionality, the specific functionality to import products, category etc. is part of additional libraries.
 
-## Core Libraries CE
+## CE
 
 These are the M2IF core libraries for the Magento 2 Community Edition (CE).
 
@@ -21,7 +20,7 @@ These are the M2IF core libraries for the Magento 2 Community Edition (CE).
 
 > Libraries like import-attribute will also work with the EE, so there is not separate implementation.
 
-### Core Libraries EE
+### EE
 
 These are the M2IF core libraries for the Magento 2 Communit Edition (EE).
 
