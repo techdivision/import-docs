@@ -104,7 +104,7 @@ Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is n
 
 ## Events
 
-The following events are available:
+The following events are available
 
 | Event Name               | Description                                                     |
 |:---------------------|:----------------------------------------------------------------|:--------------|
