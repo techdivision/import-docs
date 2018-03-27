@@ -1,5 +1,6 @@
 ---
 title: Documentation
+redirect: /documentation/installation
 ---
 
 ### Chapter Number
