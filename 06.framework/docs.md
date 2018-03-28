@@ -14,7 +14,7 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 ### Component Structure
 
 <pre>
-composer.json/
+composer.json
 ├── src/
 │   ├── Actions/
 │   │	└── Processors/
