@@ -13,6 +13,8 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 
 ### Component Structure
 
+Assuming you'll start to implement your first component the recommended Componend Structure looks like this
+
 <pre>
 composer.json
 ├── src/
@@ -27,16 +29,6 @@ composer.json
 │   ├── Subjects
 │   └── Utils
 ├── tests/
-│   ├── Actions/
-│   │	└── Processors/
-│   ├── Assemblers
-│   ├── Callbacks
-│   ├── Observers
-│   ├── Repositories
-│   │   └── CacheWarmers/
-│   ├── Services
-│   ├── Subjects
-│   └── Utils
 └── symfony/
 	│   ├── DependencyInjection/
 	│   ├── Resources/
