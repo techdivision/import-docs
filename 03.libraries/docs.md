@@ -7,7 +7,7 @@ This page lists the main components, that provides Magento 2 import core functio
 
 ### Components for Community Edition (CE)
 
-These are the M2IF core libraries for the Magento 2 Community Edition (CE).
+These are the M2IF core components for the Magento 2 Community Edition (CE).
 
 * [import-product](https://github.com/techdivision/import-product) - Provides product import functionality
 * [import-product-url-rewrite](https://github.com/techdivision/import-product-url-rewrite) - Provides product URL rewrite import functionality
