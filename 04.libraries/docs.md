@@ -3,7 +3,7 @@ title: 'Core Components'
 visible: true
 ---
 
-This are the main components, that provides Magento 2 import core functionality to import products, categories and attributes.
+This page lists the main components, that provides Magento 2 import core functionality to import products, categories and attributes.
 
 ### Components for Community Edition (CE)
 
