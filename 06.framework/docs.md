@@ -38,3 +38,18 @@ composer.json
     │	    └── DependencyInjectionKeys.php
     └── ImportBundle.php
 </pre>
+
+### Plug-Ins
+
+Depending on the required functionality, it'll be necessary to implement a plug-in. A plug-in is the highest level when starting a component and in many cases it'll not be necessary to implement a plug-in, as subject or observer level can cover the required needs.
+
+#### When do i need a plug-in?
+
+You should think about implementing a plug-in in either one of these cases
+
+* You want to deal with all artefacts of an import and you want to do something with the files before they'll be processed or after they have been processed, e. g. like the artefact plug-in that compresses all the import artefacts into a ZIP and moves it to a configurable folder 
+* You want to load some data from the database or the filesystem, that'll be needed later on in your subjects or observers, during the files will be processed, e. g. like the global data plug-in that loads the available attributes and add's them to the registry
+* You need to pre-initialize something, before the main import process starts, e. g. like the cache warmer plug-in that warms the registered repository
+* You need to do something after the import has been finished, e. g. like the missing options plug-in that sends a list with missing option values a configurable receiver
+
+> Generally you probably need a plug-in, when you want to do something before or after the main import step, or you need access to all import artefacts at once.
