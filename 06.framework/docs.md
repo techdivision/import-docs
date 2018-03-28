@@ -14,29 +14,35 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 ### Component Structure
 
 <pre>
-bootstrap/
-├── css/
-│   ├── bootstrap.css
-│   ├── bootstrap.min.css
-│   ├── bootstrap-theme.css
-│   └── bootstrap-theme.min.css
-├── js/
-│   ├── bootstrap.js
-│   └── bootstrap.min.js
-└── fonts/
-    ├── glyphicons-halflings-regular.eot
-    ├── glyphicons-halflings-regular.svg
-    ├── glyphicons-halflings-regular.ttf
-    └── glyphicons-halflings-regular.woff
-
-bootstrap/
-├── less/
-├── js/
-├── fonts/
-├── dist/
-│   ├── css/
-│   ├── js/
-│   └── fonts/
-└── docs/
-    └── examples/
+composer.json/
+├── src/
+│   ├── Actions/
+│   │	└── Processors/
+│   ├── Assemblers
+│   ├── Callbacks
+│   ├── Observers
+│   ├── Repositories
+│   │	└── CacheWarmers/
+│   ├── Services
+│   ├── Subjects
+│   └── Utils
+├── tests/
+│   ├── Actions/
+│   │	└── Processors/
+│   ├── Assemblers
+│   ├── Callbacks
+│   ├── Observers
+│   ├── Repositories
+│   │   └── CacheWarmers/
+│   ├── Services
+│   ├── Subjects
+│   └── Utils
+└── symfony/
+	│   ├── DependencyInjection/
+	│   ├── Resources/
+	│   │	└── config/
+    │   │   	└── service.xml
+	│   └── Utils/
+    │	    └── DependencyInjectionKeys.php
+    └── ImportBundle.php
 </pre>
