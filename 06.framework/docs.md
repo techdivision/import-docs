@@ -116,3 +116,4 @@ class CacheWarmerPlugin extends AbstractPlugin
     }
 }
 ```
+> Whenever another class has the repository injected, the data has been pre-loaded and no additional database queries will be necessary.
