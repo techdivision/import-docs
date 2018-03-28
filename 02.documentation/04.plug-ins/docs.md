@@ -38,7 +38,9 @@ The configuration has to be like
 
 ### Subject
 
-This the plugin that does the main work by invoking the subjects as well as their registered observers and callbacks. The plugin configuration is
+This is the plug-in that does the main work by invoking the registered subjects as well as their registered observers and callbacks. When using M2IF as a framework, this plug-in will be a really good entrypoint to add your custom functionality. In most cases, it'll be quite enough to write a subject and observers that provides the necessary functionality and will be invoke by this plug-in. 
+
+The plug-in configuration is
 
 ```json
 {
@@ -47,13 +49,28 @@ This the plugin that does the main work by invoking the subjects as well as thei
 }
 ```
 
+whereas you can register as many subjects and observers as necessary.
+
 ### Archive
 
-The archive plugin zip's the import artefacts and moves them to the configured archive folder.
+The archive plug-in zip's the import artefacts and moves them to the configured archive folder.
 
 ```json
 {
   "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
+}
+```
+
+To activate the archive functionality, you've to activate the `archive-artefacts` node in your configuration file like
+
+```json
+{
+  "magento-edition": "EE",
+  "magento-version": "2.1.7",
+  "operation-name" : "add-update",
+  "source-date-format": "n/d/y, g:i A",
+  "archive-artefacts" : true,
+  ...
 }
 ```
 
