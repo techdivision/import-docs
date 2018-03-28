@@ -13,7 +13,7 @@ The database configuration can be specified by the commandline options, but if i
 
 The import command itself supports a argument as well as several options.
 
-## Arguments
+### Arguments
 
 The following configuration arguments are available:
 
@@ -21,7 +21,7 @@ The following configuration arguments are available:
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | operation            | Specify the operation name to execute, either one of add-update, replace or delete | n/a |
 
-## Options
+### Options
 
 The following configuration options are available:
 
@@ -51,7 +51,7 @@ Beside the `configuration` option, all options can and **SHOULD** be defined in 
 
 If the `configuration` option has **NOT** been specified, the system tries to locate the Magento Edition, based on the specified `installation-dir` option. If the `installation-dir` option **IS** specified explictly, and the directory is a valid Magento root directory, the application tries to load database credentials from the `app/etc/env.php` script, so it is **NOT** necessary to specify a database configuration, nor in the configuration file or as commandline parameter.
 
-## Configuration File
+### Configuration File
 
 The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguments that can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
 
@@ -69,13 +69,13 @@ The structure is separated into a general configuration section, the database co
 }
 ```
 
-### Extend M2IF with additional libraries
+#### Extend M2IF with additional libraries
 
 In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
 
 > Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
 
-#### Extension Libraries
+##### Extension Libraries
 
 Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension will be adding it as a extension library like
 
@@ -87,7 +87,7 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 
 > This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does.
 
-#### Additional Vendor Directories
+##### Additional Vendor Directories
 
 Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
 
@@ -102,7 +102,7 @@ Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is n
 ]
 ```
 
-## Events
+### Events
 
 Beside Plugins, Subjects, Observers and Callbacks, specific events are triggered. On each event,  
 
@@ -121,7 +121,7 @@ The following events are available
 
 This register's the class loader of specified vendor directory and parse's the libraries for the necessary DI configuration files.
 
-### Database
+#### Database
 
 The configuration allows the registration of multiple databases like
 
@@ -148,7 +148,7 @@ Depending whether the commandline option `--use-db-id` and the specified value, 
 
 If a value for the commandline option `--db-pdo-dsn` has been specified, the `--use-db-id` option will be ignored and the given DSN value will be used for database connection instead. Additionally the credentials, by using the `--db-username` and `--db-password` options also needs to be specified.
 
-### Loggers
+#### Loggers
 
 M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
 
@@ -218,7 +218,7 @@ To add additional loggers, or override the default one with name `system, the co
 
 This will override the system logger, as the name is `system`, and set the default log level to **debug**.
 
-### Operations
+#### Operations
 
 A operation reflects an import command like the `delete` operation and combines the necessary functionality as as simple container, that allows to have a custom plugin configuration. Usually, most of the operations are at least build out of the tree plugins
 
@@ -293,7 +293,7 @@ Finally, the `ArchivePlugin` archives the imported files additionally artefacts 
 Most of the available configuration options has to be specified on the subject level, which is nested under the
 plugins.
 
-### Plugins
+#### Plugins
 
 Plugins are usually used to implement the workflow itself and are not bound to a special context like subjects that are invoked on each matching CSV file, found in the configured source directory. As shown in the example above, the plugins can be used to implement functionality that has to be invoked before or after the data has been imported from the CSV files.
 
@@ -306,7 +306,7 @@ Plugins are usually used to implement the workflow itself and are not bound to a
 ]
 ```
 
-### Subjects
+#### Subjects
 
 The `SubjectPlugin` is the plugin that provides the real import functionality. It can be configured with an endless number of subjects which invokes the configured observers on each line of a CSV file, extracts the data and writes it to the database, if needed.
 
@@ -322,7 +322,7 @@ The `SubjectPlugin` is the plugin that provides the real import functionality. I
 ]
 ```
 
-### Observers
+#### Observers
 
 Observers provides the functionality of a subject **ON ROW LEVEL** and need to be registered for a subject by a adding them to the list of observers like
 
@@ -336,7 +336,7 @@ Observers provides the functionality of a subject **ON ROW LEVEL** and need to b
 ]
 ```
 
-### Callbacks
+#### Callbacks
 
 Callbacks can be used to transform values, found in the CSV file into the necessary types that needs to be stored into the database. For example, the default Magento 2 CSV format allows the values
 
