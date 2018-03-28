@@ -1,11 +1,11 @@
 ---
-title: 'Core Libraries'
+title: 'Core Components'
 visible: true
 ---
 
-As this is the main library that provides Magento 2 import core functionality, the specific functionality to import products, category etc. is part of additional libraries.
+This are the main components, that provides Magento 2 import core functionality to import products, categories and attributes.
 
-### Libraries for Community Edition (CE)
+### Components for Community Edition (CE)
 
 These are the M2IF core libraries for the Magento 2 Community Edition (CE).
 
@@ -18,11 +18,11 @@ These are the M2IF core libraries for the Magento 2 Community Edition (CE).
 * [import-category](https://github.com/techdivision/import-category) - Provides category import functionality
 * [import-attribute](https://github.com/techdivision/import-attribute) - Provides attribute import functionality
 
-> Libraries like import-attribute will also work with the EE, so there is not separate implementation.
+> Components like import-attribute will also work with the EE, so there is not separate implementation.
 
 ### Libraries for Enterprise Edition (EE)
 
-These are the M2IF core libraries for the Magento 2 Communit Edition (EE).
+These are the M2IF core components for the Magento 2 Enterprise Edition (EE).
 
 * [import-ee](https://github.com/techdivision/import-ee) - Provides core import functionality for Magento 2 EE
 * [import-product-ee](https://github.com/techdivision/import-product-ee) - Provides product import functionality for Magento 2 EE
