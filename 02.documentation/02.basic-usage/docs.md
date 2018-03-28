@@ -3,7 +3,7 @@ title: 'Basic Usage'
 visible: true
 ---
 
-## Operations
+### Operations
 
 As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
 
@@ -15,7 +15,7 @@ As well as the Magento 2 standard import functionality, M2IF will provide 3 diff
 
 > Exercise caution when replacing data because the existing product data will be completely cleared and all references in the system will be lost.
 
-## Preparation
+### Preparation
 
 To run the example import, it is necessary to get a copy of the Magento 2 sample data, that can be cloned from Github, assumed you're in the root folder of this repository, by invoking
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/magento/magento2-sample-data.git projects/sample-
 
 on the command line.
 
-## Bunches
+### Bunches
 
 The import is able to handle bunches. In general this is a functionality that will only make sense in a multithreaded or multiprocessed environment where the bunches can be imported in parallel. In this case, it should only give the developer an idea, on how a multiprocessed functionality can be implemented.
 
@@ -48,7 +48,7 @@ For example, the following files will be imported as a bunch:
 
 When starting the import process by invoking the apropriate command, these files will be imported like one file. It is **NOT** necessary to invoke the importer four times.
 
-## Running the Import
+### Running the Import
 
 The command doesn't implement any directory clean-up or archiving functionality, what means that the files have to be copied to the source directory specified for the subjects. Assuming a Magento 2 CE 2.1.2 instance, with sample data installed, is available under `/var/www/magento` the configuration file, as well as the CSV files, can be found under `projects/sample-data/ce/212`.
 
@@ -90,7 +90,7 @@ the importer has to be invoked four times (because the example above is **NO** b
 
 Have a look in subdirectories of `project/sample-data/*` for a working example.
 
-## Debug Mode
+### Debug Mode
 
 The debug mode provides a more detailed logging output, by automatically setting the Monolog log level to `LogLevel::DEBUG` if **NOT** overwritten with the commandline option `--log-level`. Additionally it ignores
 
@@ -104,6 +104,6 @@ When the debug mode has been enabled, missing attribute option values will **NOT
 
 This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
 
-## Running Parallel Imports
+### Running Parallel Imports
 
 To avoid unwanted behaviour, only one import process can be started at a time. To make sure, that only one process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which contains the UUID of the actual import process. After the import process has been finished, the file will be deleted and a new process can be started.
