@@ -5,7 +5,7 @@ visible: true
 
 To install the Magnento 2 Import Framework, composer is necessary. The framework itself is a set of components that provide import functionality for Magento 2. This repository, based on Symfony Console, uses the the package [M2IF](https://github.com/techdivision/import) and provides a command line tool with import functionality for Magento 2 standard CSV files.
 
-## Install as Composer Project
+### Install as Composer Project
 
 To install the package as a new project, assuming composer is available, open a console and enter
 
@@ -15,7 +15,7 @@ $ composer create-project techdivision/import-cli-simple --no-dev --stability=al
 
 This will clone the repository from the internal Gitlab and install the M2IF, that's all.
 
-## Install as Composer Library
+### Install as Composer Library
 
 The second option will be the installation as a Composer library. For example, if you want to deliver it with your Magento 2 project, simply add
 
@@ -35,7 +35,7 @@ $ composer update
 
 from your Magento 2 root directory and your're all setup.
 
-## Use as PHAR
+### Use as PHAR
 
 The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page, e. g. with `wget`
 
