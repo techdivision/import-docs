@@ -12,6 +12,3 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 > For [configuration](#configuration) the symfony service IDs will be used instead of the real class names.
 
 ### Component Structure
-
-![](component_structure.png?classes=left) Test
-
