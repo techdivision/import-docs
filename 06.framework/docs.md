@@ -13,5 +13,5 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 
 ### Component Structure
 
-![](component_structure.png?cropZoom=175,175&&classes=left&brightness=-100&contrast=30) Test
+![](component_structure.png?cropZoom=175,175&&classes=left&contrast=30) Test
 
