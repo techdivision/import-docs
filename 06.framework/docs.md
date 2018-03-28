@@ -71,7 +71,7 @@ The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is 
 
 and the `process()` method that'll have to implement the plug-ins main functionality.
 
-The `TechDivision\Import\Plugins\CacheWarmerPlugin` loads all the repositories, that implements the `TechDivision\Import\Repositories\CacheWarmer\CacheWarmerInterface` from the DI container and invokes their `warm()` method that pre-loads the repository data into the cache. For sure, this can be done before the main import process to minimize database queries and system load. 
+The `TechDivision\Import\Plugins\CacheWarmerPlugin` loads the repository with the Symfony DI ID `import.repository.cache.warmer.eav.attribute.option.value` (that implements the `TechDivision\Import\Repositories\CacheWarmer\CacheWarmerInterface`) from the DI container and invokes it's `warm()` method which pre-loads the repository data and add's it to the cache. For sure, this can be done before the main import process to minimize database queries and system load. 
 
 ```php
 namespace TechDivision\Import\Plugins;
