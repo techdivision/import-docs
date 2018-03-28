@@ -13,4 +13,5 @@ The M2IF componentens does not care about DI, but they can be tied together by u
 
 ### Component Structure
 
+![](component_structure.png)
 
