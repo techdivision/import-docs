@@ -1,5 +1,5 @@
 ---
 title: Quickstart
-redirect: /documentation/installation
+redirect: /quickstart/installation
 ---
 
