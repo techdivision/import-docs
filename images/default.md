@@ -1,4 +1,5 @@
 ---
 title: Images
+visible: false
 ---
 
