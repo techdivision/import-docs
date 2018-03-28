@@ -56,21 +56,16 @@ You should think about implementing a plug-in in either one of these cases
 
 #### Implement a plug-in
 
+The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters, and the `process()` method that'll have to implement the plug-ins main functionality.
+
+The `TechDivision\Import\Plugins\CacheWarmerPlugin` loads all the repositories, that implements the `TechDivision\Import\Repositories\CacheWarmer\CacheWarmerInterface` from the DI container and invokes their `warm()` method that pre-loads the repository data into the cache. For sure, this can be done before the main import process to minimize database queries and system load. 
+
 ```php
 namespace TechDivision\Import\Plugins;
 
 use TechDivision\Import\Utils\ConfigurationKeys;
 use TechDivision\Import\Utils\DependencyInjectionKeys;
 
-/**
- * Plugin implementation to warm the repository caches.
- *
- * @author    Tim Wagner <t.wagner@techdivision.com>
- * @copyright 2016 TechDivision GmbH <info@techdivision.com>
- * @license   http://opensource.org/licenses/osl-3.0.php Open Software License (OSL 3.0)
- * @link      https://github.com/techdivision/import
- * @link      http://www.techdivision.com
- */
 class CacheWarmerPlugin extends AbstractPlugin
 {
 
