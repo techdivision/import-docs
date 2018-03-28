@@ -32,7 +32,7 @@ These are the M2IF core libraries for the Magento 2 Communit Edition (EE).
 * [import-product-variant-ee](https://github.com/techdivision/import-product-variant-ee) - Provides configurable product import functionality for Magento 2 EE
 * [import-category-ee](https://github.com/techdivision/import-category-ee) - Provides category import functionality for Magento 2 EE
 
-### General (fits both Editions)
+### General (Independent from Edition)
 
 * [import-app-simple](https://github.com/techdivision/import-app-simple) - Application implementation that uses Symfony Console + DI as well as M2IF to provide Magento 2 CE/EE import functionality
 * [import-configuration-jms](https://github.com/techdivision/import-configuration-jms) - A [JMS](https://github.com/schmittjoh/serializer) based M2IF configuration implementation
