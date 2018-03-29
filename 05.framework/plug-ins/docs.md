@@ -3,8 +3,6 @@ title: Plug-Ins
 visible: true
 ---
 
-### Plug-Ins
-
 Depending on the required functionality, it'll be necessary to implement a plug-in. A plug-in is the highest level when starting a component and in many cases it'll not be necessary to implement a plug-in, as subject or observer level can cover the required needs.
 
 #### When do i need a plug-in?
