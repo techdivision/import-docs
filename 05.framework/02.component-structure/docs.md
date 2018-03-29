@@ -3,8 +3,6 @@ title: 'Component Structure'
 visible: true
 ---
 
-### Component Structure
-
 Assuming you'll start to implement your first component the recommended Componend Structure looks like this
 
 <pre>
