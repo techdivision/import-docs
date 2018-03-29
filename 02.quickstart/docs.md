@@ -1,6 +1,5 @@
 ---
 title: Quickstart
-redirect: /quickstart/installation
 visible: true
 ---
 
