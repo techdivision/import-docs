@@ -1,5 +1,5 @@
 ---
-title: 'Core Components'
+title: Components
 visible: true
 ---
 
