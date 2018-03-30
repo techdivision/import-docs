@@ -25,6 +25,7 @@ In general, you should consider to extend `TechDivision\Import\Subjects\Abstract
 
 namespace TechDivision\Import\Subjects\MySubject;
 
+use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Subjects\AbstractSubject;
 
 class MySubject extends AbstractSubject
@@ -36,6 +37,26 @@ class MySubject extends AbstractSubject
      * @var array
      */
     protedted $skuEntityIdMapping = array();
+
+    /**
+     * Intializes the previously loaded global data for exactly one bunch.
+     *
+     * @param string $serial The serial of the actual import
+     *
+     * @return void
+     */
+    public function setUp($serial)
+    {
+
+        // load the status of the actual import
+        $status = $this->getRegistryProcessor()->getAttribute($serial);
+
+        // load the global data we've prepared initially
+        $this->skuEntityIdMapping = $status[RegistryKeys::GLOBAL_DATA][RegistryKeys::SKU_ENTITY_ID_MAPPING];
+
+        // invoke the parent method
+        parent::setUp($serial);
+    }
 
     /**
      * Clean up the global data after importing the bunch.
@@ -73,4 +94,4 @@ class MySubject extends AbstractSubject
 }
 ```
 
-The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer, that loads the product by the SKU found in the import file. Additional, it implements the `tearDown()` method, that'll be invoked automatically after the import file has been processed. This method allows us, to add data to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it to the the following subjects.
+The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer, that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
