@@ -111,7 +111,9 @@ To make your subject accessible for the Workflow Engine, you first have to defin
             <argument type="service" id="loggers"/>
             <argument type="service" id="import.events.emitter"/>
         </service>
-        <service id="import_product.observer.my" class="TechDivision\Import\Product\Observers\MyObserver"/>
+        <service id="import_product.observer.my" class="TechDivision\Import\Product\Observers\MyObserver">
+            <argument type="service" id="import_product.processor.product.bunch"/>
+        </service>
     </services>
 </container>
 ```
