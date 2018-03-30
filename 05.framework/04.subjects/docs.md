@@ -9,7 +9,7 @@ Assuming that you don't need to implement a totally new functionality where a pl
 
 The `TechDivision\Import\Plugins\SubjectPlugin` implements the observer pattern and is the first choice for most use cases. This plug-ins allows you to register an unlimited number of subjects whereas each of them can has an unlimited number of observers. When a new file that has to be imported is found, the `TechDivision\Import\Plugins\SubjectPlugin` invokes the `process()` method of **ALL** registered subjects on this file in the order they have been registered. The subject itself processes the content of the file by invoking **ALL** registered observers for **EACH** row of the given file. You can imagine this as something like a chain that can be confiugred by a workflow engine. This approach allows you to process nearly every type of file by reading the file contents row by row.
 
-So, you'll need to implement a subject when
+So, usually you need to implement a subject when
 
 * You want to process an import file, independent which format it has
 * You want to share data between observers or pass the data to the following subjects
@@ -94,4 +94,22 @@ class MySubject extends AbstractSubject
 }
 ```
 
-The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer, that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
+The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer with the ID `import_product.observer.my.observer` that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
+
+The subject from above can be added to the Workflow Engine by the following configuration, whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter 
+
+```json
+{
+    "id": "import.plugin.subject",
+    "subjects": [
+        {
+            "id": "import_product.subject.bunch",
+            "identifier": "files",
+            "prefix": "product-import",
+            "observers": [
+                "import_product.observer.my.observer"
+            ]
+        }
+    ]
+}
+```
