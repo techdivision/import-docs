@@ -22,7 +22,7 @@ The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is 
 
 ```json
 {
-  "class-name": "TechDivision\\Import\\Plugins\\CacheWarmerPlugin",
+  "class-name": "import.plugin.cache.warmer",
   "params": {
   	"cache-warmers": [
       "import.repository.cache.warmer.eav.attribute.option.value"
