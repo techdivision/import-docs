@@ -19,4 +19,56 @@ So, you'll need to implement a subject when
 
 ### How to implement a subject
 
-In general, you should consider to extend `TechDivision\Import\AbstractSubject` or one of it's subclasses, e. g. `TechDivision\Import\AbstractEavSubject` if you want to implement to implement the import for another EAV entity.
+In general, you should consider to extend `TechDivision\Import\Subjects\AbstractSubject` or one of it's subclasses, e. g. `TechDivision\Import\Subjects\AbstractEavSubject` if you want to implement to implement the import for another EAV entity. At least, you need to implement the interface `TechDivision\Import\Subjects\SubjectInterface` which is the minimum requirement for a subject implementation. Let's implement a common requirement, where you need a subject that allows one of it's observers to load a product with the `SKU` found in the import file, adding the `SKU` to `entity_id` mapping to the subject and finally pass the mappings to the next subject.
+
+```php
+
+namespace TechDivision\Import\Subjects\MySubject;
+
+use TechDivision\Import\Subjects\AbstractSubject;
+
+class MySubject extends AbstractSubject
+{
+    
+    /**
+     * The SKU to entity_id mappings we want to pass to the next subject.
+     * 
+     * @var array
+     */
+    protedted $skuEntityIdMapping = array();
+
+    /**
+     * Clean up the global data after importing the bunch.
+     *
+     * @param string $serial The serial of the actual import
+     *
+     * @return void
+     */
+    public function tearDown($serial)
+    {
+
+        // load the registry processor and update the status
+        $this->getRegistryProcessor()->mergeAttributesRecursive(
+            $serial,
+            array(
+                RegistryKeys::SKU_ENTITY_ID_MAPPING => $this->skuEntityIdMapping
+            )
+        );
+
+        // invoke the parent method
+        parent::tearDown($serial);
+    }
+    
+    /**
+     * Add the passed SKU => entity ID mapping.
+     *
+     * @param string $sku The SKU
+     *
+     * @return void
+     */
+    public function addSkuEntityIdMapping($sku)
+    {
+        $this->skuEntityIdMapping[$sku] = $this->getLastEntityId();
+    }
+}
+```
