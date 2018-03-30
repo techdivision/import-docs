@@ -96,7 +96,7 @@ class MySubject extends AbstractSubject
 
 The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer with the ID `import_product.observer.my.observer` that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
 
-To make your subject accessible for the Workflow Engine, you have first habe to define it in the Symfony DI configuration file`symfony/Resources/config/services.xml` of your component. Depending on your namespace, this would look like
+To make your subject accessible for the Workflow Engine, you first have to define it in the Symfony DI configuration file`symfony/Resources/config/services.xml` of your component. Depending on your namespace, this would look like
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
