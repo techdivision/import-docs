@@ -3,7 +3,7 @@ title: Observers
 visible: true
 ---
 
-In the chapter [Subjects][#subjects] we've discussed when a subject is needed and how it can be implemented.
+In the previous chapter [Subjects][#subjects] we've discussed when a subject is needed and how it can be implemented.
 
 ### When do i need an observer?
 
@@ -17,83 +17,50 @@ As a subject itself usually will **NOT** implement the main import business logi
 
 ### How to implement an observer
 
-
 The `TechDivision\Import\Observers\AbstractObserver` will be a perfect choice to be extended by our first observer implementation. At least an observer has to implement the interface `TechDivision\Import\Observers\ObserverInterface`.
-In general, you should consider to extend `TechDivision\Import\Subjects\AbstractSubject` or one of it's subclasses, e. g. `TechDivision\Import\Subjects\AbstractEavSubject` if you want to implement to implement the import for another EAV entity. At least, you need to implement the interface `TechDivision\Import\Subjects\SubjectInterface` which is the minimum requirement for a subject implementation. Let's implement a common requirement, where you need a subject that allows one of it's observers to load a product with the `SKU` found in the import file, adding the `SKU` to `entity_id` mapping to the subject and finally pass the mappings to the next subject.
 
 ```php
 
-namespace TechDivision\Import\Product\Subjects;
+namespace TechDivision\Import\Product\Observers;
 
 use TechDivision\Import\Utils\RegistryKeys;
-use TechDivision\Import\Subjects\AbstractSubject;
+use TechDivision\Import\Observers\AbstractObserver;
 
-class MySubject extends AbstractSubject
+class MyObserver extends AbstractObserver
 {
-    
-    /**
-     * The SKU to entity_id mappings we want to pass to the next subject.
-     * 
-     * @var array
-     */
-    protedted $skuEntityIdMapping = array();
 
     /**
-     * Intializes the previously loaded global data for exactly one bunch.
+     * The product bunch processor instance.
      *
-     * @param string $serial The serial of the actual import
-     *
-     * @return void
+     * @var \TechDivision\Import\Product\Services\ProductBunchProcessorInterface
      */
-    public function setUp($serial)
+    protected $processor;
+
+    /**
+     * Initialize the observer with the passed product bunch processor instance.
+     *
+     * @param \TechDivision\Import\Product\Services\ProductBunchProcessorInterface $productBunchProcessor The product bunch processor instance
+     */
+    public function __construct(ProductBunchProcessorInterface $processor)
     {
-
-        // load the status of the actual import
-        $status = $this->getRegistryProcessor()->getAttribute($serial);
-
-        // load the SKU => entity_id mappings from further subjects
-        $this->skuEntityIdMapping = $status[RegistryKeys::GLOBAL_DATA][RegistryKeys::SKU_ENTITY_ID_MAPPING];
-
-        // invoke the parent method
-        parent::setUp($serial);
+        $this->processor = $processor;
     }
 
     /**
-     * Clean up the global data after importing the bunch.
+     * Process the observer's business logic.
      *
-     * @param string $serial The serial of the actual import
-     *
-     * @return void
+     * @return array The processed row
+     * @throws \Exception Is thrown, if the product with the SKU can not be loaded
      */
-    public function tearDown($serial)
+    protected function process()
     {
 
-        // load the registry processor and add the SKU => entity_id mappings
-        $this->getRegistryProcessor()->mergeAttributesRecursive(
-            $serial,
-            array(
-                RegistryKeys::SKU_ENTITY_ID_MAPPING => $this->skuEntityIdMapping
-            )
-        );
-
-        // invoke the parent method
-        parent::tearDown($serial);
-    }
-    
-    /**
-     * Add the passed SKU => entity ID mapping.
-     *
-     * @param string $sku The SKU
-     *
-     * @return void
-     */
-    public function addSkuEntityIdMapping($sku)
-    {
-        $this->skuEntityIdMapping[$sku] = $this->getLastEntityId();
+        // try to load the product with the SKU of the acutal row and add the entity ID => SKU mapping to the subject
+        if ($product = $this->processor->loadProduct($this->getValue(ColumnKeys::SKU)) {
+            $this->subject->addSkuEntityIdMapping($product[MemberNames::ENTITY_ID], $product[MemberNames::SKU]);
+        } else {
+         	throw new \Exception(sprintf('Can\'t load product with SKU "%s"', $sku));   
+        }
     }
 }
 ```
-
-The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer with the ID `import_product.observer.my.observer` that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
-
-By register it in the Symfony DI configuration and the Workflow Engine in the chapter before, the observer will already be ready to use.
