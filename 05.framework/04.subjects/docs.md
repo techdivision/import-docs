@@ -23,7 +23,7 @@ In general, you should consider to extend `TechDivision\Import\Subjects\Abstract
 
 ```php
 
-namespace TechDivision\Import\Subjects;
+namespace TechDivision\Import\Product\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Subjects\AbstractSubject;
@@ -96,7 +96,26 @@ class MySubject extends AbstractSubject
 
 The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer with the ID `import_product.observer.my.observer` that loads the product by the SKU found in the import file. Additional, it implements the methods `setUp()` and `tearDown()`, that'll be invoked automatically before and after the import file has been processed. These methods allows us, to load/add data from/to the `TechDivision\Import\Services\RegistryProcessor` which acts as a data container for the whole import process, and therefore passing it from one subject to next.
 
-The subject from above can be added to the Workflow Engine by the following configuration, whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter 
+To make your subject accessible for the Workflow Engine, you have first habe to define it in the Symfony DI configuration file`symfony/Resources/config/services.xml` of your component. Depending on your namespace, this would look like
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <services>
+        <service id="import_product.subject.my" class="TechDivision\Import\Product\Subjects\MySubject" shared="false">
+            <argument type="service" id="import.processor.registry"/>
+            <argument type="service" id="import.generator.core.config.data.uid"/>
+            <argument type="service" id="loggers"/>
+            <argument type="service" id="import.events.emitter"/>
+        </service>
+        <service id="import_product.observer.my" class="TechDivision\Import\Product\Observers\MyObserver"/>
+    </services>
+</container>
+```
+
+The subject from above can finally be added to the Workflow Engine with the following configuration, whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter 
 
 ```json
 {
