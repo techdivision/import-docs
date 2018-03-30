@@ -16,7 +16,7 @@ You should think about implementing a plug-in in either one of these cases
 
 > Generally you probably need a plug-in, when you want to do something before or after the main import step, or you need access to all import artefacts at once.
 
-#### Implement a plug-in
+#### Hot to implement a plug-in?
 
 The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
 
