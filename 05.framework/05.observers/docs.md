@@ -15,7 +15,7 @@ As a subject itself usually will **NOT** implement the main import business logi
 
 > Generally you need an observer, when you want to do something with a **ROW**.
 
-### How to implement an observer
+### How to implement an observer?
 
 The `TechDivision\Import\Observers\AbstractObserver` will be a perfect choice to be extended by our first observer implementation. At least an observer has to implement the interface `TechDivision\Import\Observers\ObserverInterface`. Our example observer simply tries to load the product with the SKU found in the actual row and adds the `SKU` to `entity_id` mapping to the subject.
 
