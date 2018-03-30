@@ -17,7 +17,7 @@ So, usually you need to implement a subject when
 
 > Generally you need an observer, when you want to do something with a file.
 
-### How to implement a subject
+### How to implement a subject?
 
 In general, you should consider to extend `TechDivision\Import\Subjects\AbstractSubject` or one of it's subclasses, e. g. `TechDivision\Import\Subjects\AbstractEavSubject` if you want to implement to implement the import for another EAV entity. At least, you need to implement the interface `TechDivision\Import\Subjects\SubjectInterface` which is the minimum requirement for a subject implementation. Let's implement a common requirement, where you need a subject that allows one of it's observers to load a product with the `SKU` found in the import file, adding the `SKU` to `entity_id` mapping to the subject and finally pass the mappings to the next subject.
 
@@ -122,16 +122,18 @@ The subject from above can finally be added to the Workflow Engine with the foll
 
 ```json
 {
-  "id": "import.plugin.subject",
-  "subjects": [
-    {
-      "id": "import_product.subject.my",
-      "identifier": "files",
-      "prefix": "product-import",
-      "observers": [
-        "import_product.observer.my"
-      ]
-    }
-  ]
+	"id": "import.plugin.subject",
+  	"subjects": [
+    	{
+      		"id": "import_product.subject.my",
+      		"identifier": "files",
+      		"prefix": "product-import",
+      		"observers": [
+        		"import_product.observer.my"
+      		]
+    	}
+  	]
 }
 ```
+
+That's pretty all!
