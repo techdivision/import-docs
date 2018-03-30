@@ -10,6 +10,9 @@ As M2IF is build to run in single and multithreaded/multiprocess environments, i
 As the registry implementation that comes with the core components only works in a single process, which probably be the choice in mose use cases. Depending on the environment M2IF will used, it'll be necessary to implement a registry processor implementation that fits the needs of these environment. To give you an example what kind of changes will be necessary in a multithreaded environment, e. g. like [appserver.io](https://appserver.io) we'll implement the method  `mergeAttributesRecursive()`. A threadsave version of this method would look like this
 
 ```php
+
+namespace TechDivision\Import\Services;
+
 class RegistryProcessor implements RegistryProcessorInterface
 {
  
