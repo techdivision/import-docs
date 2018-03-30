@@ -122,12 +122,17 @@ The subject from above can finally be added to the Workflow Engine with the foll
 
 ```json
 {
-  "id": "TechDivision\\Import\\Plugins\\CacheWarmerPlugin",
-  "params": {
-  	"cache-warmers": [
-      "import.repository.cache.warmer.eav.attribute.option.value"
-    ] 
-  }
+  	"id": "import.plugin.subject",
+  	"subjects": [
+    	{
+      		"id": "import_product.subject.my",
+      		"identifier": "files",
+      		"prefix": "product-import",
+      		"observers": [
+        		"import_product.observer.my"
+      		]
+    	}
+  	]
 }
 ```
 
