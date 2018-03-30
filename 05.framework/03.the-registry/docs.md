@@ -1,5 +1,5 @@
 ---
-title: Registry
+title: 'The Registry'
 visible: true
 ---
 
