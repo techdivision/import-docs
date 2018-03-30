@@ -71,6 +71,7 @@ class MySubject extends AbstractSubject
         $this->skuEntityIdMapping[$sku] = $this->getLastEntityId();
     }
 }
+```
 
 The subject provides the `addSkuEntityIdMappping()` method, that'll be invoked by the observer, that loads the product by the SKU found in the import file. Additional, it implements the `tearDown()` method, that'll be invoked automatically after the import file has been processed. This method allows us, to add data to the `TechDivision\Import\Services\RegistryProcessor`, which acts as a data container for the whole import process. 
 
