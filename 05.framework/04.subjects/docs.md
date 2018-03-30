@@ -23,7 +23,7 @@ In general, you should consider to extend `TechDivision\Import\Subjects\Abstract
 
 ```php
 
-namespace TechDivision\Import\Subjects\MySubject;
+namespace TechDivision\Import\Subjects;
 
 use TechDivision\Import\Utils\RegistryKeys;
 use TechDivision\Import\Subjects\AbstractSubject;
@@ -103,11 +103,11 @@ The subject from above can be added to the Workflow Engine by the following conf
     "id": "import.plugin.subject",
     "subjects": [
         {
-            "id": "import_product.subject.bunch",
+            "id": "import_product.subject.my",
             "identifier": "files",
             "prefix": "product-import",
             "observers": [
-                "import_product.observer.my.observer"
+                "import_product.observer.my"
             ]
         }
     ]
