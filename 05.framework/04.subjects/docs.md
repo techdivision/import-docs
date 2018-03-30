@@ -83,13 +83,14 @@ class MySubject extends AbstractSubject
     /**
      * Add the passed SKU => entity ID mapping.
      *
-     * @param string $sku The SKU
+     * @param string  $sku      The SKU to map
+     * @param integer $entityId The entity ID to be mapped
      *
      * @return void
      */
-    public function addSkuEntityIdMapping($sku)
+    public function addSkuEntityIdMapping($sku, $entityId)
     {
-        $this->skuEntityIdMapping[$sku] = $this->getLastEntityId();
+        $this->skuEntityIdMapping[$sku] = $entityId;
     }
 }
 ```
