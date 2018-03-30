@@ -3,7 +3,7 @@ title: Observers
 visible: true
 ---
 
-In the previous chapter [Subjects][#subjects] we've discussed when a subject is needed and how it can be implemented.
+In the previous chapter [Subjects](#subjects) we've discussed when a subject is needed and how it can be implemented.
 
 ### When do i need an observer?
 
