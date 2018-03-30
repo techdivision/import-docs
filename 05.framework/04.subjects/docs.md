@@ -51,7 +51,7 @@ class MySubject extends AbstractSubject
         // load the status of the actual import
         $status = $this->getRegistryProcessor()->getAttribute($serial);
 
-        // load the global data we've prepared initially
+        // load the SKU => entity_id mappings from further subjects
         $this->skuEntityIdMapping = $status[RegistryKeys::GLOBAL_DATA][RegistryKeys::SKU_ENTITY_ID_MAPPING];
 
         // invoke the parent method
@@ -68,7 +68,7 @@ class MySubject extends AbstractSubject
     public function tearDown($serial)
     {
 
-        // load the registry processor and update the status
+        // load the registry processor and add the SKU => entity_id mappings
         $this->getRegistryProcessor()->mergeAttributesRecursive(
             $serial,
             array(
