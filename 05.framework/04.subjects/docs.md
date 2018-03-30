@@ -118,7 +118,7 @@ To make your subject accessible for the Workflow Engine, you first have to defin
 </container>
 ```
 
-The subject from above can finally be added to the Workflow Engine with the following configuration, whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next [chapter](#observers) 
+The subject from above can finally be added to the Workflow Engine with the following configuration
 
 ```json
 {
@@ -136,4 +136,4 @@ The subject from above can finally be added to the Workflow Engine with the foll
 }
 ```
 
-That's pretty all!
+whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter regarding [Observers](#observers). 
