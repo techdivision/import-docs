@@ -10,7 +10,7 @@ By default, the category import expects a CSV file with the following defaults
 * UTF-8 encoding
 * Date format is n/d/y, g:i A
 * Values delimiter is a comma (,)
-* Multiple value delimiter is a pipe (&#124;)
+* Multiple value delimiter is a pipe (|)
 * Text values are enclosed with double apostrophes (")
 * Special chars are secaped with a backslash (\)
 
