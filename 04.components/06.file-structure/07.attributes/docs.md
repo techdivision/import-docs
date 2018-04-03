@@ -30,7 +30,7 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 | attribute_code                | varchar  | The unique attribue code                                                              | my_attribute |
 | sort_order                    | int      | The sort order for the attributes in the backend/frontend.                            | 1       |
 | attribute_option_values       | text     | A comma (,) separated list with the attribute options and their values.               | option-01,option-02 |
-| attribute_option_swatch       | text     | A pipe (|) separated list with the attribute option swatch configuration., if the attribute is swatch type (see additional_data column). | type=2,value=#000000|type=2,value=#d646d6 |
+| attribute_option_swatch       | text     | A pipe <code>(|)</code> separated list with the attribute option swatch configuration., if the attribute is swatch type (see additional_data column). | type=2,value=#000000|type=2,value=#d646d6 |
 | attribute_option_sort_order   | text     | The sort order for the attribute options in the backend/frontend.                     | 1,2,3   |
 | attribute_model               | varchar  | The model to load the EAV data from (**MUST** be the FQCN of a available class).      | Magento\Catalog\Model\ResourceModel\Eav\Attribute |
 | backend_model                 | varchar  | The model to conver the user input (**MUST** be the FQCN of a available class).       | Magento\Eav\Model\Entity\Attribute\Backend\Datetime |
