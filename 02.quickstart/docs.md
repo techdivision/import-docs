@@ -51,7 +51,7 @@ After installation, the importer is ready-to-run. When you're in the root of you
 
 Assuming, your CSV file `var/importexport/product-import_20180403-190920_01.csv` is ready to be imported and you're using the PHAR, you can start the importer with `bin/import-cli-simple.phar import:products`.
 
-This invoke's the `add-update` operation with the  
+This invoke's the `add-update` operation with the file from above on your Magento 2 installation. 
 
 ### Operations
 
@@ -85,6 +85,8 @@ To avoid unwanted behaviour, only one import process can be started at a time. T
 
 ### Using the sample data
 
+To give you a better impression, what is possible with M2IF, we've a running example that is based on a Magento 2 Sample Data installation. Follow these steps to delete, replace and add/update products + categories in your example installation.
+
 #### Preparation
 
 To run the example import, it is necessary to get a copy of the Magento 2 sample data, that can be cloned from Github, assumed you're in the root folder of this repository, by invoking
@@ -95,9 +97,11 @@ $ git clone https://github.com/magento/magento2-sample-data.git projects/sample-
 
 on the command line.
 
+Now you need to download the sample CSV import files from the repository [techdivision/import-cli-simple](https://github.com/techdivision/import-cli-simple). Clone this repository with `git clone https://github.com/techdivision/import-cli-simple.git` to the root directory of your Magento 2 installation. The import files for your Magento 2 version can be found under `projects`.  
+
 #### Bunches
 
-The import is able to handle bunches. In general this is a functionality that will only make sense in a multithreaded or multiprocessed environment where the bunches can be imported in parallel. In this case, it should only give the developer an idea, on how a multiprocessed functionality can be implemented.
+M2IF is able to handle bunches. In general this is a functionality that will only make sense in a multithreaded or multiprocessed environment where the bunches can be imported in parallel. In this case, it should only give the developer an idea, on how a multiprocessed functionality can be implemented.
 
 A bunch is a CSV file which is only a part of a complete import. It doesn't matter, what a kind of data a bunch contains, as the importer handles the data in the necessary order. This means, that the first step is to import all simple products found in a bunch. After that, information like the created entity IDs related with the imported SKUs, which is necessary to import all other product data (Bunches, Configurables, Images, Related etc.) will be shared, so it'll be possible to import these data step-by-step, but each step also in parallel.
 
@@ -122,18 +126,16 @@ When starting the import process by invoking the apropriate command, these files
 
 The command doesn't implement any directory clean-up or archiving functionality, what means that the files have to be copied to the source directory specified for the subjects. Assuming a Magento 2 CE 2.1.2 instance, with sample data installed, is available under `/var/www/magento` the configuration file, as well as the CSV files, can be found under `projects/sample-data/ce/212`.
 
-The command to re-import the sample data including the images, would look like this:
+The command to re-import the sample data including the images (assuming you've Magento 2.1.x, would look like this:
 
-```sh
-$ sudo rm -rf projects/sample-data/tmp \ 
-    && sudo mkdir projects/sample-data/tmp \
-    && sudo cp projects/sample-data/ce/212/data/replace/*.csv projects/sample-data/tmp \
-    && sudo bin/import-simple import:products \
-       --installation-dir=/var/www/magento \
-       --configuration=projects/sample-data/ce/212/conf/techdivision-import.json
+```
+sudo rm -rf import-cli-simple/projects/sample-data/tmp \ 
+  && sudo mkdir import-cli-simple/projects/sample-data/tmp \
+  && sudo cp import-cli-simple/projects/sample-data/ce/212/data/replace/*.csv import-cli-simple/projects/sample-data/tmp \
+  && sudo bin/import-cli-simple.phar import:products
 ```
 
-To make sure, that all old import files will be removed, we'll delete and re-create the directory that contains the import files `projects/sample-data/tmp`, before.
+To make sure, that all old import files will be removed, we'll delete and re-create the directory that contains the import files `import-cli-simple/projects/sample-data/tmp`, before.
 
 The import process only starts, when an OK flagfile is available in the same directory where the CSV files are located. The naming convention for the OK flagfile **MUST** follow one of these naming conventions
 
@@ -143,13 +145,13 @@ The import process only starts, when an OK flagfile is available in the same dir
 
 which results in one of
 
-* `projects/sample-data/tmp/magento-import.ok`
-* `projects/sample-data/tmp/magento-import_20170203.ok`
-* `projects/sample-data/tmp/magento-import_20170203_01.ok`
+* `import-cli-simple/projects/sample-data/tmp/magento-import.ok`
+* `import-cli-simple/projects/sample-data/tmp/magento-import_20170203.ok`
+* `import-cli-simple/projects/sample-data/tmp/magento-import_20170203_01.ok`
 
-The flagfile **MUST** contain the name of the CSV files that have to be imported within the next iterations. If the flagfile would be named `projects/sample-data/tmp/magento-import_20170203-1234.ok` for example and contains the following lines
+The flagfile **MUST** contain the name of the CSV files that have to be imported within the next iterations. If the flagfile would be named `import-cli-simple/projects/sample-data/tmp/magento-import_20170203-1234.ok` for example and contains the following lines
 
-```sh
+```
 magento-import_20170203-1234_01.csv
 magento-import_20170203-1234_02.csv
 magento-import_20170203-1234_03.csv
@@ -158,4 +160,4 @@ magento-import_20170203-1234_04.csv
 
 the importer has to be invoked four times (because the example above is **NO** bunch), whereas on each invovation, the next file will be imported and removed from the flagfile.
 
-Have a look in subdirectories of `project/sample-data/*` for a working example.
+Have a look in subdirectories of `import-cli-simple/projects/sample-data/*` for a working example.
