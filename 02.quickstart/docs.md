@@ -37,7 +37,7 @@ from your Magento 2 root directory and your're all setup.
 
 ### Use as PHAR
 
-The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page, e. g. with `wget`
+The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page and make it executable, e. g. with `wget`
 
 ```sh
 wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0/import-cli-simple.phar && sudo chmod +x import-cli-simple.phar
@@ -47,7 +47,11 @@ To install the PHAR in your actual Magento 2 installation, move it to `<MAGENTO-
 
 ### Running the import
 
-After installation, the importer is ready-to-run. 
+After installation, the importer is ready-to-run. When you're in the root of your Magento 2 installation, you do **NOT** need to specify the configuration for the Workflow Engine, because The importer parses the installation's configuration under `app/etc/env.php` and loads the Magento Edition/Version as well as the database configuration. By default, the importer searches for CSV files in the directory `var/importexport`. The files **MUST** have the prefix `product-import`, followed by a date/timestamp like `20180403-190920`, a consecutive number like `01` and the file suffix `.csv`.
+
+Assuming, your CSV file `var/importexport/product-import_20180403-190920_01.csv` is ready to be imported and you're using the PHAR, you can start the importer with `bin/import-cli-simple.phar import:products`.
+
+This invoke's the `add-update` operation with the  
 
 ### Operations
 
