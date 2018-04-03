@@ -35,7 +35,7 @@ The CSV file with the categories for the Magento 2 CE/EE consists of the followi
 | url_key                    | varchar  | yes       | The category's unique URL key                                                         | my-category |
 | description                | text     | no        | The category description, that'll be rendered on the category page                    | Some longer text here |
 | image_path                 | varchar  | no        | The absolute or relative path to a category image file                                | images/categories/my-category.png |
-| meta_title                 | varchar  | no        | The category's title that'll be rendered in the category page's <title> tag           | My Category Name |
+| meta_title                 | varchar  | no        | The category's title that'll be rendered in the category page's &lt;title&gt; tag           | My Category Name |
 | meta_keywords              | text     | no        | The category's meta keywords that'll be rendered in the category page's <meta name="keywords"> tag | Category Name, Keyword 1, Keyword 2 |
 | meta_description           | text     | no        | The category's meta description that'll be rendered in the category page's <meta name="description"> tag | A good Description with SEO relevant content |
 | landing_page               | int      | no        | The ID of a CMS block that has to be rendered in the category page                    | 2       |
