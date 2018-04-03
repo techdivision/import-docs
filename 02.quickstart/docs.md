@@ -10,14 +10,14 @@ To install the Magnento 2 Import Framework, composer is necessary. The framework
 To install the package as a new project, assuming composer is available, open a console and enter
 
 ```sh
-$ composer create-project techdivision/import-cli-simple --no-dev --stability=alpha
+composer create-project techdivision/import-cli-simple --no-dev --stability=alpha
 ```
 
 This will clone the repository from the internal Gitlab and install the M2IF, that's all.
 
 ### Install as Composer Library
 
-The second option will be the installation as a Composer library. For example, if you want to deliver it with your Magento 2 project, simply add
+The second option, and in most Magento 2 projects the preferred way, will be the installation as a Composer library. For example, if you want to deliver it with your Magento 2 project, simply add
 
 ```json
 {
@@ -27,10 +27,10 @@ The second option will be the installation as a Composer library. For example, i
 }
 ```
 
-to your Magento 2 composer.json file. Then run
+to your Magento 2 `composer.json` file. Then run
 
 ```sh
-$ composer update
+composer update
 ```
 
 from your Magento 2 root directory and your're all setup.
@@ -40,16 +40,14 @@ from your Magento 2 root directory and your're all setup.
 The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page, e. g. with `wget`
 
 ```sh
-$ wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0-alpha56/import-cli-simple.phar
+wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0/import-cli-simple.phar && sudo chmod +x import-cli-simple.phar
 ```
 
-To install globally put `import-cli-simple.phar` in `/usr/bin`, e. g.
+To install the PHAR in your actual Magento 2 installation, move it to `<MAGENTO-ROOT>/bin/import-cli-simple.phar` or, to install it globally, to `/usr/bin/import-cli-simple.phar`. Now you ready to use it.
 
-```sh
-$ sudo chmod +x import-cli-simple.phar && mv import-cli-simple.phar /usr/bin/import-cli-simple
-```
+### Running the import
 
-Now you can use it just like `import-cli-simple`.
+After installation, the importer is ready-to-run. 
 
 ### Operations
 
@@ -63,7 +61,27 @@ As well as the Magento 2 standard import functionality, M2IF will provide 3 diff
 
 > Exercise caution when replacing data because the existing product data will be completely cleared and all references in the system will be lost.
 
-### Preparation
+### Debug Mode
+
+The debug mode provides a more detailed logging output, by automatically setting the Monolog log level to `LogLevel::DEBUG` if **NOT** overwritten with the commandline option `--log-level`. Additionally it ignores
+
+* product category relations to categories that not exists 
+* product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
+* configurable products for SKUs which are **NOT** available or available more than one time
+
+but logs these issues as warnings to the console.
+
+When the debug mode has been enabled, missing attribute option values will **NOT** throw an exception, instead they will logged and put on an internal stack. If the [MissingOptionValuesPlugin](https://github.com/techdivision/import#missing-option-values) has been enabled, a CSV file with the missing option values will be created in the temporary import folder. If a Swift Mailer has been enabled by the plugin configuration, the CSV file will be sent to the given mail addresses.
+
+This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
+
+### Running Parallel Imports
+
+To avoid unwanted behaviour, only one import process can be started at a time. To make sure, that only one process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which contains the UUID of the actual import process. After the import process has been finished, the file will be deleted and a new process can be started.
+
+### Using the sample data
+
+#### Preparation
 
 To run the example import, it is necessary to get a copy of the Magento 2 sample data, that can be cloned from Github, assumed you're in the root folder of this repository, by invoking
 
@@ -73,7 +91,7 @@ $ git clone https://github.com/magento/magento2-sample-data.git projects/sample-
 
 on the command line.
 
-### Bunches
+#### Bunches
 
 The import is able to handle bunches. In general this is a functionality that will only make sense in a multithreaded or multiprocessed environment where the bunches can be imported in parallel. In this case, it should only give the developer an idea, on how a multiprocessed functionality can be implemented.
 
@@ -96,7 +114,7 @@ For example, the following files will be imported as a bunch:
 
 When starting the import process by invoking the apropriate command, these files will be imported like one file. It is **NOT** necessary to invoke the importer four times.
 
-### Running the Import
+#### Running the Import
 
 The command doesn't implement any directory clean-up or archiving functionality, what means that the files have to be copied to the source directory specified for the subjects. Assuming a Magento 2 CE 2.1.2 instance, with sample data installed, is available under `/var/www/magento` the configuration file, as well as the CSV files, can be found under `projects/sample-data/ce/212`.
 
@@ -137,21 +155,3 @@ magento-import_20170203-1234_04.csv
 the importer has to be invoked four times (because the example above is **NO** bunch), whereas on each invovation, the next file will be imported and removed from the flagfile.
 
 Have a look in subdirectories of `project/sample-data/*` for a working example.
-
-### Debug Mode
-
-The debug mode provides a more detailed logging output, by automatically setting the Monolog log level to `LogLevel::DEBUG` if **NOT** overwritten with the commandline option `--log-level`. Additionally it ignores
-
-* product category relations to categories that not exists 
-* product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
-* configurable products for SKUs which are **NOT** available or available more than one time
-
-but logs these issues as warnings to the console.
-
-When the debug mode has been enabled, missing attribute option values will **NOT** throw an exception, instead they will logged and put on an internal stack. If the [MissingOptionValuesPlugin](https://github.com/techdivision/import#missing-option-values) has been enabled, a CSV file with the missing option values will be created in the temporary import folder. If a Swift Mailer has been enabled by the plugin configuration, the CSV file will be sent to the given mail addresses.
-
-This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
-
-### Running Parallel Imports
-
-To avoid unwanted behaviour, only one import process can be started at a time. To make sure, that only one process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which contains the UUID of the actual import process. After the import process has been finished, the file will be deleted and a new process can be started.
