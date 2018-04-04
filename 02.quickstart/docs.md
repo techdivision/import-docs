@@ -45,6 +45,25 @@ wget https://github.com/techdivision/import-cli-simple/releases/download/1.0.0/i
 
 To install the PHAR in your actual Magento 2 installation, move it to `<MAGENTO-ROOT>/bin/import-cli-simple.phar` or, to install it globally, to `/usr/bin/import-cli-simple.phar`. Now you ready to use it.
 
+### Add Missing Indexes
+
+As the M2IF functionality differs from the Magento 2 standard, for performance reasons, it is necessary to manually add a missing index.
+
+To do that, open a MySQL command line and enter the following SQL statement
+ 
+```sql
+ALTER TABLE `eav_attribute_option_value` ADD INDEX `EAV_ATTRIBUTE_OPTION_VALUE_VALUE` (`value` ASC);
+ALTER TABLE `catalog_product_entity_int` ADD INDEX `CATALOG_PRODUCT_ENTITY_INT_VALUE` (`value` ASC);
+ALTER TABLE `catalog_product_entity_varchar` ADD INDEX `CATALOG_PRODUCT_ENTITY_VARCHAR_VALUE` (`value` ASC);
+ALTER TABLE `catalog_product_entity_decimal` ADD INDEX `CATALOG_PRODUCT_ENTITY_DECIMAL_VALUE` (`value` ASC);
+ALTER TABLE `catalog_product_entity_datetime` ADD INDEX `CATALOG_PRODUCT_ENTITY_DATETIME_VALUE` (`value` ASC);
+ALTER TABLE `url_rewrite` ADD INDEX `URL_REWRITE_ENTITY_ID` (`entity_id` ASC);
+ALTER TABLE `url_rewrite` ADD INDEX `URL_REWRIRE_ENTITY_TYPE_ENTITY_ID` (`entity_id` ASC, `entity_type` ASC);
+```
+
+> This also improves performance of the Magento 2 standard import functionality, but not at
+> same level as for M2IF.
+
 ### Running the import
 
 After installation, the importer is ready-to-run. When you're in the root of your Magento 2 installation, you do **NOT** need to specify the configuration for the Workflow Engine, because The importer parses the installation's configuration under `app/etc/env.php` and loads the Magento Edition/Version as well as the database configuration. By default, the importer searches for CSV files in the directory `var/importexport`. The files **MUST** have the prefix `product-import`, followed by a date/timestamp like `20180403-190920`, a consecutive number like `01` and the file suffix `.csv`.
