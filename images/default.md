@@ -1,6 +1,6 @@
 ---
 title: Images
-media_order: 'logo.png,favicon.png'
+media_order: logo.png
 routable: false
 ---
 
