@@ -62,8 +62,14 @@ ALTER TABLE `url_rewrite` ADD INDEX `URL_REWRIRE_ENTITY_TYPE_ENTITY_ID` (`entity
 ALTER TABLE `catalog_product_entity_media_gallery` ADD INDEX `CATALOG_PRODUCT_ENTITY_MEDIA_GALLERY_VALUE` (`value`);
 ```
 
-> This also improves performance of the Magento 2 standard import functionality, but not at
-> same level as for M2IF.
+When using the Magic 360 [component](/components/3rd-party-components), addtionally the following indexes has to be added
+
+```sql
+ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_PRODUCT_ID` (`product_id`);
+ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_POSITION` (`position`);
+```
+
+> This also improves performance of the Magento 2 standard import functionality, but not at same level as for M2IF.
 
 ### Running the import
 
