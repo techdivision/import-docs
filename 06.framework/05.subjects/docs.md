@@ -136,4 +136,4 @@ The subject from above can finally be added to the Workflow Engine with the foll
 }
 ```
 
-whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter regarding [Observers](#observers). 
+whereas we'll implement the observer with the ID `import_product.observer.my.observer` in the next chapter regarding [Observers](/framework/observers). 
