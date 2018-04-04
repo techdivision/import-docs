@@ -3,7 +3,7 @@ title: Configuration
 visible: true
 ---
 
-The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 sample data in a Magento 2 CE version 2.1.2 can be found in our [examples](https://github.com/techdivision/import-cli-simple/projects/sample-data/ce/212/conf/techdivision-import.json).
+The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 sample data in a Magento 2 CE version 2.1.2 can be found in our [examples](https://github.com/techdivision/import-cli-simple/blob/master/projects/sample-data/ce/2.1.x/conf/products/techdivision-import.json).
 
 If **NO** configuration file (option `--configuration`) has been specified, the default one, defined by the executed command will be used. In case of the `import:products`, the configuration file provided by the library `techdivision/import-product` in the directory `etc/techdivision-import.json` will be used. This default configuration contains **NO** database configuration and **NO** image directory.
 
