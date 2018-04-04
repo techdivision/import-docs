@@ -51,6 +51,35 @@ Beside the `configuration` option, all options can and **SHOULD** be defined in 
 
 If the `configuration` option has **NOT** been specified, the system tries to locate the Magento Edition, based on the specified `installation-dir` option. If the `installation-dir` option **IS** specified explictly, and the directory is a valid Magento root directory, the application tries to load database credentials from the `app/etc/env.php` script, so it is **NOT** necessary to specify a database configuration, nor in the configuration file or as commandline parameter.
 
+### Product Link Positions (CE)
+
+Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
+
+In case, that the rows are not available, the positions, defined in the CSV file's columns 
+
+* `related_position`
+* `crosssell_position`
+* `upsell_position`
+
+will be ignored.
+
+To enable importing positions, add the following rows the Magento 2 CE database
+
+```sql
+INSERT INTO 
+        `catalog_product_link_attribute` (
+            `link_type_id`, 
+            `product_link_attribute_code`, 
+            `data_type`
+        ) 
+    VALUES
+        (1,'position','int'),
+        (4,'position','int'),
+        (5,'position','int');
+```
+
+> Make sure, that the values are **NOT** already available, before adding them!
+
 ### Configuration File
 
 The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguments that can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
