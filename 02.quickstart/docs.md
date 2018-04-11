@@ -76,8 +76,7 @@ After installation, the importer is ready-to-run. When you're in the root of you
 Assuming, your CSV file `var/importexport/product-import_20180403-190920_01.csv` is ready to be imported and you're using the PHAR, you can start the importer with 
 
 ```
-bin/import-cli-simple.phar import:create:ok-file && \
-  bin/import-cli-simple.phar import:products
+bin/import-cli-simple.phar import:create:ok-file && bin/import-cli-simple.phar import:products
 ```
 
 whereas the first command creates the mandatory `.OK` file that signals, that all import artefacts are on-place and the second command finally starts the import with the [`add-update`](#operations) operation on your Magento 2 installation. 
