@@ -47,7 +47,7 @@ To install the PHAR in your actual Magento 2 installation, move it to `<MAGENTO-
 
 ### Add Missing Indexes
 
-As the M2IF functionality differs from the Magento 2 standard, for performance reasons, it is necessary to manually add some necessary indexes. To do that, open a MySQL command line and enter the following SQL statement
+As the M2IF functionality differs from the Magento 2 standard, for performance reasons, it is necessary to manually add some necessary indexes. To do that, open a MySQL command line, connect to your MySQL server instance and enter the following SQL statement
  
 ```sql
 ALTER TABLE `eav_attribute_option_value` ADD INDEX `EAV_ATTRIBUTE_OPTION_VALUE_VALUE` (`value` ASC);
