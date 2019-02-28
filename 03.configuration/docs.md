@@ -93,7 +93,9 @@ To enable this, additional frontend input callbacks have to be registered in the
   {
     "id" : "import_product.subject.bunch",
     "identifier" : "files",
-    "prefix" : "magento-import",
+    "file-resolver": {
+      "prefix": "product-import"
+    },
     "observers" : [ ... ],
     "callbacks" : [ ... ],
     "params" : [ ... ],
@@ -427,13 +429,17 @@ Finally, the `ArchivePlugin` archives the imported files additionally artefacts 
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "magento-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "magento-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -478,7 +484,9 @@ The `SubjectPlugin` is the plugin that provides the real import functionality. I
   {
     "id" : "import_product.subject.bunch",
     "identifier" : "files",
-    "prefix" : "magento-import",
+    "file-resolver": {
+        "prefix": "product-import"
+    },
     "observers" : [ ... ],
     "callbacks" : [ ... ]
   }
