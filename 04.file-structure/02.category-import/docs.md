@@ -5,7 +5,7 @@ visible: true
 
 ### CSV File Structure
 
-By default, the category import expects a CSV file with the following defaults
+By default, the Category Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
 * Date format is n/d/y, g:i A
