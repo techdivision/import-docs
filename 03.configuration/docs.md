@@ -177,7 +177,7 @@ class MyObserver extends AbstractObserver
 Beside the params that can be defined in the configuration file itself, additionally params can be specified on the commandline as option, e. g.
 
 ```sh
-vendor/bin/import-simple import:products \
+bin/import-cli-simple.phar import:products \
      --configuration=projects/sample-data/ce/2.3.x/conf/products/techdivision-import.json \
      --params='{ "params": [ { "my-website-country-mapping": { "DE": [ "de_LI" ] } } ] }'
 ```
