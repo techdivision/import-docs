@@ -3,7 +3,7 @@ title: 'Product Import'
 visible: true
 ---
 
-By default, the product import expects a CSV file with the following defaults
+By default, the Product Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
 * Date format is n/d/y, g:i A
