@@ -104,6 +104,8 @@ The structure is separated into a general configuration section, the database co
 
 Global parameters in the configuration file enables developers to pass specific configuration values from the configuration file itself, from the commandline (using the --params option) or an addtional file (using the --params-file option) through to their import logic, e. g. project specifc observers.
 
+##### In the Configuration File itself
+
 ```json
 {
   "magento-edition": "CE",
@@ -137,6 +139,7 @@ use TechDivision\Import\Observers\AbstractObserver;
  */
 class MyObserver extends AbstractObserver
 {
+    
     /**
      * Return's the global param with the passed name.
      *
@@ -151,7 +154,6 @@ class MyObserver extends AbstractObserver
         return $this->getSubject()->getConfiguration()->getConfiguration()->getParam($name, $defaultValue);
     }
     
-
     /**
      * Will be invoked by the action on the events the listener has been registered for.
      *
@@ -169,6 +171,35 @@ class MyObserver extends AbstractObserver
     }
 }
 ```
+
+##### As Commandline Option
+
+Beside the params that can be defined in the configuration file itself, additionally params can be specified on the commandline as option, e. g.
+
+```sh
+vendor/bin/import-simple import:products \
+     --configuration=projects/sample-data/ce/2.3.x/conf/products/techdivision-import.json \
+     --params='{ "params": [ { "my-website-country-mapping": { "DE": [ "de_LI" ] } } ] }'
+```
+
+which will append the value `de_LI` to the `DE` param of the `my-website-country-mapping`.
+
+##### As file, defined as Commandline Option
+
+Beside the possibility to specify the params directly as commandline option, it is also possible to specify a path to a file that contains the JSON encoded params. The file **MUST** have the following format
+
+```json
+{ 
+  "params": [ 
+    { 
+      "my-website-country-mapping": { 
+        "DE": [ "de_LI" ]
+      } 
+    } 
+  ] 
+}
+```
+> Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
 
 #### Extend M2IF with additional libraries
 
