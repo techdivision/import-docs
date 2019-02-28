@@ -100,6 +100,76 @@ The structure is separated into a general configuration section, the database co
 }
 ```
 
+#### Global Parameters
+
+Global parameters in the configuration file enables developers to pass specific configuration values from the configuration file itself, from the commandline (using the --params option) or an addtional file (using the --params-file option) through to their import logic, e. g. project specifc observers.
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "replace",
+  "installation-dir" : "/var/www/magento",
+  "params": [ 
+    { 
+      "my-website-country-mapping": { 
+        "DE": [ "de_DE", "de_AT", "de_CH" ], 
+        "EN": [ "en_US", "en_UK" ] 
+      } 
+    } 
+  ],
+  "databases" : [ ... ],
+  "loggers" : [ ... ],
+  "operations" : { ... }
+}
+```
+
+These params can be used wherever access to the configuration object is available, e. g. in an observer like
+
+```php
+
+namespace My\Project;
+
+use TechDivision\Import\Observers\AbstractObserver;
+
+/**
+ * A custom observer implementation.
+ */
+class MyObserver extends AbstractObserver
+{
+    /**
+     * Return's the global param with the passed name.
+     *
+     * @param string $name         The name of the param to return
+     * @param mixed  $defaultValue The default value if the param doesn't exists
+     *
+     * @return string The requested param
+     * @throws \Exception Is thrown, if the requested param is not available
+     */
+    public function getGlobalParam($name, $defaultValue = null)
+    {
+        return $this->getSubject()->getConfiguration()->getConfiguration()->getParam($name, $defaultValue);
+    }
+    
+
+    /**
+     * Will be invoked by the action on the events the listener has been registered for.
+     *
+     * @param \TechDivision\Import\Subjects\SubjectInterface $subject The subject instance
+     *
+     * @return array The modified row
+     */
+    public function handle(SubjectInterface $subject)
+    {
+        
+        // load the params from the configuration
+        $myWebsiteMapping = $this->getGlobalParam('my-website-country-mapping');
+        
+        // do something with the configuration value
+    }
+}
+```
+
 #### Extend M2IF with additional libraries
 
 In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
