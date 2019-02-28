@@ -5,7 +5,7 @@ visible: true
 
 ### CSV File Structure
 
-By default, the attribute import expects a CSV file with the following defaults
+By default, the Attribute Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
 * Date format is n/d/y, g:i A
