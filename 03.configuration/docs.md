@@ -46,6 +46,8 @@ The following configuration options are available:
 | --debug-mode         | The flag to activate the debug mode | `false` |
 | --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
 | --single-transaction | The flag to wrap the import process into a single transaction | `false` |
+| --params             | A JSON encoded string that'll be merged with the params from the configuration file (has to be in the same format) | n/a |
+| --params-file        | The path to a file with the JSON encoded params that will be merged with the params from the configuration file  (has to be in the same format)| n/a |
 
 Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The commandline options should only be used to override these values in some circumstances.
 
