@@ -96,11 +96,7 @@ To enable this, additional frontend input callbacks have to be registered in the
     "prefix" : "magento-import",
     "observers" : [ ... ],
     "callbacks" : [ ... ],
-    "params" : [
-      {
-        "copy-images" : false
-      }
-    ],
+    "params" : [ ... ],
     "frontend-input-callbacks": [
       {
         "select": [
