@@ -82,6 +82,41 @@ INSERT INTO
 
 > Make sure, that the values are **NOT** already available, before adding them!
 
+### Dynamic Option Creation
+
+Up from version 2.2.x + 2.3.x it is possible to create missing product option values on the fly. 
+
+To enable this, additional frontend input callbacks have to be registered in the configuration file, for the `add-update` as well as the `replace` operations. The subject configuration should look like this
+
+```json
+"subjects" : [
+  {
+    "id" : "import_product.subject.bunch",
+    "identifier" : "files",
+    "prefix" : "magento-import",
+    "observers" : [ ... ],
+    "callbacks" : [ ... ],
+    "params" : [
+      {
+        "copy-images" : false
+      }
+    ],
+    "frontend-input-callbacks": [
+      {
+        "select": [
+          "import_attribute.callback.create.select.option.value",
+          "import_product.callback.select"
+        ],
+        "multiselect": [
+          "import_attribute.callback.create.multiselect.option.value",
+          "import_product.callback.multiselect"
+        ]
+      }
+    ]
+  }
+]
+```
+
 ### Configuration File
 
 The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguments that can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
