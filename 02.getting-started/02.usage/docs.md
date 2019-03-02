@@ -18,14 +18,14 @@ Beside the import commands several other more or less helper commands are availa
 
 | Argument                  | Description                                                     | Format |
 |:--------------------------|:----------------------------------------------------------------|:-----------------|
-| import:categories         | Starts importing categories | Category Import |
+| import:categories         | Starts importing categories | [Customer + Customer Address Import](/file-structure/category-import) |
 | import:customers          | Starts importing customers | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
-| import:customers:address  | Starts importing customer addresses, expects that the customers are available | Customer + Customer Address Import |
-| import:attributes:set     | Starts importing attribute sets and their groups | Attribute Set + Group Import |
-| import:attributes         | Starts importing attributes, expects that the referenced attribute sets + groups are available | Attribute Import |
-| import:products           | Starts the product import, expects that the referenced attributes as well as the attribute sets and groups are available | Product Import |
-| import:products:inventory | Starts importing product inventory, expects that the products are available | Product Import |
-| import:products:price     | Starts importing product prices, expects that the productds are available | Product Import |
+| import:customers:address  | Starts importing customer addresses, expects that the customers are available | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
+| import:attributes:set     | Starts importing attribute sets and their groups | [Attribute Set + Group Import](/file-structure/attributes-set-and-group-import) |
+| import:attributes         | Starts importing attributes, expects that the referenced attribute sets + groups are available | [Attribute Import](/file-structure/attributes) |
+| import:products           | Starts the product import, expects that the referenced attributes as well as the attribute sets and groups are available | [Product Import](/file-structure/product-import) |
+| import:products:inventory | Starts importing product inventory, expects that the products are available | [Product Import](/file-structure/product-import) |
+| import:products:price     | Starts importing product prices, expects that the productds are available | [Product Import](/file-structure/product-import) |
 
 By default, if no other `source-dir` has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
 
