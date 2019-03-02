@@ -10,8 +10,24 @@ Assuming, your CSV file `var/importexport/product-import_20180403-190920_01.csv`
 ```
 bin/import-cli-simple.phar import:create:ok-file && bin/import-cli-simple.phar import:products
 ```
-whereas the first command creates the mandatory `.OK` file that signals, that all import artefacts are on-place and the second command finally starts the import with the [add-update](#operations) operation on your Magento 2 installation.
-The import command itself supports a argument as well as several options.
+whereas the first command creates the mandatory `.OK` file that signals, that all import artefacts are on-place and the second command finally starts the import with the [add-update](#operations) operation on your Magento 2 installation. The import commands supports an argument as well as several options.
+
+### Commands
+
+Beside the import commands several other more or less helper commands are available. The following commands for importing the entities are available:
+
+| Argument                  | Description                                                     | Format |
+|:--------------------------|:----------------------------------------------------------------|:-----------------|
+| import:categories         | Starts importing categories | Category Import |
+| import:customers          | Starts importing customers | Customer Import |
+| import:customers:address  | Starts importing customer addresses, expects that the customers are available | add-update |
+| import:attributes:set     | Starts importing attribute sets and their groups | Attribute Set + Group Import |
+| import:attributes         | Starts importing attributes, expects that the referenced attribute sets + groups are available | Attribute Import |
+| import:products           | Starts the product import, expects that the referenced attributes as well as the attribute sets and groups are available | Product Import |
+| import:products:inventory | Starts importing product inventory, expects that the products are available | Product Import |
+| import:products:price     | Starts importing product prices, expects that the productds are available | Product Import |
+
+By default, if no other `source-dir` has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
 
 ### Arguments
 
