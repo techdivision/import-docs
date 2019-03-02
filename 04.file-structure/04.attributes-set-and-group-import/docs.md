@@ -3,8 +3,6 @@ title: 'Attribute Set + Group Import'
 visible: true
 ---
 
-### CSV File Structure
-
 By default, the Attribute Set + Group Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
