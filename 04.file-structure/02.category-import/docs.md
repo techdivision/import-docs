@@ -3,8 +3,6 @@ title: 'Category Import'
 visible: true
 ---
 
-### CSV File Structure
-
 By default, the Category Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
