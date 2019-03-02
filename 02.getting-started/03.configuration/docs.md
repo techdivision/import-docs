@@ -11,68 +11,6 @@ The database configuration can be specified by the commandline options, but if i
 
 > If images should be imported, a custom configuration file with the paths to the image files has to be specified.
 
-### Product Link Positions (CE)
-
-Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
-
-In case, that the rows are not available, the positions, defined in the CSV file's columns 
-
-* `related_position`
-* `crosssell_position`
-* `upsell_position`
-
-will be ignored.
-
-To enable importing positions, add the following rows the Magento 2 CE database
-
-```sql
-INSERT INTO 
-        `catalog_product_link_attribute` (
-            `link_type_id`, 
-            `product_link_attribute_code`, 
-            `data_type`
-        ) 
-    VALUES
-        (1,'position','int'),
-        (4,'position','int'),
-        (5,'position','int');
-```
-
-> Make sure, that the values are **NOT** already available, before adding them!
-
-### Dynamic Option Creation
-
-Up from version 2.2.x + 2.3.x it is possible to create missing product option values on the fly. 
-
-To enable this, additional frontend input callbacks have to be registered in the configuration file, for the `add-update` as well as the `replace` operations. The subject configuration should look like this
-
-```json
-"subjects" : [
-  {
-    "id" : "import_product.subject.bunch",
-    "identifier" : "files",
-    "file-resolver": {
-      "prefix": "product-import"
-    },
-    "observers" : [ ... ],
-    "callbacks" : [ ... ],
-    "params" : [ ... ],
-    "frontend-input-callbacks": [
-      {
-        "select": [
-          "import_attribute.callback.create.select.option.value",
-          "import_product.callback.select"
-        ],
-        "multiselect": [
-          "import_attribute.callback.create.multiselect.option.value",
-          "import_product.callback.multiselect"
-        ]
-      }
-    ]
-  }
-]
-```
-
 ### Configuration File
 
 The configuration file **MUST** be in JSON format. Beside itself, all necessary configuration options/arguments that can be passed on on the commandline, can and **SHOULD** be defined in the configuration file, instead.
@@ -495,3 +433,65 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 ```
 
 > Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
+
+### Product Link Positions (CE)
+
+Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
+
+In case, that the rows are not available, the positions, defined in the CSV file's columns 
+
+* `related_position`
+* `crosssell_position`
+* `upsell_position`
+
+will be ignored.
+
+To enable importing positions, add the following rows the Magento 2 CE database
+
+```sql
+INSERT INTO 
+        `catalog_product_link_attribute` (
+            `link_type_id`, 
+            `product_link_attribute_code`, 
+            `data_type`
+        ) 
+    VALUES
+        (1,'position','int'),
+        (4,'position','int'),
+        (5,'position','int');
+```
+
+> Make sure, that the values are **NOT** already available, before adding them!
+
+### Dynamic Option Creation
+
+Up from version 2.2.x + 2.3.x it is possible to create missing product option values on the fly. 
+
+To enable this, additional frontend input callbacks have to be registered in the configuration file, for the `add-update` as well as the `replace` operations. The subject configuration should look like this
+
+```json
+"subjects" : [
+  {
+    "id" : "import_product.subject.bunch",
+    "identifier" : "files",
+    "file-resolver": {
+      "prefix": "product-import"
+    },
+    "observers" : [ ... ],
+    "callbacks" : [ ... ],
+    "params" : [ ... ],
+    "frontend-input-callbacks": [
+      {
+        "select": [
+          "import_attribute.callback.create.select.option.value",
+          "import_product.callback.select"
+        ],
+        "multiselect": [
+          "import_attribute.callback.create.multiselect.option.value",
+          "import_product.callback.multiselect"
+        ]
+      }
+    ]
+  }
+]
+```
