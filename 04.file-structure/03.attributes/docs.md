@@ -3,8 +3,6 @@ title: 'Attribute Import'
 visible: true
 ---
 
-### CSV File Structure
-
 By default, the Attribute Import expects a CSV file with the following defaults
 
 * UTF-8 encoding
