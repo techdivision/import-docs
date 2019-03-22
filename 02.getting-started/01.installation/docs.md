@@ -10,7 +10,7 @@ Depending on the requirements different installation options are available.
 To install the package as a new project, assuming composer is available, open a console and enter
 
 ```sh
-composer create-project techdivision/import-cli-simple --no-dev --stability=alpha
+composer create-project techdivision/import-cli-simple --no-dev
 ```
 
 This will clone the repository from the internal Gitlab and install the M2IF, that's all.
@@ -22,7 +22,7 @@ The second option, and in most Magento 2 projects the preferred way, will be the
 ```json
 {
   "require": {
-    "techdivision/import-cli-simple" : "3.1.0"
+    "techdivision/import-cli-simple" : "3.2.*"
   }
 }
 ```
@@ -40,7 +40,7 @@ from your Magento 2 root directory and your're all setup.
 The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page and make it executable, e. g. with `wget`
 
 ```sh
-wget https://github.com/techdivision/import-cli-simple/releases/download/3.1.0/import-cli-simple.phar \
+wget https://github.com/techdivision/import-cli-simple/releases/download/3.2.1/import-cli-simple.phar \
   && sudo chmod +x import-cli-simple.phar
 ```
 
