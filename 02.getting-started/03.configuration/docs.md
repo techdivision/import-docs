@@ -169,16 +169,18 @@ Beside Plugins, Subjects, Observers and Callbacks, specific events are triggered
 
 The following events are available
 
-| Event Name               | Description                                                     |
-|:---------------------|:----------------------------------------------------------------|:--------------|
-| app.process.transaction.start      | Is triggered before the application start's the transaction (if single transaction mode has been activated). |
+| Event Name                           | Description                                                                                                                    |
+|:-------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
+| app.set.up                           | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
+| app.tear.down                        | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
+| app.process.transaction.start        | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
 | app.process.transaction.success      | Is triggered after the application has the transaction committed successfully (if single transaction mode has been activated). |
-| app.process.transaction.failure      | Is triggered after the application rollbacked the transaction (if single transaction mode has been activated). |
-| subject.artefact.process.start      | Is triggered before an import artefact will be processed. |
-| subject.artefact.process.success      | Is triggered when an import artefact has successfully been processed. |
-| subject.artefact.process.failure      | Is triggered when an import artefact can not be processed. |
-| subject.artefact.row.process.start      | Is triggered when an import artefact has successfully been processed. |
-| subject.artefact.row.process.success      | Is triggered when an import artefact has successfully been processed. |
+| app.process.transaction.failure      | Is triggered after the application rollbacked the transaction (if single transaction mode has been activated).                 |
+| subject.artefact.process.start       | Is triggered before an import artefact will be processed.                                                                      |
+| subject.artefact.process.success     | Is triggered when an import artefact has successfully been processed.                                                          |
+| subject.artefact.process.failure     | Is triggered when an import artefact can not be processed.                                                                     |
+| subject.artefact.row.process.start   | Is triggered when an import artefact has successfully been processed.                                                          |
+| subject.artefact.row.process.success | Is triggered when an import artefact has successfully been processed.                                                          |
 
 This register's the class loader of specified vendor directory and parse's the libraries for the necessary DI configuration files.
 
