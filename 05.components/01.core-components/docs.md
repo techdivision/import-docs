@@ -14,16 +14,17 @@ This page lists the main components, that provides Magento 2 import core functio
 
 These are the M2IF core components for the Magento 2 Community Edition (CE).
 
-* [import-product](https://github.com/techdivision/import-product) - Provides product import functionality
-* [import-product-url-rewrite](https://github.com/techdivision/import-product-url-rewrite) - Provides product URL rewrite import functionality
-* [import-product-bundle](https://github.com/techdivision/import-product-bundle) - Provides bundle product import functionality
-* [import-product-link](https://github.com/techdivision/import-product-link) - Provides product relation import functionality
-* [import-product-media](https://github.com/techdivision/import-product-media) - Provides product image import functionality
-* [import-product-variant](https://github.com/techdivision/import-product-variant) - Provides configurable product import functionality
-* [import-product-msi](https://github.com/techdivision/import-product-msi) - Provides MSI (multi source inventory) import functionality
-* [import-product-tier-price](https://github.com/techdivision/import-product-tier-price) - Provides product tier price import functionality
-* [import-category](https://github.com/techdivision/import-category) - Provides category import functionality
-* [import-attribute](https://github.com/techdivision/import-attribute) - Provides attribute import functionality
+* [import-product](https://github.com/techdivision/import-product) - Provides Product Import functionality
+* [import-product-url-rewrite](https://github.com/techdivision/import-product-url-rewrite) - Provides Product URL Rewrite Import functionality
+* [import-product-bundle](https://github.com/techdivision/import-product-bundle) - Provides Bundle Product Import functionality
+* [import-product-link](https://github.com/techdivision/import-product-link) - Provides Product Relation import functionality
+* [import-product-media](https://github.com/techdivision/import-product-media) - Provides Product Image Import functionality
+* [import-product-variant](https://github.com/techdivision/import-product-variant) - Provides Configurable Product Import functionality
+* [import-product-grouped](https://github.com/techdivision/import-product-grouped) - Provides Grouped Product Import functionality
+* [import-category](https://github.com/techdivision/import-category) - Provides Category Import functionality
+* [import-attribute](https://github.com/techdivision/import-attribute) - Provides Attribute Import functionality
+* [import-customer](https://github.com/techdivision/import-customer) - Provides Customer Import functionality
+* [import-customer-address](https://github.com/techdivision/import-customer-address) - Provides Customer Address Import functionality
 
 > Components like import-attribute will also work with the EE, so there is not separate implementation.
 
@@ -31,10 +32,11 @@ These are the M2IF core components for the Magento 2 Community Edition (CE).
 
 These are the M2IF core components for the Magento 2 Enterprise Edition (EE).
 
-* [import-ee](https://github.com/techdivision/import-ee) - Provides core import functionality for Magento 2 EE
-* [import-product-ee](https://github.com/techdivision/import-product-ee) - Provides product import functionality for Magento 2 EE
-* [import-product-bundle-ee](https://github.com/techdivision/import-product-bundle-ee) - Provides bundle product import functionality for Magento 2 EE
-* [import-product-link-ee](https://github.com/techdivision/import-product-link-ee) - Provides product import relation functionality for Magento 2 EE
-* [import-product-media-ee](https://github.com/techdivision/import-product-media-ee) - Provides product import image functionality for Magento 2 EE
-* [import-product-variant-ee](https://github.com/techdivision/import-product-variant-ee) - Provides configurable product import functionality for Magento 2 EE
-* [import-category-ee](https://github.com/techdivision/import-category-ee) - Provides category import functionality for Magento 2 EE
+* [import-ee](https://github.com/techdivision/import-ee) - Provides Core Import functionality for Magento 2 EE
+* [import-product-ee](https://github.com/techdivision/import-product-ee) - Provides Product Import functionality for Magento 2 EE
+* [import-product-bundle-ee](https://github.com/techdivision/import-product-bundle-ee) - Provides Bundle Product Import functionality for Magento 2 EE
+* [import-product-link-ee](https://github.com/techdivision/import-product-link-ee) - Provides Product Import Relation functionality for Magento 2 EE
+* [import-product-media-ee](https://github.com/techdivision/import-product-media-ee) - Provides Product Import Image functionality for Magento 2 EE
+* [import-product-variant-ee](https://github.com/techdivision/import-product-variant-ee) - Provides Configurable Product Import functionality for Magento 2 EE
+* [import-product-grouped-ee](https://github.com/techdivision/import-product-grouped-ee) - Provides Grouped Product Import functionality for Magento 2 EE
+* [import-category-ee](https://github.com/techdivision/import-category-ee) - Provides Category Import functionality for Magento 2 EE

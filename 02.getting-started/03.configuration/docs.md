@@ -3,82 +3,13 @@ title: Configuration
 visible: true
 ---
 
-The necessary configuration has to be defined in a simple JSON file. An example that imports the Magento 2 sample data in a Magento 2 CE version 2.1.2 can be found in our [examples](https://github.com/techdivision/import-cli-simple/blob/master/projects/sample-data/ce/2.1.x/conf/products/techdivision-import.json).
+The necessary configuration has to be defined in a simple JSON file. Examples that imports the Magento 2 sample data into several Magento 2 CE versions can be found in our [examples](https://github.com/techdivision/import-cli-simple/tree/3.1.x/projects/sample-data).
 
 If **NO** configuration file (option `--configuration`) has been specified, the default one, defined by the executed command will be used. In case of the `import:products`, the configuration file provided by the library `techdivision/import-product` in the directory `etc/techdivision-import.json` will be used. This default configuration contains **NO** database configuration and **NO** image directory.
 
 The database configuration can be specified by the commandline options, but if images should be imported.
 
 > If images should be imported, a custom configuration file with the paths to the image files has to be specified.
-
-The import command itself supports a argument as well as several options.
-
-### Arguments
-
-The following configuration arguments are available:
-
-| Argument             | Description                                                     | Default value |
-|:---------------------|:----------------------------------------------------------------|:--------------|
-| operation            | Specify the operation name to execute, either one of add-update, replace or delete | n/a |
-
-### Options
-
-The following configuration options are available:
-
-| Option               | Description                                                     | Default value |
-|:---------------------|:----------------------------------------------------------------|:--------------|
-| --configuration      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
-| --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
-| --system-name        | The system name to be used (will added to the mail subject, if mails are configured) | The hostname |
-| --installation-dir   | The Magento installation directory to which the files has to be imported | The actual working directory |
-| --entity-type-code   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
-| --source-dir         | The directory that has to be watched for new files | n/a |
-| --target-dir         | The target directory with the files that has been imported | n/a |
-| --archive-dir        | The directory with the archived files that has been imported | n/a |
-| --archive-artefacts  | The flag to activate the artefact archiving functionality | `true` |
-| --magento-edition    | The Magento edition to be used, either one of CE or EE | n/a |
-| --magento-version    | The Magento version to be used, e. g. 2.1.2 | n/a |
-| --source-date-format | The date format used in the CSV file(s) | n/a |
-| --use-db-id          | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
-| --db-pdo-dsn         | The DSN used to connect to the Magento database where the data has to be imported, e. g. `mysql:host=127.0.0.1;dbname=magento` | n/a |
-| --db-username        | The username used to connect to the Magento database | n/a |
-| --db-password        | The password used to connect to the Magento database | n/a |
-| --debug-mode         | The flag to activate the debug mode | `false` |
-| --log-level          | The log level to use (see Monolog documentation for further information) | `info` |
-| --single-transaction | The flag to wrap the import process into a single transaction | `false` |
-
-Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The commandline options should only be used to override these values in some circumstances.
-
-If the `configuration` option has **NOT** been specified, the system tries to locate the Magento Edition, based on the specified `installation-dir` option. If the `installation-dir` option **IS** specified explictly, and the directory is a valid Magento root directory, the application tries to load database credentials from the `app/etc/env.php` script, so it is **NOT** necessary to specify a database configuration, nor in the configuration file or as commandline parameter.
-
-### Product Link Positions (CE)
-
-Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
-
-In case, that the rows are not available, the positions, defined in the CSV file's columns 
-
-* `related_position`
-* `crosssell_position`
-* `upsell_position`
-
-will be ignored.
-
-To enable importing positions, add the following rows the Magento 2 CE database
-
-```sql
-INSERT INTO 
-        `catalog_product_link_attribute` (
-            `link_type_id`, 
-            `product_link_attribute_code`, 
-            `data_type`
-        ) 
-    VALUES
-        (1,'position','int'),
-        (4,'position','int'),
-        (5,'position','int');
-```
-
-> Make sure, that the values are **NOT** already available, before adding them!
 
 ### Configuration File
 
@@ -97,6 +28,107 @@ The structure is separated into a general configuration section, the database co
   "operations" : { ... }
 }
 ```
+
+#### Global Parameters
+
+Global parameters in the configuration file enables developers to pass specific configuration values from the configuration file itself, from the commandline (using the --params option) or an addtional file (using the --params-file option) through to their import logic, e. g. project specifc observers.
+
+##### In the Configuration File itself
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "replace",
+  "installation-dir" : "/var/www/magento",
+  "params": [ 
+    { 
+      "my-website-country-mapping": { 
+        "DE": [ "de_DE", "de_AT", "de_CH" ], 
+        "EN": [ "en_US", "en_UK" ] 
+      } 
+    } 
+  ],
+  "databases" : [ ... ],
+  "loggers" : [ ... ],
+  "operations" : { ... }
+}
+```
+
+These params can be used wherever access to the configuration object is available, e. g. in an observer like
+
+```php
+
+namespace My\Project;
+
+use TechDivision\Import\Observers\AbstractObserver;
+
+/**
+ * A custom observer implementation.
+ */
+class MyObserver extends AbstractObserver
+{
+    
+    /**
+     * Return's the global param with the passed name.
+     *
+     * @param string $name         The name of the param to return
+     * @param mixed  $defaultValue The default value if the param doesn't exists
+     *
+     * @return string The requested param
+     * @throws \Exception Is thrown, if the requested param is not available
+     */
+    public function getGlobalParam($name, $defaultValue = null)
+    {
+        return $this->getSubject()->getConfiguration()->getConfiguration()->getParam($name, $defaultValue);
+    }
+    
+    /**
+     * Will be invoked by the action on the events the listener has been registered for.
+     *
+     * @param \TechDivision\Import\Subjects\SubjectInterface $subject The subject instance
+     *
+     * @return array The modified row
+     */
+    public function handle(SubjectInterface $subject)
+    {
+        
+        // load the params from the configuration
+        $myWebsiteMapping = $this->getGlobalParam('my-website-country-mapping');
+        
+        // do something with the configuration value
+    }
+}
+```
+
+##### As Commandline Option
+
+Beside the params that can be defined in the configuration file itself, additionally params can be specified on the commandline as option, e. g.
+
+```sh
+bin/import-cli-simple.phar import:products \
+     --configuration=projects/sample-data/ce/2.3.x/conf/products/techdivision-import.json \
+     --params='{ "params": [ { "my-website-country-mapping": { "DE": [ "de_LI" ] } } ] }'
+```
+
+which will append the value `de_LI` to the `DE` param of the `my-website-country-mapping`.
+
+##### As file, defined as Commandline Option
+
+Beside the possibility to specify the params directly as commandline option, it is also possible to specify a path to a file that contains the JSON encoded params. The file **MUST** have the following format
+
+```json
+{ 
+  "params": [ 
+    { 
+      "my-website-country-mapping": { 
+        "DE": [ "de_LI" ]
+      } 
+    } 
+  ] 
+}
+```
+> Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
 
 #### Extend M2IF with additional libraries
 
@@ -293,13 +325,17 @@ Finally, the `ArchivePlugin` archives the imported files additionally artefacts 
             {
               "id": "import.subject.move.files",
               "identifier": "move-files",
-              "prefix": "magento-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "ok-file-needed": true
             },
             {
               "id": "import_product.subject.bunch",
               "identifier": "files",
-              "prefix": "magento-import",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
               "observers": [
                 {
                   "import": [
@@ -344,7 +380,9 @@ The `SubjectPlugin` is the plugin that provides the real import functionality. I
   {
     "id" : "import_product.subject.bunch",
     "identifier" : "files",
-    "prefix" : "magento-import",
+    "file-resolver": {
+        "prefix": "product-import"
+    },
     "observers" : [ ... ],
     "callbacks" : [ ... ]
   }
@@ -395,3 +433,65 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 ```
 
 > Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
+
+### Product Link Positions (CE)
+
+Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
+
+In case, that the rows are not available, the positions, defined in the CSV file's columns 
+
+* `related_position`
+* `crosssell_position`
+* `upsell_position`
+
+will be ignored.
+
+To enable importing positions, add the following rows the Magento 2 CE database
+
+```sql
+INSERT INTO 
+        `catalog_product_link_attribute` (
+            `link_type_id`, 
+            `product_link_attribute_code`, 
+            `data_type`
+        ) 
+    VALUES
+        (1,'position','int'),
+        (4,'position','int'),
+        (5,'position','int');
+```
+
+> Make sure, that the values are **NOT** already available, before adding them!
+
+### Dynamic Option Creation
+
+Up from version 2.2.x + 2.3.x it is possible to create missing product option values on the fly. 
+
+To enable this, additional frontend input callbacks have to be registered in the configuration file, for the `add-update` as well as the `replace` operations. The subject configuration should look like this
+
+```json
+"subjects" : [
+  {
+    "id" : "import_product.subject.bunch",
+    "identifier" : "files",
+    "file-resolver": {
+      "prefix": "product-import"
+    },
+    "observers" : [ ... ],
+    "callbacks" : [ ... ],
+    "params" : [ ... ],
+    "frontend-input-callbacks": [
+      {
+        "select": [
+          "import_attribute.callback.create.select.option.value",
+          "import_product.callback.select"
+        ],
+        "multiselect": [
+          "import_attribute.callback.create.multiselect.option.value",
+          "import_product.callback.multiselect"
+        ]
+      }
+    ]
+  }
+]
+```

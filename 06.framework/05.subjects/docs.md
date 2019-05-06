@@ -127,7 +127,9 @@ The subject from above can finally be added to the Workflow Engine with the foll
     	{
       		"id": "import_product.subject.my",
       		"identifier": "files",
-      		"prefix": "product-import",
+            "file-resolver": {
+              "prefix": "product-import"
+            },
       		"observers": [
         		"import_product.observer.my"
       		]
