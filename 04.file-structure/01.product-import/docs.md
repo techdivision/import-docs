@@ -19,10 +19,10 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 ### Add MSI to Product Import
 
-Add the column `inventory_source_items` to also import MSI stock data with the product import.
+Add the column `inventory_source_items` to also import MSI stock data with the product import. For example, the column **MUST** contain the data in the following structure, e. g.
 
 ```csv
-source_code=default,quantity=10.0,status=1,source_code=inventory-01,quantity=5.0,status=1
+source_code=default,quantity=10.0,status=1|source_code=inventory-01,quantity=5.0,status=1
 ```
 
 As for the tier prices, the column with the MSI inventory source items supports the same format.
