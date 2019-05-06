@@ -15,7 +15,7 @@ For the tier prices, simply add the column `tier_prices` to the CSV file with th
 qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|qty=20,price=30,value_type=fixed,website=All Websites,customer_group=ALL GROUPS
 ```
 
-Each tier price row with tier prices will be separated by `|` whereas each column, containing the attribute code => value pairs will be separated by the common `,`. The attribute code => value pairs itself will use the `=` char for separation.
+Each tier price row with tier prices will be separated by `|` whereas each column, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation.
 
 ### Add MSI to Product Import
 
