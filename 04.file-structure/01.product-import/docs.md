@@ -9,13 +9,13 @@ In addition to the Magento 2 CSV structure, it is possible to add additional col
 
 ### Add Tier Prices to Product Import
 
-For the tier prices, simply add the column `tier_prices` to the CSV file with the product data. For example, the column can contain the following data
+For the tier prices, simply add the column `tier_prices` to the CSV file with the product data. For example, the column **MUST** contain the data in the following structure, e. g.
 
 ```csv
 qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|qty=20,price=30,value_type=fixed,website=All Websites,customer_group=ALL GROUPS
 ```
 
-Each tier price row with tier prices will be separated by `|` whereas each column, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation.
+The example above has two rows with tier prices, but there is no limiitation in how much rows of tier prices the column comtains. Each row with tier prices will be separated by `|` whereas each column of a row, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation.
 
 ### Add MSI to Product Import
 
