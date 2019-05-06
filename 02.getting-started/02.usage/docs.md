@@ -16,16 +16,18 @@ whereas the first command creates the mandatory `.OK` file that signals, that al
 
 Beside the import commands several other more or less helper commands are available. The following commands for importing the entities are available:
 
-| Argument                  | Description                                                     | Format |
-|:--------------------------|:----------------------------------------------------------------|:-----------------|
-| import:categories         | Starts importing categories | [Customer + Customer Address Import](/file-structure/category-import) |
-| import:customers          | Starts importing customers | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
-| import:customers:address  | Starts importing customer addresses, expects that the customers are available | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
-| import:attributes:set     | Starts importing attribute sets and their groups | [Attribute Set + Group Import](/file-structure/attributes-set-and-group-import) |
-| import:attributes         | Starts importing attributes, expects that the referenced attribute sets + groups are available | [Attribute Import](/file-structure/attributes) |
-| import:products           | Starts the product import, expects that the referenced attributes as well as the attribute sets and groups are available | [Product Import](/file-structure/product-import) |
-| import:products:inventory | Starts importing product inventory, expects that the products are available | [Product Import](/file-structure/product-import) |
-| import:products:price     | Starts importing product prices, expects that the productds are available | [Product Import](/file-structure/product-import) |
+| Argument                      | Description                                                     | Format |
+|:------------------------------|:----------------------------------------------------------------|:-----------------|
+| import:categories             | Starts importing categories | [Customer + Customer Address Import](/file-structure/category-import) |
+| import:customers              | Starts importing customers | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
+| import:customers:address      | Starts importing customer addresses, expects that the customers are available | [Customer + Customer Address Import](/file-structure/customer-and-customer-address-import) |
+| import:attributes:set         | Starts importing attribute sets and their groups | [Attribute Set + Group Import](/file-structure/attributes-set-and-group-import) |
+| import:attributes             | Starts importing attributes, expects that the referenced attribute sets + groups are available | [Attribute Import](/file-structure/attributes) |
+| import:products               | Starts the product import, expects that the referenced attributes as well as the attribute sets and groups are available | [Product Import](/file-structure/product-import) |
+| import:products:inventory     | Starts importing product inventory, expects that the products are available | [Product Import](/file-structure/product-import) |
+| import:products:inventory:msi | Starts importing product inventory, expects that the products are available | [Product Import](/file-structure/product-import) |
+| import:products:price         | Starts importing product prices, expects that the products are available | [Product Import](/file-structure/product-msi-import) |
+| import:products:price:tier    | Starts importing product tier prices, expects that the products are available | [Product Import](/file-structure/product-tier-price-import) |
 
 By default, if no other `source-dir` has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
 
