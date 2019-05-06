@@ -1,5 +1,5 @@
 ---
-title: 'Attribute Set + Group Import 2'
+title: MSI
 visible: true
 ---
 
