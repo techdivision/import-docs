@@ -20,7 +20,7 @@ The structure is separated into a general configuration section, the database co
 ```json
 {
   "magento-edition": "CE",
-  "magento-version": "2.1.2",
+  "magento-version": "2.3.1",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
   "databases" : [ ... ],
@@ -38,7 +38,7 @@ Global parameters in the configuration file enables developers to pass specific 
 ```json
 {
   "magento-edition": "CE",
-  "magento-version": "2.1.2",
+  "magento-version": "2.3.1",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
   "params": [ 
@@ -300,12 +300,11 @@ Finally, the `ArchivePlugin` archives the imported files additionally artefacts 
 ```json
 {
   "magento-edition": "CE",
-  "magento-version": "2.1.2",
+  "magento-version": "2.3.1",
   "operation-name" : "replace",
   "installation-dir" : "/var/www/magento",
   "source-dir": "projects/sample-data/tmp",
   "target-dir": "projects/sample-data/tmp",
-  "source-date-format": "n/d/y, g:i A",
   "archive-artefacts" : false,
   "archive-dir" : "archive",
   "debug-mode" : false,
