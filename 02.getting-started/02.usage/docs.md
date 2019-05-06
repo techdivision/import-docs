@@ -60,7 +60,7 @@ The following configuration options are available:
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | --serial             | Specify the unique identifier of this import process | Some UUID |
-| --configuration      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
+| <nobr>--configuration</nobr>      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
 | --pid-filename       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 | --system-name        | The system name to be used (will added to the mail subject, if mails are configured) | The hostname |
 | --installation-dir   | The Magento installation directory to which the files has to be imported | The actual working directory |
