@@ -39,7 +39,7 @@ The following configuration arguments are available:
 
 | Argument             | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
-| operation            | Specify the operation name to execute, either one of add-update, replace or delete | n/a |
+| operation            | Specify the operation name to execute, either one of add-update, replace or delete (for further information look at the next [section](#operations))| n/a |
 
 ### Operations
 
