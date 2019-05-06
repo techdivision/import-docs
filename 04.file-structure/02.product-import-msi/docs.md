@@ -1,5 +1,5 @@
 ---
-title: MSI
+title: 'Product Import // MSI'
 visible: true
 ---
 
