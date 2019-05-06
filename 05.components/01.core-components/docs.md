@@ -21,6 +21,8 @@ These are the M2IF core components for the Magento 2 Community Edition (CE).
 * [import-product-media](https://github.com/techdivision/import-product-media) - Provides Product Image Import functionality
 * [import-product-variant](https://github.com/techdivision/import-product-variant) - Provides Configurable Product Import functionality
 * [import-product-grouped](https://github.com/techdivision/import-product-grouped) - Provides Grouped Product Import functionality
+* [import-product-msi](https://github.com/techdivision/import-product-msi) - Provides Product MSI Import functionality
+* [import-product-tier-price](https://github.com/techdivision/import-product-tier-price) - Provides Product Tier Price Import functionality
 * [import-category](https://github.com/techdivision/import-category) - Provides Category Import functionality
 * [import-attribute](https://github.com/techdivision/import-attribute) - Provides Attribute Import functionality
 * [import-customer](https://github.com/techdivision/import-customer) - Provides Customer Import functionality
