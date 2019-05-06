@@ -171,8 +171,8 @@ The following events are available
 
 | Event Name                           | Description                                                                                                                    |
 |:-------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|
-| app.set.up                           | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
-| app.tear.down                        | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
+| app.set.up                           | Is triggered before the import will be processed.                                                                       |
+| app.tear.down                        | Is triggered after the import has been processed.                                                                              |
 | app.process.transaction.start        | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |
 | app.process.transaction.success      | Is triggered after the application has the transaction committed successfully (if single transaction mode has been activated). |
 | app.process.transaction.failure      | Is triggered after the application rollbacked the transaction (if single transaction mode has been activated).                 |
