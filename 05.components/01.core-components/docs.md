@@ -1,5 +1,6 @@
 ---
 title: 'Core Components'
+visible: true
 ---
 
 This page lists the main components, that provides Magento 2 import core functionality to import products, categories and attributes.
@@ -19,6 +20,8 @@ These are the M2IF core components for the Magento 2 Community Edition (CE).
 * [import-product-link](https://github.com/techdivision/import-product-link) - Provides product relation import functionality
 * [import-product-media](https://github.com/techdivision/import-product-media) - Provides product image import functionality
 * [import-product-variant](https://github.com/techdivision/import-product-variant) - Provides configurable product import functionality
+* [import-product-msi](https://github.com/techdivision/import-product-msi) - Provides MSI (multi source inventory) import functionality
+* [import-product-tier-price](https://github.com/techdivision/import-product-tier-price) - Provides product tier price import functionality
 * [import-category](https://github.com/techdivision/import-category) - Provides category import functionality
 * [import-attribute](https://github.com/techdivision/import-attribute) - Provides attribute import functionality
 
