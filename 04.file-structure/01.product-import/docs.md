@@ -7,6 +7,8 @@ The structure for the Product import is 100 % compatible with the Magento 2 CSV 
 
 In addition to the Magento 2 CSV structure, it is possible to add additional columns to allow tier prices and MSI stock data also be part of the product import. Both columns contains serialized data like the `additional_attributes` column does.
 
+During product import, M2IF extracts the data from the columns and creates separate CSV files. These CSV files are 1:1 the format described for [Tier Prices](file-structure/tier-prices) and [MSI](file-structure/msi) import in the corresponding sections. After the products have been imported, M2IF imports the tier prices as well as the MSI data.
+
 ### Add Tier Prices to Product Import
 
 For the tier prices, simply add the column `tier_prices` to the CSV file with the product data. For example, the column **MUST** contain the data in the following structure, e. g.
