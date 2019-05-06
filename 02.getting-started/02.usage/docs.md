@@ -29,7 +29,9 @@ Beside the import commands several other more or less helper commands are availa
 | import:products:price         | Starts importing product prices, expects that the products are available | [Product Import](/file-structure/product-import) |
 | import:products:price:tier    | Starts importing product tier prices, expects that the products are available | [Product Import // Tier Price](/file-structure/product-import-tier-price) |
 
-By default, if no other `source-dir` has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
+By default, if no other source directory has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
+
+> In general, it is possible to **ALWAYS** use the `import:products` command if a configuration file with the `--configuration` option has been specified. The different commands actually just make sure that the corresponding default configuration files will be used.
 
 ### Arguments
 
