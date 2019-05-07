@@ -184,7 +184,7 @@ The following events are available
 
 This register's the class loader of specified vendor directory and parse's the libraries for the necessary DI configuration files.
 
-#### Listeners
+#### Default Listeners
 
 By default, M2IF comes with 3 listeners registered. 
 
