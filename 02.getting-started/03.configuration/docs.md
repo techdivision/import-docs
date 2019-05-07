@@ -184,6 +184,41 @@ The following events are available
 
 This register's the class loader of specified vendor directory and parse's the libraries for the necessary DI configuration files.
 
+#### Listeners
+
+By default, M2IF comes with 3 listeners registered. 
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.3.0",
+  "operation-name" : "add-update",
+  "archive-artefacts" : true,
+  "debug-mode" : false,
+  "source-dir" : "projects/sample-data/tmp",
+  "target-dir" : "projects/sample-data/tmp",
+  "entity-type-code" : "catalog_product",
+  "listeners" : [
+    {
+      "app.set.up" : [
+        "import.listener.render.ansi.art",
+        "import.listener.initialize.registry"
+      ]
+    },
+    {
+      "app.tear.down" : [
+        "import.listener.clear.registry"
+      ]
+    }
+  ],
+  ...
+}
+```
+
+The first one named `import.listener.render.ansi.art` is renders the nice ASCII art when invoking the CLI. The second and the third one are mandatory as they are responsible to initialize the registry of the actual import.
+
+> As solution partner, feel free to replace the ASCII art renderer with one of your choice, e. g. rendering the logo of your company.
+
 #### Database
 
 The configuration allows the registration of multiple databases like
