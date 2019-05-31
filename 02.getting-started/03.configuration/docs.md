@@ -181,12 +181,113 @@ The following events are available
 | subject.artefact.process.failure     | Is triggered when an import artefact can not be processed.                                                                     |               |
 | subject.artefact.row.process.start   | Is triggered when an import artefact has successfully been processed.                                                          |               |
 | subject.artefact.row.process.success | Is triggered when an import artefact has successfully been processed.                                                          |               |
+| plugin.process.start                 | Is triggered before a subject's `import()` method will be processed.                                                           |         3.4.0 |
+| plugin.process.success               | Is triggered after a subject's `import()` method has been processed.                                                           |         3.4.0 |
+| plugin.process.failure               | Is triggered when an exception has been thrown during the subject's `import()` is processed.                                   |         3.4.0 |
 | subject.import.start                 | Is triggered before a subject's `import()` method will be processed.                                                           |         3.4.0 |
 | subject.import.success               | Is triggered after a subject's `import()` method has been processed.                                                           |         3.4.0 |
 | subject.import.failure               | Is triggered when an exception has been thrown during the subject's `import()` is processed.                                   |         3.4.0 |
 | subject.export.start                 | Is triggered before a subject's `export()` method will be processed.                                                           |         3.4.0 |
 | subject.export.success               | Is triggered after a subject's `export()` method has been processed.                                                           |         3.4.0 |
 | subject.export.failure               | Is triggered when an exception has been thrown during the subject's `export()` is processed.                                   |         3.4.0 |
+
+Beside to possiblity to register global events, up with version 3.4.0 it is possible to register events on plugin and subject level. This avoids execution of events that only provide functionality for a dedicated plugin or subject, so keep in mind, that they will **NOT** be fired for every plugin or every subject.
+
+##### Plug-In Level
+
+The listeners will only be executed before, after or on failure of the plugin, for which the event has been  configured for. Configuration will look like
+
+```json
+{
+  ...
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "listeners" : [
+             {
+              "plugin.process.success" : [
+                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+              ]
+            }
+          ]
+          ...
+        }
+      ]
+    }
+    ...
+  ]
+}
+```
+
+##### Subject Level
+
+As subjects are responsible for importing **AND** exporting artefacts, events for both steps has been added.
+
+The listeners will only be executed before, after or on failure of the subject, for which the event has been configured for. Configuration will look like
+
+```json
+{
+  ...
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        {
+          "id": "import.plugin.cache.warmer"
+        },
+        {
+          "id": "import.plugin.global.data"
+        },
+        {
+          "id": "import.plugin.subject",
+          "listeners" : [
+             {
+              "plugin.process.success" : [
+                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+              ]
+            }
+          ]
+          "subjects": [
+            ...
+            {
+              "id": "import_product_tier_price.subject.tier_price",
+              "identifier": "files",
+              "listeners": [
+                 {
+                  "subject.import.success" : [
+                    "import_product.listener.register.sku.to.pk.mapping"
+                  ]
+                }
+              ],
+              "file-resolver": {
+                "prefix": "product-import-tier-price"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_tier_price.observer.tier_price.update"
+                  ]
+                }
+              ]
+            },
+          },
+          ...
+        ]
+      ]
+    }
+    ...
+  ]
+}
+```
 
 #### Default Listeners
 
