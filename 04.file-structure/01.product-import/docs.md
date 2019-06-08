@@ -29,8 +29,8 @@ The second step is, to add the listener, the subjects and the observers that pro
 
 Basically, the plugin configuration for the apropriate operation has to be extended with
 
-* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace operation
-* the observer `mport_product_tier_price.observer.product.tier_price` that has to be added after the `import_product.observer.composite.base.add_update` observer of the first `import_product.subject.bunch` (*only for `add-update` operation*)
+* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace` operation
+* the observer `import_product_tier_price.observer.product.tier_price` that has to be added after the first observer of the first `import_product.subject.bunch` subject
 * a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (*only for `add-update` operation*)
 * param `clean-up-tier-prices` on subject level either with the value `true` or `false` which decides whether or not tier-prices should be cleaned-up (*only for `add-update` operation*)
 
@@ -170,8 +170,7 @@ The second step is, to add the subject that processes the MSI to your configurat
 
 Basically, the plugin configuration for the apropriate operation has to be extended with
 
-* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace operation
-* a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (only for `add-update` operation)
-* param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (only for `add-update` operation)
+* the subject `import_product_msi.subject.bunch` with the observer `import_product_msi.observer.inventory.source.item.update` for the `add-update` and the observers `import_product_msi.observer.clear.inventory.source.item` and `import_product_msi.observer.inventory.source.item` for the `replace` operation
+* the observer `import_product_msi.observer.product.source.item` that has to be added after the first observer of the first `import_product.subject.bunch` subject
 
 For the `add-update` it has to look like
