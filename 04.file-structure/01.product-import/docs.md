@@ -29,7 +29,7 @@ The second step is, to add the subject that processes the tier prices to your co
 
 Basically, the plugin configuration for the apropriate operation has to be extended with
 
-* the subject `import_product_tier_price.subject.tier_price`
+* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace operation
 * a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (only for `add-update` operation)
 * param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (only for `add-update` operation)
 
