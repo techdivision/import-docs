@@ -51,10 +51,7 @@ For the `replace` operation, the configuration has to look like
           "subjects": [
             {
               "id": "import_product.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "product-import"
-              },
+    	      ...,
               "observers": [
                 {
                   "import": [
@@ -212,6 +209,56 @@ For the `delete` operation, the configuration has to look like
                 {
                   "import": [
                     "import_product_msi.observer.clear.inventory.source.item"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        ...,
+      ]
+    }
+  ]
+}
+```
+
+For the `replace` operation, the configuration has to look like
+
+```json
+{
+  ...,
+  "operations": [
+       {
+      "name" : "replace",
+      "plugins" : [
+        ...,
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import_product.subject.bunch",
+    	      ...,
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.composite.base.replace",
+                    "import_product_msi.observer.product.source.item"
+                  ]
+                }
+              ]
+            },
+            ...,,
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.clear.inventory.source.item",
+                    "import_product_msi.observer.inventory.source.item"
                   ]
                 }
               ]
