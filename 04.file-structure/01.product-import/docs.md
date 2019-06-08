@@ -25,7 +25,7 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 #### Extend Configuration
 
-The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) as well as the [Commerce](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple)
+The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple)
 
 Basically, the plugin configuration for the apropriate operation has to be extended with
 
@@ -37,28 +37,33 @@ for the necessary subjects has the following structure. For the `add-update` it'
 
 ```json
 {
- ...
+ ...,
  "operations": [
    {
       "name" : "add-update",
-      "plugins" : [
-        ...
+      "plugins" : [,
         {
           "id": "import.plugin.subject",
-          "listeners" : [
-             {
-              "plugin.process.success" : [
-                "import_product_tier_price.listener.delete.obsolete.tier_prices"
-              ]
-            }
-          ],
-          "params" : [
-            {
-              "clean-up-tier-prices" : true
-            }
-          ],
           "subjects": [
-            ...
+            ...,
+            {
+              "id": "import_product.subject.bunch",
+              ...,
+              "params" : [
+                {
+                  "copy-images" : false
+                }
+              ],
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.composite.base.add_update",
+                    "import_product_tier_price.observer.product.tier_price"
+                  ]
+                }
+              ]
+            },
+			...,
             {
               "id": "import_product_tier_price.subject.tier_price",
               "file-resolver": {
@@ -74,7 +79,7 @@ for the necessary subjects has the following structure. For the `add-update` it'
             }
           ]
         }
-        ...
+        ...,
       ]
     }
   ]
@@ -85,7 +90,7 @@ For the `replace` operation, the subject configuration looks like
 
 ```json
 {
-  ...
+  ...,
   "operations": [
        {
       "name" : "replace",
@@ -93,8 +98,33 @@ For the `replace` operation, the subject configuration looks like
         ...
         {
           "id": "import.plugin.subject",
-          "subjects": [
-            ...
+          "subjects": [{
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
+              "filesystem-adapter" : {
+                "id" : "import.adapter.filesystem.factory.league",
+                "adapter" : {
+                  "type" : "League\\Flysystem\\Adapter\\Local"
+                }
+              },
+              "params" : [
+                {
+                  "copy-images" : false
+                }
+              ],
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.composite.base.replace",
+                    "import_product_tier_price.observer.product.tier_price"
+                  ]
+                }
+              ]
+            },
+            ...,
             {
               "id": "import_product_tier_price.subject.tier_price",
               "identifier": "files",
@@ -122,6 +152,10 @@ For both operations, it has to be be addeded after the `import_product_url_rewri
 
 ### Add MSI to Product Import
 
+To import MSI with the default product import, two steps are necessary. 
+
+#### Add Additional Column
+
 Add the column `inventory_source_items` to also import MSI stock data with the product import. For example, the column **MUST** contain the data in the following structure, e. g.
 
 ```csv
@@ -129,3 +163,15 @@ source_code=default,quantity=10.0,status=1|source_code=inventory-01,quantity=5.0
 ```
 
 As for the tier prices, the column with the MSI inventory source items supports the same format. Our sample data comes with an [example](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/data/products/configurable/product-import_20190226-095345_01.csv) how the file should look like.
+
+#### Extend Configuration
+
+The second step is, to add the subject that processes the MSI to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-inventory-msi.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
+
+Basically, the plugin configuration for the apropriate operation has to be extended with
+
+* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace operation
+* a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (only for `add-update` operation)
+* param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (only for `add-update` operation)
+
+for the necessary subjects has the following structure. For the `add-update` it'll look like
