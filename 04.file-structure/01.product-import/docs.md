@@ -21,7 +21,7 @@ First step is to add the column `tier_prices` to the CSV file with the product d
 qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|qty=20,price=30,value_type=fixed,website=All Websites,customer_group=ALL GROUPS
 ```
 
-The example above has two rows with tier prices, but there is no limiitation in how much rows of tier prices the column comtains. Each row with tier prices will be separated by `|` whereas each column of a row, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation.
+The example above has two rows with tier prices, but there is no limiitation in how much rows of tier prices the column comtains. Each row with tier prices will be separated by `|` whereas each column of a row, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation. Our sample data comes with an [example](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/data/products/configurable/product-import_20190226-095345_01.csv) how the file should look like. 
 
 #### Extend Configuration
 
@@ -128,4 +128,4 @@ Add the column `inventory_source_items` to also import MSI stock data with the p
 source_code=default,quantity=10.0,status=1|source_code=inventory-01,quantity=5.0,status=1
 ```
 
-As for the tier prices, the column with the MSI inventory source items supports the same format.
+As for the tier prices, the column with the MSI inventory source items supports the same format. Our sample data comes with an [example](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/data/products/configurable/product-import_20190226-095345_01.csv) how the file should look like.
