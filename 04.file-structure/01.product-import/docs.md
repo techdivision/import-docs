@@ -13,6 +13,8 @@ During product import, M2IF extracts the data from the columns and creates separ
 
 To import the tier prices with the default product import, two steps are necessary. 
 
+#### Add Additional Column
+
 First step is to add the column `tier_prices` to the CSV file with the product data. For example, the column **MUST** contain the data in the following structure, e. g.
 
 ```
@@ -20,6 +22,8 @@ qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|
 ```
 
 The example above has two rows with tier prices, but there is no limiitation in how much rows of tier prices the column comtains. Each row with tier prices will be separated by `|` whereas each column of a row, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation.
+
+#### Extend Configuration
 
 The second step is, to add the subject that processes the tier prices to your configuration file. For the `add-update` operation it'll look like
 
@@ -39,7 +43,26 @@ The second step is, to add the subject that processes the tier prices to your co
 }
 ```
 
-and has to be be addeded after the `import_product_url_rewrite.subject.url.rewrite`.
+For the `replace` operation, the subject configuration looks like
+
+```json
+{
+    "id": "import_product_tier_price.subject.tier_price",
+    "identifier": "files",
+    "file-resolver": {
+        "prefix": "tier-price"
+    },
+    "observers": [
+        {
+            "import": [
+                "import_product_tier_price.observer.tier_price"
+            ]
+        }
+    ]
+}
+```
+
+For both operations, it has to be be addeded after the `import_product_url_rewrite.subject.url.rewrite`. The configuration of the `delete` operation don't need any customizations as the tier prices will be cleaned-up by their foreign keys.
 
 ### Add MSI to Product Import
 
