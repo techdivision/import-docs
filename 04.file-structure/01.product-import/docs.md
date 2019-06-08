@@ -172,5 +172,11 @@ Basically, the plugin configuration for the apropriate operation has to be exten
 
 * the subject `import_product_msi.subject.bunch` with the observer `import_product_msi.observer.inventory.source.item.update` for the `add-update` and the observers `import_product_msi.observer.clear.inventory.source.item` and `import_product_msi.observer.inventory.source.item` for the `replace` operation
 * the observer `import_product_msi.observer.product.source.item` that has to be added after the first observer of the first `import_product.subject.bunch` subject
+* the observers `import_product_msi.observer.product.source.item` and `import_product.observer.composite.base.delete` **BEFORE** the `import_product.observer.composite.base.delete` of the subject `import_product.subject.bunch` of the `delete` operation
+* the subject `import_product_msi.subject.bunch` with the observer `import_product_msi.observer.clear.inventory.source.item` of the `delete` operation
 
 For the `add-update` it has to look like
+
+```json
+
+```
