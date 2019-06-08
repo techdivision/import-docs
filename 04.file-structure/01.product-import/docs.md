@@ -25,7 +25,9 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 #### Extend Configuration
 
-The second step is, to add the subject that processes the tier prices to your configuration file. For the `add-update` operation it'll look like
+The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) as well as the [Commerce](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) Edition is part of the CLI tool
+
+For the `add-update` operation it'll look like
 
 ```json
 {
