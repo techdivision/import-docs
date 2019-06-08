@@ -25,16 +25,18 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 #### Extend Configuration
 
-The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple)
+The second step is, to add the listener, the subjects and the observers that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
 
 Basically, the plugin configuration for the apropriate operation has to be extended with
 
 * the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace operation
 * the observer `mport_product_tier_price.observer.product.tier_price` that has to be added after the `import_product.observer.composite.base.add_update` observer of the first `import_product.subject.bunch` (*only for `add-update` operation*)
 * a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (*only for `add-update` operation*)
-* param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (*only for `add-update` operation*)
+* param `clean-up-tier-prices` on subject level either with the value `true` or `false` which decides whether or not tier-prices should be cleaned-up (*only for `add-update` operation*)
 
-for the necessary subjects has the following structure. For the `add-update` it'll look like
+> If the clean-up functionality is activated with the param `clean-up-tier-prices` set to `true`, all tier prices that are **NOT** anymore part of the SKUs in the CSV file will be **REMOVED**.  
+
+For the `add-update` it has to look like
 
 ```json
 {
@@ -172,4 +174,4 @@ Basically, the plugin configuration for the apropriate operation has to be exten
 * a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (only for `add-update` operation)
 * param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (only for `add-update` operation)
 
-for the necessary subjects has the following structure. For the `add-update` it'll look like
+For the `add-update` it has to look like
