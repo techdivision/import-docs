@@ -27,21 +27,57 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) as well as the [Commerce](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple)
 
-Basically, the configuration for the necessary subjects has the following structure. For the `add-update` it'll look like
+Basically, the plugin configuration for the apropriate operation has to be extended with
+
+* the subject `import_product_tier_price.subject.tier_price`
+* a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (only for `add-update` operation)
+* param `clean-up-tier-prices` either with the value `true` or `false` whether tier-prices should be cleaned-up or not, also on subject level (only for `add-update` operation)
+
+for the necessary subjects has the following structure. For the `add-update` it'll look like
 
 ```json
 {
-    "id": "import_product_tier_price.subject.tier_price",
-    "file-resolver": {
-        "prefix": "tier-price"
-    },
-    "observers": [
+ ...
+ "operations": [
+   {
+      "name" : "add-update",
+      "plugins" : [
+        ...
         {
-            "import": [
-                "import_product_tier_price.observer.tier_price.update"
-            ]
+          "id": "import.plugin.subject",
+          "listeners" : [
+             {
+              "plugin.process.success" : [
+                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+              ]
+            }
+          ],
+          "params" : [
+            {
+              "clean-up-tier-prices" : true
+            }
+          ],
+          "subjects": [
+            ...
+            {
+              "id": "import_product_tier_price.subject.tier_price",
+              "file-resolver": {
+                "prefix": "tier-price"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_tier_price.observer.tier_price.update"
+                  ]
+                }
+              ]
+            }
+          ]
         }
-    ]
+        ...
+      ]
+    }
+  ]
 }
 ```
 
@@ -49,18 +85,36 @@ For the `replace` operation, the subject configuration looks like
 
 ```json
 {
-    "id": "import_product_tier_price.subject.tier_price",
-    "identifier": "files",
-    "file-resolver": {
-        "prefix": "tier-price"
-    },
-    "observers": [
+  ...
+  "operations": [
+       {
+      "name" : "replace",
+      "plugins" : [
+        ...
         {
-            "import": [
-                "import_product_tier_price.observer.tier_price"
-            ]
+          "id": "import.plugin.subject",
+          "subjects": [
+            ...
+            {
+              "id": "import_product_tier_price.subject.tier_price",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "tier-price"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_tier_price.observer.tier_price"
+                  ]
+                }
+              ]
+            }
+          ]
         }
-    ]
+        ...
+      ]
+    }
+  ]
 }
 ```
 
