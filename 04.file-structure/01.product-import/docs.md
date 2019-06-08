@@ -27,7 +27,7 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 The second step is, to add the subject that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) as well as the [Commerce](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple)
 
-For the `add-update` operation it'll look like
+Basically, the configuration for the necessary subjects has the following structure. For the `add-update` it'll look like
 
 ```json
 {
