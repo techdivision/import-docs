@@ -19,3 +19,5 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 | tier_price_qty            | decimal  | The quantity the tier price is valid from                                                 |         20.0 |
 | tier_price                | decimal  | The tier price itself                                                                     |         98.0 |
 | tier_price_value_type     | decimal  | The value type which can either be one of `Fixed` or `Discount`                           |        Fixed |
+
+If the tier prices should be imported with the full product import, read the apropriate documentation [section](https://docs.m2if.com/file-structure/product-import#add-tier-prices-to-product-import) how this can be realized.
