@@ -3,6 +3,10 @@ title: 'Product Import // Tier Prices'
 visible: true
 ---
 
+M2IF comes with a dedicated tier price import and the apropriate command `import:products:tier:price` therefore. You can find more information about how to invoke the command in the [Usage](getting-started/usage) section.
+
+
+
 The CSV file with the attributes for the Magento 2 CE/EE consists of the following columns
 
 | Column Name               | Type     | Description                                                                               | Example      |
