@@ -3,6 +3,12 @@ title: 'Category Import'
 visible: true
 ---
 
+M2IF comes with a category import and the apropriate command `import:categories` therefore. You can find more information about how to invoke the command in the [Usage](/getting-started/usage) section.
+
+In general the filename for the dedicated MSI import **MUST** match the following pattern `<PREFIX>_<FILENAME>_<COUNTER>.csv`, whereas the default `<PREFIX>` is `category-import`, the `<FILENAME>` is a combination of date and time like `20190608-114344`, and the `<COUNTER>` is a consecutive number with two digits starting with `01`. This results in a filename like `category-import_20190608-114344_01.csv`. Additionally an apropriate `.ok` file is needed.
+
+> ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
+
 The CSV file with the categories for the Magento 2 CE/EE consists of the following columns
 
 | Column Name                | Type     | Mandatory | Description                                                                           | Example |
