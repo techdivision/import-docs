@@ -27,7 +27,7 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 The second step is, to add the listener, the subjects and the observers that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
 
-Basically, the plugin configuration for the apropriate operation has to be extended with
+Basically, the configuration for the apropriate operations has to be extended with
 
 * the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace` operation
 * the observer `import_product_tier_price.observer.product.tier_price` that has to be added **AFTER** the first observer of the first `import_product.subject.bunch` subject
@@ -36,7 +36,59 @@ Basically, the plugin configuration for the apropriate operation has to be exten
 
 > If the clean-up functionality is activated with the param `clean-up-tier-prices` set to `true`, all tier prices that are **NOT** anymore part of the SKUs in the CSV file will be **REMOVED**.  
 
-For the `add-update` it has to look like
+For the `replace` operation, the configuration has to look like
+
+```json
+{
+  ...,
+  "operations": [
+       {
+      "name" : "replace",
+      "plugins" : [
+        ...,
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.composite.base.replace",
+                    "import_product_tier_price.observer.product.tier_price"
+                  ]
+                }
+              ]
+            },
+            ...,
+            {
+              "id": "import_product_tier_price.subject.tier_price",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "tier-price"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_tier_price.observer.tier_price"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        ...,
+      ]
+    }
+  ]
+}
+```
+
+For the `add-update` operation, the configuration has to look like
 
 ```json
 {
@@ -96,58 +148,6 @@ For the `add-update` it has to look like
 }
 ```
 
-For the `replace` operation, the subject configuration looks like
-
-```json
-{
-  ...,
-  "operations": [
-       {
-      "name" : "replace",
-      "plugins" : [
-        ...,
-        {
-          "id": "import.plugin.subject",
-          "subjects": [
-            {
-              "id": "import_product.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "product-import"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product.observer.composite.base.replace",
-                    "import_product_tier_price.observer.product.tier_price"
-                  ]
-                }
-              ]
-            },
-            ...,
-            {
-              "id": "import_product_tier_price.subject.tier_price",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "tier-price"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product_tier_price.observer.tier_price"
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-        ...,
-      ]
-    }
-  ]
-}
-```
-
 For both operations, it has to be be addeded after the `import_product_url_rewrite.subject.url.rewrite`. The configuration of the `delete` operation don't need any customizations as the tier prices will be cleaned-up by their foreign keys.
 
 ### Add MSI to Product Import
@@ -168,15 +168,108 @@ As for the tier prices, the column with the MSI inventory source items supports 
 
 The second step is, to add the subject that processes the MSI to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-inventory-msi.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
 
-Basically, the plugin configuration for the apropriate operation has to be extended with
+Basically, the configuration for the apropriate operations has to be extended with
 
 * the subject `import_product_msi.subject.bunch` with the observer `import_product_msi.observer.inventory.source.item.update` for the `add-update` and the observers `import_product_msi.observer.clear.inventory.source.item` and `import_product_msi.observer.inventory.source.item` for the `replace` operation
 * the observer `import_product_msi.observer.product.source.item` that has to be added **AFTER** the first observer of the first `import_product.subject.bunch` subject
 * the observers `import_product_msi.observer.product.source.item` and `import_product.observer.composite.base.delete` **BEFORE** the `import_product.observer.composite.base.delete` of the subject `import_product.subject.bunch` of the `delete` operation
 * the subject `import_product_msi.subject.bunch` with the observer `import_product_msi.observer.clear.inventory.source.item` of the `delete` operation
 
-For the `add-update` it has to look like
+For the `delete` operation, the configuration has to look like
 
 ```json
+{
+ ...,
+ "operations": [
+   {
+      "name" : "delete",
+      "plugins" : [,
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            ...,
+            {
+              "id": "import_product.subject.bunch",
+              ...,
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.last.entity.id",
+                    "import_product_msi.observer.product.source.item",
+                    "import_product.observer.composite.base.delete"
+                  ]
+                }
+              ]
+            },
+			...,
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.clear.inventory.source.item"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        ...,
+      ]
+    }
+  ]
+}
+```
 
+For the `add-update` operation, the configuration has to look like
+
+```json
+{
+ ...,
+ "operations": [
+   {
+      "name" : "add-update",
+      "plugins" : [,
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            ...,
+            {
+              "id": "import_product.subject.bunch",
+              ...,
+              "observers": [
+                {
+                  "import": [
+                    "import_product.observer.composite.base.add_update",
+                    "import_product_msi.observer.product.source.item"
+                  ]
+                }
+              ]
+            },
+			...,
+            {
+              "id": "import_product_msi.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "inventory-msi"
+              },
+              "observers": [
+                {
+                  "import": [
+                    "import_product_msi.observer.inventory.source.item.update"
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+        ...,
+      ]
+    }
+  ]
+}
 ```
