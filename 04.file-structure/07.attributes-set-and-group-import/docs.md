@@ -9,7 +9,7 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 > ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
 
-The CSV file with the attributes for the Magento 2 CE/EE consists of the following columns, whereas each attribute set can have multipe attribute groups
+The CSV file with the attribute sets for the Magento 2 CE/EE consists of the following columns, whereas each attribute set can have multipe attribute groups
 
 | Column Name                    | Type     | Description                                                                           | Example |
 |:-------------------------------|:---------|---------------------------------------------------------------------------------------|:--------|
