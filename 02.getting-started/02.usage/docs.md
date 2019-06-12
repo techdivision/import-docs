@@ -90,14 +90,15 @@ If the `configuration` option has **NOT** been specified, the system tries to lo
 
 The debug mode provides a more detailed logging output (including PHP version, a list with activated extensions and a check if XDebug is enabled), by automatically setting the Monolog log level to `LogLevel::DEBUG` if **NOT** overwritten with the commandline option `--log-level`. Additionally it ignores
 
-* product category relations to categories that not exists 
-* product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available
+* product category relations that not exists 
+* product images that are **NOT** available
+* product images that can **NOT** be cleaned-up, e.g. the files are **NOT** available anymore
+* product links (related, upsell, crosssell, etc.) for SKUs which are **NOT** available anymore
+* product tier prices that can **NOT** be deleted, e. g. they are **NOT** available anymore
+* product URL rewrites that can **NOT** be created
 * configurable products for SKUs which are **NOT** available or available more than one time
-* missing option values
 * archive plugin can not create the archive directory, e. g. invalid permissions
-
-If the debug mode has been enabled
-
+* missing option values
 * mission option values plugin will send a CSV file with the missing option values to the configured mail address
 
 but logs these issues as warnings to the console.
