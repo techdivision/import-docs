@@ -18,7 +18,7 @@
   * Welche Möglichkeiten gibt es
   * Was muss rein
   * Hat die Reihenfolge der Dateien in der .ok Datei eine Auswirkung auf die Ausführungs-Reihenfolge?
-    > Nein, die Dateien werden **IMMER** alphabetisch sortiert, siehe TechDivision\Import\Subjects\FileResolver\AbstractFileResolver::loadFiles()
+    > Nein, die Dateien werden **IMMER** alphabetisch sortiert, siehe [AbstractFileResolver::loadFiles()](https://github.com/techdivision/import/blob/10.x/src/Subjects/FileResolver/AbstractFileResolver.php)
 * [ ] Beschreibung der Funktionalität für den Bunch-Import
   * Welche Möglichkeiten tun sich damit auf (siehe Gabor)
   * Was heißt Bunch im M2IF Kontext
