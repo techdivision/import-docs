@@ -28,3 +28,6 @@
   * Wie kann M2IF als Basis für andere Extensions verwendet werden (siehe Brickfox)
   * Wie kann M2IF in eigenen Projekten eingesetzt werden
   * Wie baue, registriere und setze ich eine Extension in M2IF um
+* Framework um "Callback" ergänzen
+  * Wann brauche ich einen Callback?
+  * Wie kann ich einen Callback implementieren?
