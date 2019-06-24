@@ -14,8 +14,8 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 | Column Name | Type     | Description                                                                           | Example |
 |:------------|:---------|---------------------------------------------------------------------------------------|:--------|
 | sku         | varchar  | The product SKU to import the inventory source item for                               | 24-MB01 |
-| source_code | varchar  | The entity type code the attribute has to be bound to.                                | default |
-| status      | integer  | The sort order of the attribute set.                                                  |       1 |
-| quantity    | decimal  | The name of the attribute group.                                                      |    98.0 |
+| source_code | varchar  | The code for the products source.                                                     | default |
+| status      | integer  | The stock status of the product for this source.                                      |       1 |
+| quantity    | decimal  | The quantity of the product for this source.                                          |    98.0 |
 
 If MSI should be imported with the full product import, read the apropriate documentation [section](https://docs.m2if.com/file-structure/product-import#add-msi-to-product-import) how this can be realized.
