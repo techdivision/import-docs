@@ -25,6 +25,7 @@
   * Wie müssen die Dateinamen + die .ok Datei aufgebaut sein
 * [ ] Erstellen eines Bereichs Best Practices 
   * M2IF als Whitelabel Lösung
+  * Wie kann man einen neuen Image Type anlegen
   * Wie kann M2IF als Basis für andere Extensions verwendet werden (siehe Brickfox)
   * Wie kann M2IF in eigenen Projekten eingesetzt werden
   * Wie baue, registriere und setze ich eine Extension in M2IF um
