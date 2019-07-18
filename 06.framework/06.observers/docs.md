@@ -24,6 +24,7 @@ The `TechDivision\Import\Observers\AbstractObserver` will be a perfect choice to
 namespace TechDivision\Import\Product\Observers;
 
 use TechDivision\Import\Utils\RegistryKeys;
+use TechDivision\Import\Subjects\SubjectInterface;
 use TechDivision\Import\Observers\AbstractObserver;
 
 class MyObserver extends AbstractObserver
@@ -47,13 +48,19 @@ class MyObserver extends AbstractObserver
     }
 
     /**
-     * Process the observer's business logic.
+     * Will be invoked by the action on the events the listener has been registered for.
      *
-     * @return array The processed row
-     * @throws \Exception Is thrown, if the product with the SKU can not be loaded
+     * @param \TechDivision\Import\Subjects\SubjectInterface $subject The subject instance
+     *
+     * @return array The modified row
+     * @see \TechDivision\Import\Observers\ObserverInterface::handle()
      */
-    protected function process()
+    public function handle(SubjectInterface $subject)
     {
+
+        // initialize the row
+        $this->setSubject($subject);
+        $this->setRow($subject->getRow());
 
         // try to load the product with the SKU of the actual row and store the entity ID => SKU mapping in the subject
         if ($product = $this->processor->loadProduct($this->getValue(ColumnKeys::SKU)) {
@@ -61,6 +68,9 @@ class MyObserver extends AbstractObserver
         } else {
          	throw new \Exception(sprintf('Can\'t load product with SKU "%s"', $sku));   
         }
+
+        // return the processed row
+        return $this->getRow();
     }
 }
 ```
