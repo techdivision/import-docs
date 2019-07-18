@@ -253,7 +253,7 @@ For the `replace` operation, the configuration has to look like
                 }
               ]
             },
-            ...,,
+            ...,
             {
               "id": "import_product_msi.subject.bunch",
               "identifier": "files",
