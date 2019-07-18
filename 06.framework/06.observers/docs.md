@@ -48,7 +48,7 @@ class MyObserver extends AbstractObserver
     }
 
     /**
-     * Will be invoked by the action on the events the listener has been registered for.
+     * Will be invoked by the subject once for every row.
      *
      * @param \TechDivision\Import\Subjects\SubjectInterface $subject The subject instance
      *
