@@ -107,6 +107,8 @@ When the debug mode has been enabled, missing attribute option values will **NOT
 
 This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
 
+> To improve performance, up from version 3.6.0 metadata that allows to retrace above artefacts where the field data has been originated in is only available in debug mode. In production mode, exceptions will now only contain name and line number of the actual artefact.  
+
 ### Running Parallel Imports
 
 To avoid unwanted behaviour, only one import process can be started at a time. To make sure, that only one process is running, a PID file in the system's temporary directory (`sys_get_temp_dir()`) is created which contains the UUID of the actual import process. After the import process has been finished, the file will be deleted and a new process can be started.
