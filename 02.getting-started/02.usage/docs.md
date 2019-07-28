@@ -81,6 +81,7 @@ The following configuration options are available:
 | <nobr>--single-transaction</nobr> | The flag to wrap the import process into a single transaction | `false` |
 | <nobr>--params</nobr>             | A JSON encoded string that'll be merged with the params from the configuration file (has to be in the same format) | n/a |
 | <nobr>--params-file</nobr>        | The path to a file with the JSON encoded params that will be merged with the params from the configuration file  (has to be in the same format)| n/a |
+| <nobr>--cache-enabled</nobr>      | Whether or not the cache functionality for cache with the type `cache.configurable` should be enabled | `true` |
 
 Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The commandline options should only be used to override these values in some circumstances.
 
