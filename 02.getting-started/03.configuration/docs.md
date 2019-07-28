@@ -419,6 +419,31 @@ To add additional loggers, or override the default one with name `system, the co
 
 This will override the system logger, as the name is `system`, and set the default log level to **debug**.
 
+#### Cache
+
+M2IF uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. M2IF distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import. 
+
+In contrast to that, the cache with the DI identifier `cache.configurable` will be used to cache e. g. products that has been loaded once during the import process. This cache type can be enabled/disabled or a TTL can be set like
+
+```json
+{
+  ...,
+  "caches": [
+    {
+      "type": "cache.static"
+    },
+    {
+      "type": "cache.configurable",
+      "enabled" : true,
+      "time": 1440
+    }
+  ],
+  ...,
+}
+```
+
+> In most cases we do not recommend to change the default cache settings as can have a massive impact on performance on the one hand and a deep understanding of the impact on the main functionality will be necessary to avoid errors and disfunctions. 
+
 #### Operations
 
 A operation reflects an import command like the `delete` operation and combines the necessary functionality as as simple container, that allows to have a custom plugin configuration. Usually, most of the operations are at least build out of the tree plugins
