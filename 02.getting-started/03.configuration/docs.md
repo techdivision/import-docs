@@ -421,7 +421,9 @@ This will override the system logger, as the name is `system`, and set the defau
 
 #### Cache
 
-M2IF uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. M2IF distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import. 
+M2IF uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. M2IF distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import.
+
+In most cases it should not be necessary to change cache configurations or disable it. We provide this functionality to support scenarios where M2IF has to work in a distributed environment and e. g. Redis will be used to share the cached data.
 
 In contrast to that, the cache with the DI identifier `cache.configurable` will be used to cache e. g. products that has been loaded once during the import process. This cache type can be enabled/disabled or a TTL can be set like
 
