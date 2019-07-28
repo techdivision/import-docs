@@ -444,6 +444,25 @@ In contrast to that, the cache with the DI identifier `cache.configurable` will 
 
 > In most cases we do not recommend to change the default cache settings as can have a massive impact on performance on the one hand and a deep understanding of the impact on the main functionality will be necessary to avoid errors and disfunctions. 
 
+#### Aliases
+
+Aliases can be used to override classes with custom functionality, e. g. provided by a project specific library. For example. if a custom adapter for caching should be used, the default class behind the Symfony DI configuration of the `cache.adapter` can be replaced by the customer DI identifier `import_parallel.cache.adapter.redis`.
+
+```json
+{
+  ...,
+  "aliases": [
+    {
+      "id": "cache.adapter",
+      "target": "import_parallel.cache.adapter.redis"
+    }
+  ],
+  ...,  
+}
+```
+
+> Overriding classes can be dangerous and should only be done when know what you're doing.
+
 #### Operations
 
 A operation reflects an import command like the `delete` operation and combines the necessary functionality as as simple container, that allows to have a custom plugin configuration. Usually, most of the operations are at least build out of the tree plugins
