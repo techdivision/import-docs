@@ -64,8 +64,8 @@ ALTER TABLE `eav_attribute_option_value` ADD INDEX `EAV_ATTRIBUTE_OPTION_VALUE_V
 When using the Magic 360 [component](/components/3rd-party-components), addtionally the following indexes has to be added
 
 ```sql
-ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_PRODUCT_ID` (`product_id`);
-ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_POSITION` (`position`);
+ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_PRODUCT_ID` (`product_id`); \
+  ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_POSITION` (`position`);
 ```
 
 > This also improves performance of the Magento 2 standard import functionality, but not at same level as for M2IF.
