@@ -619,6 +619,40 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 
 > Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
 
+#### Images
+
+When you want to copy images from a source directory to the Magento `pub/media` directory, additional parameters have to be added to the subjects configuration.
+
+In case images for categories has to copied from directory `var/importexport/media/wysiwyg` to the apropriate target directory `pub/media/catalog/category` the `copy-images` flag has to be set to `true` as well as the values for the `media-directory` (which is the target directory) and the `images-file-directory` (which is the source directory) has to be specified like
+
+```json
+"subjects" : [
+   {
+     "id": "import_category_ee.subject.bunch",
+     "identifier": "files",
+     "file-resolver": {
+       "prefix": "category-import"
+     },
+     "params" : [
+       {
+         "copy-images" : true,
+         "media-directory" : "pub/media/catalog/category",
+         "images-file-directory" : "var/importexport/media/wysiwyg"
+       }
+     ],
+     "observers": [
+       {
+         "import": [
+           "import_category_ee.observer.composite.add_update"
+          ]
+        }
+     ]
+   }
+]
+```
+
+In the CSV file the path to the images has to start with a `/` like `/womens/womens-main.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/master/generic/data/categories/add-update/category-import_20161024-194026_01.csv);
+
 ### Product Link Positions (CE)
 
 Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
