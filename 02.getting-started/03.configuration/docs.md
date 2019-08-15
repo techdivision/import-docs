@@ -653,6 +653,8 @@ In case images for categories has to copied from directory `var/importexport/med
 
 In the CSV file the path to the images has to start with a `/` like `/womens/womens-main.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/master/generic/data/categories/add-update/category-import_20161024-194026_01.csv);
 
+> ATTENTION: Keep in mind that it won't usually make sense to copy the images during the import process as this will slow down the performance sigenifcantly. It is strongly recommended to copy the images to the apropriate folder in your Magento installation and only importing the path to the images.
+
 ### Product Link Positions (CE)
 
 Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
