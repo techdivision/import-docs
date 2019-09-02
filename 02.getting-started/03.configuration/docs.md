@@ -736,3 +736,14 @@ To enable this, additional frontend input callbacks have to be registered in the
   }
 ]
 ```
+
+### Delta Import
+
+Beside the full import functionality, M2IF also supports delta import functionality. The delta import supports SKUs for
+
+* all link types (up-sell, cross-sell + related)
+* variant products
+* grouped products
+* bundle products
+
+that are **NOT** part of one of the actual CSV files.
