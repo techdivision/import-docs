@@ -655,6 +655,26 @@ In the CSV file the path to the images has to start with a `/` like `/womens/wom
 
 > ATTENTION: Keep in mind that it won't usually make sense to copy the images during the import process as this will slow down the performance sigenifcantly. It is strongly recommended to copy the images to the apropriate folder in your Magento installation and only importing the path to the images.
 
+#### Header Mappings
+
+In some cases, it can be very handy to map column names to the appropriate attributes. This is a built-in feature and can simply be configured by adding an array with header mappings like
+
+```json
+{
+  "header-mappings" : [
+    {
+      "my_sku_column": "sku",
+      "my_qty_column": "qty",
+      ...,
+    }
+  ]
+}
+```
+
+In the example above, column name `my_sku_column` will automatically be mapped to the mandatory column `sku`. This happens **BEFORE** any columns will be processed and allows vendors to configure any column to the appropriate attribute without custom development.
+
+> Keep in mind, that the header mappings are valid for all operations within the configuration file!
+
 ### Product Link Positions (CE)
 
 Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
