@@ -29,3 +29,4 @@ By default, the Customer + Customer Address Import expects a CSV file with the f
 * Special chars are escaped with a backslash (\)
 
 > By default, columns that doesn't contain a value are ignored by default. This means, it is **NOT** possible to delete or override an existing value with an empty value. To delete an existing value, the whole customer has to be removed by running an import with the `delete` operation. After that, the customer with the new values can be imported by running an `add-update` operation. This default behaviour can be changed with the `clean-up-empty-columns` parameter in the particular subject.
+
