@@ -4,14 +4,11 @@ published: false
 visible: true
 ---
 
-Your page content goes here.
+The import functionality provides a possiblity to import values on store view level. The store view specific values has to be added on a separate row like
 
-
-The CSV file with the attributes for the Magento 2 CE/EE consists of the following columns
-
-| store_view_code | sku     | name          | description                          | url_key       | url_key |
-|:----------------|:--------|:--------------|--------------------------------------|:--------------|:--------|
-|                 | MB-2401 | Duffle Bag    | This the default description.        | duffle-bag    |         |
-| de_DE           | MB-2401 | Reisetasche   | Das ist die deutsche Beschreibung.   | reisetasche   |         |
-| fr_FR           | MB-2401 | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
-| es_ES           | MB-2401 | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
+| sku     | store_view_code | attribute_set_code | product_type | name          | description                          | url_key       | ...     |
+|:--------|:----------------|:-------------------|:-------------|:--------------|:-------------------------------------|:--------------|:--------|
+| MB-2401 |                 | Default            | simple       | Duffle Bag    | This the default description.        | duffle-bag    |         |
+| MB-2401 | de_DE           |                    |              | Reisetasche   | Das ist die deutsche Beschreibung.   | reisetasche   |         |
+| MB-2401 | fr_FR           |                    |              | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
+| MB-2401 | es_ES           |                    |              | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
