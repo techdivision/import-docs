@@ -15,6 +15,6 @@ The import functionality provides a possiblity to import values on different sco
 
 The column `store_view_code` **MUST** contain the appropriate Magento store view code.
 
-### Fields that can be translated
+### Which Attributes that can be Translated
 
 For sure, not all attributes can have different values per scope.
