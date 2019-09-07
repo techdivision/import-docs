@@ -706,7 +706,7 @@ INSERT INTO
 
 ### Dynamic Option Creation
 
-Up from version 2.2.x + 2.3.x it is possible to create missing product option values for the `admin` store on the fly. This means that it is **NOT** possible to create translations for the other stores other than the values for the `admin` store. This is, because when creating option values dynamically, the option values taken from the column `additional_attributes` always has to be the values for the `admin` store. Translations can be done in the Magento backend or with the [attribute import](/file-structure/attributes).
+Up from version 2.2.x + 2.3.x it is possible to create missing product option values for the `admin` store on the fly. This means that it is **NOT** possible to create translations for the other stores other than the `admin` store itself. This is, because when creating option values dynamically, the option values taken from the column `additional_attributes` always has to be the values for the `admin` store. Translations can be done in the Magento backend or with the [attribute import](/file-structure/attributes).
 
 To enable this, additional frontend input callbacks have to be registered in the configuration file, for the `add-update` as well as the `replace` operations. The subject configuration should look like this
 
