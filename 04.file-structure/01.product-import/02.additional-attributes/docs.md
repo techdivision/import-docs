@@ -26,7 +26,7 @@ It'll also be possible that the values of additional attributes contains double 
 |:--------|:----|:--------------------------------------------------------------------------------|:----|
 | MB-2401 |     | "color=black,""features=Audio Pocket&#124;Laptop ""Sleeve"", 15 inches"""       |     |
 
-> Please keep in mind, that when a escape character, which defaults to backslash (\), is used to escape the delimiter, e. g. `Laptop \"Sleeve\"` the delimiter will **NOT** be removed automatically, instead it'll be stored in the database.
+> Please keep in mind, that when a escape character, which defaults to backslash (\\), is used to escape the delimiter, e. g. `Laptop \"Sleeve\"` the delimiter will **NOT** be removed automatically, instead it'll be stored in the database.
 
 ### Multiselect Attributes
 
