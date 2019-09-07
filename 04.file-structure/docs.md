@@ -16,17 +16,3 @@ Magento 2 itself provides import functionality for the Product, Inventory + Pric
 * Attribute-Sets (and their Groups)
 
 > The default import format for all entties is CSV actually, which will always be supported in future versions as well. As M2IF is **NOT** a tool but a framework, replacing the CSV format, e. g. with XML will be possible for sure.
-
-### General CSV File Format
-
-By default, the Customer + Customer Address Import expects a CSV file with the following defaults
-
-* UTF-8 encoding
-* Date format is n/d/y, g:i A
-* Values delimiter is a comma (,)
-* Multiple value delimiter is a pipe (|)
-* Text values are enclosed with double apostrophes (")
-* Special chars are escaped with a backslash (\)
-
-> By default, columns that doesn't contain a value are ignored by default. This means, it is **NOT** possible to delete or override an existing value with an empty value. To delete an existing value, the whole customer has to be removed by running an import with the `delete` operation. After that, the customer with the new values can be imported by running an `add-update` operation. This default behaviour can be changed with the `clean-up-empty-columns` parameter in the particular subject.
-
