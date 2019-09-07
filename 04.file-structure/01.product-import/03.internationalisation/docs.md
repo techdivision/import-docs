@@ -12,3 +12,7 @@ The import functionality provides a possiblity to import values on store view le
 | MB-2401 | de_DE           |                    |              | Reisetasche   | Das ist die deutsche Beschreibung.   | reisetasche   |         |
 | MB-2401 | fr_FR           |                    |              | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
 | MB-2401 | es_ES           |                    |              | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
+
+whereas the column `store_view_code` **MUST** contain the appropriate Magento store view code.
+
+### What can 
