@@ -36,3 +36,5 @@ The example below shows a part of a CSV file with scope specific values for the 
 | MB-2401 | de_DE           | Reisetasche   | Das ist die deutsche Beschreibung.   | "test=german"                            |         |
 | MB-2401 | fr_FR           | Sac Marin     | C'est la description par défaut.     | "test=french"                            |         |
 | MB-2401 | es_ES           | Bolsa de Lona | Esta es la descripción por defecto.  | "test=spain"                             |         |
+
+For more details about Additional Attributes read the dedicated [section](/file-structure/product-import/additional-attributes).
