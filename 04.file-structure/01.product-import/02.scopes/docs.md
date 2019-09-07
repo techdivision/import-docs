@@ -26,7 +26,7 @@ Most of the default attributes have a dedicated column in the CSV file and can s
 
 ![](user_defined_attributes.png)
 
-which should give you a list of all user defined attributes. To make the import as flexible as possible, all user defined attributes can be imported by adding the appropriate key value pair to the `additional_attributes` column. In case of an attribute with type *Yes/No, Select, Multiple Select, Dropdown, Text Swatch, Visual Swatch* the value is **ALWAYS** the value of the admin store view, **NEVER** one of the scope values. In case of all other attribute types, the value **IS** the value that'll rendered for the select store view, either in backend or frontend.
+which should give you a list of all user defined attributes. To make the import as flexible as possible, all user defined attributes can be imported by adding the appropriate key value pair to the `additional_attributes` column.
 
 The example below shows a part of a CSV file with scope specific values for the columns *name*, *description* and *test*
 
