@@ -1,10 +1,10 @@
 ---
-title: Internationalisation
+title: Scopes
 published: true
 visible: true
 ---
 
-The import functionality provides a possiblity to import values on store view level. The store view specific values has to be added on a separate row like
+The import functionality provides a possiblity to import values on different scopes. Therefore, all scope specific values has to be added on a separate row for each scope, which represents a store view, like
 
 | sku     | store_view_code | attribute_set_code | product_type | name          | description                          | url_key       | ...     |
 |:--------|:----------------|:-------------------|:-------------|:--------------|:-------------------------------------|:--------------|:--------|
@@ -13,6 +13,8 @@ The import functionality provides a possiblity to import values on store view le
 | MB-2401 | fr_FR           |                    |              | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
 | MB-2401 | es_ES           |                    |              | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
 
-whereas the column `store_view_code` **MUST** contain the appropriate Magento store view code.
+The column `store_view_code` **MUST** contain the appropriate Magento store view code.
 
-### What can 
+### Fields that can be translated
+
+For sure, not all attributes can have different values per scope.
