@@ -12,7 +12,7 @@ As the values of additional attributes can contain commas (,) which is the defau
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
 | MB-2401 |     | "color=black,activity=gym&#124;hiking,""features=Audio Pocket&#124;Laptop Sleeve, 15 inches"""           |     |
 
-In case the values of an additional attributes contains a double apostrophe (") this has to be escaped with a backslash or an double apostrophe (") itself like
+In case the values of an additional attributes contains a double apostrophe ("), e. g. like `Laptop "Sleeve"` those has to be escaped with a backslash or an double apostrophe (") itself like
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
