@@ -10,9 +10,7 @@ The column `additional_attributes` allows to import values for all attributes th
 
 ### Enclosing, Escaping and Delimiter
 
-As the default multiple field seprarator, which separates the key value pairs with the option values to be imported, is a comma (,) it is necessary to enclose the **COMPLETE** value of the column with double apostrophes ("). 
-
-Additionally, if only **ONE** of the attribute option values also contains a comma, e. g. like the value `Laptop Sleeve, 15 inches` the **COMPLETE** key value pair additionally has to be enclosed with double apostrophes ("). This in case, leads to funny constellations, as those double apostrophes (") has to be escaped with double apostrophes (") again like
+As the default multiple field seprarator, which separates the key value pairs with the option values to be imported, is a comma (,) it is necessary to enclose the **COMPLETE** value of the column with double apostrophes ("). Additionally, if only **ONE** of the attribute option values also contains a comma, e. g. like the value `Laptop Sleeve, 15 inches` the **COMPLETE** key value pair additionally has to be enclosed with double apostrophes ("). This in case, leads to funny constellations, as those double apostrophes (") has to be escaped with double apostrophes (") again like
 
 | sku     | ... | additional_attributes                                                           | ... |
 |:--------|:----|:--------------------------------------------------------------------------------|:----|
