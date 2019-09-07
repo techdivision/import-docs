@@ -4,15 +4,9 @@ published: true
 visible: true
 ---
 
-The Magento standard CSV format provides a feature called comoplex data which allows some kind of simple serialization e. g. to have list of additional attributes within one column.
+The column `additional_attributes` allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
 
-On the Magento [developer documentation](https://docs.magento.com/m2/ce/user_guide/system/data-complex.html), a short description about the complex data format for configurables, bundles and grouped product inforation is available. 
-
-### Additional Attributes
-
-Beside these columns there is an additional column `additional_attributes` that allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
-
-As the values of additional attributes can contain commas (,) which is the default column separator, it is necessary to enclose the complete values with a double apostrophe (") if only **ONE** of the attribute option value contains a comma, e. g. like the value `Laptop Sleeve, 15 inches`
+As the values of additional attributes can contain commas (,) which is the default column separator, it is necessary to enclose those values with a double apostrophe (") if only **ONE** of the attribute option value contains a comma, e. g. like the value `Laptop Sleeve, 15 inches`
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
@@ -22,10 +16,10 @@ In case the values of an additional attributes contains a double apostrophe (") 
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
-| MB-2401 |     | color=black,activity=gym|hiking,features=Audio Pocket|Laptop \"Sleeve\"                                  |     |
+| MB-2401 |     | color=black,activity=gym&#124;hiking,features=Audio Pocket&#124;Laptop \"Sleeve\"                        |     |
 
 It'll also be possible that the values of additional attributes contains double apostrophes (") as well as commas (,). Those has to be enclosed and escaped like 
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
-| MB-2401 |     | "color=black,activity=gym|hiking,features=""Audio Pocket|Laptop \"Sleeve\", 15 inches"""                 |     |
+| MB-2401 |     | "color=black,activity=gym&#124;hiking,features=""Audio Pocket&#124;Laptop \"Sleeve\", 15 inches"""       |     |
