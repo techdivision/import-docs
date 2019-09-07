@@ -1,6 +1,6 @@
 ---
 title: Scopes
-media_order: scope.png
+media_order: 'scope.png,user_defined_attributes.png'
 published: true
 visible: true
 ---
@@ -21,3 +21,9 @@ The column `store_view_code` **MUST** contain the appropriate Magento store view
 For sure, not all attributes can have different values per scope. In general all product attributes that has been created with scope *Store View* can be translated. To find out which attributes have the scope *Store View* open the Backend and go to the overview with the product attributes by clicking on the navigation path *Stores > Attributes > Products*. Select the filter *Store View* and press enter, the result should look like
 
 ![](scope.png)
+
+Most of the default attributes have a dedicated column in the CSV file, but **ALL** attributes that has been user defined, either in the backend or by a developer doesn't. To find out which columns are user defined, you can open your preferred SQL editor and enter a SQL like
+
+![](user_defined_attributes.png)
+
+which should give you a list of all user defined attributes. To make the import as flexible as possible, all user defined attributes can be imported by adding the appropriate values to the `additional_attributes` column.
