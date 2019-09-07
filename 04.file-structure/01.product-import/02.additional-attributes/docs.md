@@ -8,7 +8,9 @@ The column `additional_attributes` allows to import values for all attributes th
 
 ### Enclosing, Escaping and Delimiter
 
-As the values of additional attributes can contain commas (,) which is the default column separator, it is necessary to enclose those values with a double apostrophe (") if only **ONE** of the attribute option value contains a comma, e. g. like the value `Laptop Sleeve, 15 inches`
+As the default multiple field seprarator is a comma (,) the key value pairs of the additional attributes will be speparated by a comma (,). Therefore it is necessary to enclose the **COMPLETE** value of the column with double apostrophes ("). 
+
+Additionally, if only **ONE** of the attribute option values also contains a comma, e. g. like the value `Laptop Sleeve, 15 inches` the **COMPLETE** key value pair additionally has to be enclosed with double apostrophes ("). This in case, leads to funny constellations, as those double apostrophes (") has to be escaped with double apostrophes (") again like
 
 | sku     | ... | additional_attributes                                                           | ... |
 |:--------|:----|:--------------------------------------------------------------------------------|:----|
@@ -18,7 +20,7 @@ In case the values of an additional attributes contains a double apostrophe ("),
 
 | sku     | ... | additional_attributes                                                           | ... |
 |:--------|:----|:--------------------------------------------------------------------------------|:----|
-| MB-2401 |     | color=black,features=Audio Pocket&#124;Laptop ""Sleeve""                        |     |
+| MB-2401 |     | "color=black,features=Audio Pocket&#124;Laptop ""Sleeve"""                      |     |
 
 It'll also be possible that the values of additional attributes contains double apostrophes (") as well as commas (,). Those has to be enclosed and escaped like 
 
@@ -35,3 +37,25 @@ In case of Multiselect Attributes, mostly more than one value for an attribute w
 | sku     | ... | additional_attributes                                                                                | ... |
 |:--------|:----|:-----------------------------------------------------------------------------------------------------|:----|
 | MB-2401 |     | """activity=gym&#124;hiking, trails"",""features=Audio Pocket&#124;Laptop Sleeve, 15 inches"""       |     |
+
+> The Multiselect Attributes ore the only values that uses the multiple value delimiter!
+
+### Configuration
+
+Beside the general CSV configuration on subject level M2IF allows to override the default configuration for the multiple field and value separator for the Additional Attributes. In contrast to the general CSV configuration this has to be done on the global level and is therefore valid for all operations, subjects and observers.
+
+The default configuration can be overwritten by adding either one of or both `multiple-field-delimiter` and `mulitple-value-delimiter` to the confifguration file like
+
+```json
+{
+  "magento-edition": "CE",
+  "magento-version": "2.3.2",
+  "operation-name" : "add-update",
+  "installation-dir" : "/var/www/magento",
+  "multiple-field-delimiter" : ",",
+  "multiple-value-delimiter" : "|",
+  "databases" : [ ... ],
+  "loggers" : [ ... ],
+  "operations" : { ... }
+}
+```
