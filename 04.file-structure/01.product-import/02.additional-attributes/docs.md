@@ -16,10 +16,12 @@ In case the values of an additional attributes contains a double apostrophe ("),
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
-| MB-2401 |     | color=black,activity=gym&#124;hiking,features=Audio Pocket&#124;Laptop \"Sleeve\"                        |     |
+| MB-2401 |     | color=black,activity=gym&#124;hiking,features=Audio Pocket&#124;Laptop ""Sleeve""                        |     |
 
 It'll also be possible that the values of additional attributes contains double apostrophes (") as well as commas (,). Those has to be enclosed and escaped like 
 
 | sku     | ... | additional_attributes                                                                                    | ... |
 |:--------|:----|:---------------------------------------------------------------------------------------------------------|:----|
-| MB-2401 |     | "color=black,activity=gym&#124;hiking,""features=Audio Pocket&#124;Laptop \"Sleeve\", 15 inches"""       |     |
+| MB-2401 |     | "color=black,activity=gym&#124;hiking,""features=Audio Pocket&#124;Laptop ""Sleeve"", 15 inches"""       |     |
+
+> Please keep in mind, that when a backslash is used to escape the delimiter, e. g. `Laptop \"Sleeve\"` the delimiter will **NOT** be removed automatically, instead it'll be stored in the database.
