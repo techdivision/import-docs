@@ -30,7 +30,7 @@ It'll also be possible that the values of additional attributes contains double 
 
 ### Multiselect Attributes
 
-In case of Multiselect Attributes, mostly more than one value for an attribute will be specified. Those values has to b separated  
+In case of Multiselect Attributes, mostly more than one value for an attribute will be specified. Those values has to b separated by character, which by default is the pipe (|). For example if the Multiselect Attribute `activity` should have the values `gym` and `hiking, trails` selected the column `additional_attributes` **MUST** look like  
 
 | sku     | ... | additional_attributes                                                                                | ... |
 |:--------|:----|:-----------------------------------------------------------------------------------------------------|:----|
