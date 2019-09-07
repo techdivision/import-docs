@@ -6,7 +6,7 @@ visible: true
 
 The column `additional_attributes` allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
 
-### Delimit, Enclose + Escape 
+### Enclosing, Escaping and Delimiter
 
 As the values of additional attributes can contain commas (,) which is the default column separator, it is necessary to enclose those values with a double apostrophe (") if only **ONE** of the attribute option value contains a comma, e. g. like the value `Laptop Sleeve, 15 inches`
 
