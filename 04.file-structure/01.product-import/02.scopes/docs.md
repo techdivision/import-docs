@@ -1,6 +1,6 @@
 ---
 title: Scopes
-media_order: 'scope.png,user_defined_attributes.png'
+media_order: scope.png
 published: true
 visible: true
 ---
