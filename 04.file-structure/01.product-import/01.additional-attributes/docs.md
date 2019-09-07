@@ -6,6 +6,8 @@ visible: true
 
 The column `additional_attributes` allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
 
+> **ALWAYS** keep in mind, that in case of an attribute with type *Yes/No, Select, Multiple Select, Dropdown, Text Swatch, Visual Swatch* the value is **ALWAYS** the value of the admin store view, **NEVER** one of the scope values. In case of all other attribute types, the value **IS** the value that'll rendered for the select store view, either in backend or frontend.
+
 ### Enclosing, Escaping and Delimiter
 
 As the default multiple field seprarator is a comma (,) the key value pairs of the additional attributes will be speparated by a comma (,). Therefore it is necessary to enclose the **COMPLETE** value of the column with double apostrophes ("). 
