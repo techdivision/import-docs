@@ -10,7 +10,7 @@ On the Magento [developer documentation](https://docs.magento.com/m2/ce/user_gui
 
 ### Additional Attributes
 
-Beside these columens there is an additional column `additional_attributes` that allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
+Beside these columns there is an additional column `additional_attributes` that allows to import values for all attributes that are not part of the default CSV format, including the user defined ones.
 
 As the values of additional attributes can contain commas (,) which is the default column separator, it is necessary to enclose the complete values with a double apostrophe (") if only **ONE** of the attribute option value contains a comma, e. g. like the value `Laptop Sleeve, 15 inches`
 
