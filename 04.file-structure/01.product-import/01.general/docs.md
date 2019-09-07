@@ -1,6 +1,6 @@
 ---
 title: General
-published: false
+published: true
 visible: true
 ---
 
