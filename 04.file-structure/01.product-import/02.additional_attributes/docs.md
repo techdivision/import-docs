@@ -1,6 +1,6 @@
 ---
 title: 'Additional Attributes'
-published: false
+published: true
 visible: true
 ---
 
