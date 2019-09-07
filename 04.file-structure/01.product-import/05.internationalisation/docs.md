@@ -1,6 +1,6 @@
 ---
 title: Internationalisation
-published: false
+published: true
 visible: true
 ---
 
