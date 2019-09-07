@@ -30,9 +30,9 @@ which should give you a list of all user defined attributes. To make the import 
 
 The example below shows a part of a CSV file with scope specific values for the columns *name*, *description* and *test*
 
-| sku     | store_view_code | name          | description                          | additional_attributes                           | ...     |
-|:--------|:----------------|:--------------|:-------------------------------------|:------------------------------------------------|:--------|
-| MB-2401 |                 | Duffle Bag    | This the default description.        | "test=english,activity=Gym|Hiking|Trail|Urban"  |         |
-| MB-2401 | de_DE           | Reisetasche   | Das ist die deutsche Beschreibung.   | "test=german"                                   |         |
-| MB-2401 | fr_FR           | Sac Marin     | C'est la description par défaut.     | "test=french"                                   |         |
-| MB-2401 | es_ES           | Bolsa de Lona | Esta es la descripción por defecto.  | "test=spain"                                    |         |
+| sku     | store_view_code | name          | description                          | additional_attributes                    | ...     |
+|:--------|:----------------|:--------------|:-------------------------------------|:-----------------------------------------|:--------|
+| MB-2401 |                 | Duffle Bag    | This the default description.        | "test=english,activity=Gym&#124;Hiking"  |         |
+| MB-2401 | de_DE           | Reisetasche   | Das ist die deutsche Beschreibung.   | "test=german"                            |         |
+| MB-2401 | fr_FR           | Sac Marin     | C'est la description par défaut.     | "test=french"                            |         |
+| MB-2401 | es_ES           | Bolsa de Lona | Esta es la descripción por defecto.  | "test=spain"                             |         |
