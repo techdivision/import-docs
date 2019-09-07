@@ -25,7 +25,7 @@ By default, the Customer + Customer Address Import expects a CSV file with the f
 * Date format is n/d/y, g:i A
 * Value delimiter is a comma (,)
 * Values has to be enclosed with double apostrophes (")
-* The enclosing chars (") has to be escaped with a backslash (\) or the enclosing char itself (")
+* The enclosing chars (") has to be escaped with a backslash (\\) or the enclosing char itself (")
 
 Beside the default CSV configuration, Magento supports some kind of serialization for specical columns that contains complex data, which requires additional control characters
 
