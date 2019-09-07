@@ -19,13 +19,25 @@ Magento 2 itself provides import functionality for the Product, Inventory + Pric
 
 ### General CSV File Format
 
-By default, the Customer + Customer Address Import expects a CSV file with the following defaults
+By default, the Customer + Customer Address Import expects a CSV file with the following default settings and control characters
 
 * UTF-8 encoding
 * Date format is n/d/y, g:i A
-* Values delimiter is a comma (,)
+* Value delimiter is a comma (,)
+* Values has to be enclosed with double apostrophes (")
+* The enclosing chars (") has to be escaped with a backslash (\) or the enclosing char itself (")
+
+Beside the default CSV configuration, Magento supports some kind of serialization for specical columns that contains complex data, which requires additional control characters
+
 * Multiple value delimiter is a pipe (|)
-* Text values are enclosed with double apostrophes (")
-* Special chars are escaped with a backslash (\)
+* Multiple field delimiter is a comma (,)
 
 > By default, columns that doesn't contain a value are ignored by default. This means, it is **NOT** possible to delete or override an existing value with an empty value. To delete an existing value, the whole customer has to be removed by running an import with the `delete` operation. After that, the customer with the new values can be imported by running an `add-update` operation. This default behaviour can be changed with the `clean-up-empty-columns` parameter in the particular subject.
+
+### CSV Configuration Options
+
+The configuration for the default CSV format as been expained [above](#general-csv-file-format).
+
+This configuration, for sure, can be customized for the requirements of the given project, wherein M2IF distinguishes between the general CSV configuration and the Magento specific part called complex data. The Magento specific part can be configured on global level, where the general CSV configuration can be configured on subject level. 
+
+
