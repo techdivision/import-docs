@@ -11,7 +11,7 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 ### Unique Identifier
 
-The unique identifier for the product import is the SKU. The SKU is a mandatory field that has be available on **EVERY** row of the CSV file.
+The unique identifier for the product import is the SKU. The SKU is a mandatory field that has be available in the column `sku` on **EVERY** row of the CSV file.
 
 ### Compatibility & Extensions
 
