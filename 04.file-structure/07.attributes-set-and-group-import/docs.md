@@ -9,6 +9,12 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 > ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
 
+### Unique Identifier
+
+The unique identifier for the attribute set import is the attribute set name. The attribute set name is a mandatory field that has be available in the column `attribute_set_name` on **EVERY** row of the CSV file.
+
+### Columns
+
 The CSV file with the attribute sets for the Magento 2 CE/EE consists of the following columns, whereas each attribute set can have multipe attribute groups
 
 | Column Name                    | Type     | Description                                                                           | Example |
