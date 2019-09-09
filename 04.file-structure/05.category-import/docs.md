@@ -15,7 +15,7 @@ For the product import, the SKU is for sure the unique identifier of a product. 
 
 A common problem can be, that one of those category names itself contain a slash (/). In that case, the category name has to be enclosed with the default enclosing character, e. g. the double aposthrophe ("). As for the [Additional Attributes](/file-structure/product-import/additional-attributes) column of the product import this is necessary to make sure that the path can be extracted and the category will be added to the correct parent node. The value for a category path that contains slashes has to look like 
 
-```
+```csv
 "Default Category/Dachdecker- & Spenglerarbeiten/""Kehl-/Traufenanschlüsse & -Belüftungen""/""Trauf-/Lüftungsrollen"""
 ```
 
