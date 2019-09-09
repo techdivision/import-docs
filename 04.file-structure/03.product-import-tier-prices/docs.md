@@ -1,5 +1,5 @@
 ---
-title: 'Product Import // Tier Prices'
+title: 'Tier Prices'
 visible: true
 ---
 
