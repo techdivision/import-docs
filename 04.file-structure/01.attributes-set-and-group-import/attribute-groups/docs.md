@@ -5,7 +5,7 @@ visible: true
 
 When creating new attribute sets, it'll be necessary to create attribute groups it's attribute groups too.
 
-Beside the possiblity to copy the attribute groups with the column `based_on` from the *Default* attribute set, it'll also will be possible to create them on-the-fly. The default attribute group can be defined in the same row the attribute set has been defined. Whereas for any additional attribute group a new row has to be added, 
+Beside the possiblity to copy the attribute groups with the column `based_on` e. g. from the *Default* attribute set, it'll also will be possible to create new ones on-the-fly. Whereas the default attribute group can be defined in the same row as the attribute set has been defined, for any additional attribute group a new row has to be added, 
 
 | attribute_set_name | based_on | entity_type_code | sort_order | attribute_group_name       | attribute_group_code       | attribute_group_tab_group_code | attribute_group_sort_order | default_id |
 |:-------------------|:---------|:-----------------|:-----------|:---------------------------|:---------------------------|:-------------------------------|:---------------------------|:-----------|
