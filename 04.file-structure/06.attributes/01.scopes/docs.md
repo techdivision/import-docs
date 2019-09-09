@@ -25,7 +25,7 @@ In general, the label of for every attribute can be translated. Depending on the
 * Visual Swatch
 * Text Swatch
 
-the translations can be provided in a separate row for every store view in the column *attribute_option_values*.
+the translations can be provided in a separate row for every store view in the column *attribute_option_values* (see the chapter above).
 
 
 
