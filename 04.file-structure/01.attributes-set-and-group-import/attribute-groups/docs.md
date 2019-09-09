@@ -7,7 +7,7 @@ When creating new Attribute Sets, it'll be necessary to create it's Attribute Gr
 
 Beside the possiblity to copy the Attribute Groups with the column `based_on` e. g. from the *Default* Attribute Set, it'll also will be possible to create new ones on-the-fly. Whereas the default Attribute Group can be defined in the same row as the Attribute Set has been defined, for any additional Attribute Group a new row has to be added.
 
-A CSV file that creates the Attribute Set *Bag* as well as 10 Attribute Groups will look like
+A CSV file that creates the Attribute Set *Bag* as well as 10 Attribute Groups can look like
 
 | attribute_set_name | based_on | entity_type_code | sort_order | attribute_group_name       | attribute_group_code       | attribute_group_tab_group_code | attribute_group_sort_order | default_id |
 |:-------------------|:---------|:-----------------|:-----------|:---------------------------|:---------------------------|:-------------------------------|:---------------------------|:-----------|
