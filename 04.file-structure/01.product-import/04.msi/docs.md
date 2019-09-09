@@ -10,7 +10,7 @@ To import MSI with the default product import, two steps are necessary.
 Add the column `inventory_source_items` to also import MSI stock data with the product import. For example, the column **MUST** contain the data in the following structure, e. g.
 
 ```csv
-source_code=default,quantity=10.0,status=1|source_code=inventory-01,quantity=5.0,status=1
+"source_code=default,quantity=10.0,status=1|source_code=inventory-01,quantity=5.0,status=1"
 ```
 
 As for the tier prices, the column with the MSI inventory source items supports the same format. Our sample data comes with an [example](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/data/products/configurable/product-import_20190226-095345_01.csv) how the file should look like.
