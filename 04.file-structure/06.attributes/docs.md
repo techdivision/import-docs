@@ -7,7 +7,13 @@ M2IF comes with an attribute import and the apropriate command `import:attribute
 
 In general the filename for the dedicated MSI import **MUST** match the following pattern `<PREFIX>_<FILENAME>_<COUNTER>.csv`, whereas the default `<PREFIX>` is `attribute-import`, the `<FILENAME>` is a combination of date and time like `20190608-114344`, and the `<COUNTER>` is a consecutive number with two digits starting with `01`. This results in a filename like `attribute-import_20190608-114344_01.csv`. Additionally an apropriate `.ok` file is needed.
 
-> ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
+> ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure. 
+
+### Unique Identifier
+
+The unique identifier for the attribute import is the attribute code. The attribute code is a mandatory field that has be available in the column `attribute_code` on **EVERY** row of the CSV file.
+
+### Columns
 
 The CSV file with the attributes for the Magento 2 CE/EE consists of the following columns
 
