@@ -20,9 +20,8 @@ The column `store_view_code` **MUST** contain the appropriate Magento store view
 
 Basicalla for every attribute the label can be translated. 
 
-Depending on the attribute's frontend input type, the attribute option values can also be translated. Is the case, if the attribute frontend type is one of
+Depending on the attribute's frontend input type, the attribute option/swatch values can also be translated. In the case the attribute frontend type is one of
 
-* Yes/No
 * Multiple Select
 * Dropdown
 * Visual Swatch
