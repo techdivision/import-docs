@@ -3,9 +3,11 @@ title: 'Attribute Groups'
 visible: true
 ---
 
-When creating new attribute sets, it'll be necessary to create attribute groups it's attribute groups too.
+When creating new Attribute Sets, it'll be necessary to create it's Attribute Groups too.
 
-Beside the possiblity to copy the attribute groups with the column `based_on` e. g. from the *Default* attribute set, it'll also will be possible to create new ones on-the-fly. Whereas the default attribute group can be defined in the same row as the attribute set has been defined, for any additional attribute group a new row has to be added, 
+Beside the possiblity to copy the Attribute Groups with the column `based_on` e. g. from the *Default* Attribute Set, it'll also will be possible to create new ones on-the-fly. Whereas the default Attribute Group can be defined in the same row as the Attribute Set has been defined, for any additional Attribute Group a new row has to be added.
+
+A CSV file that creates the Attribute Set *Bag* as well as 10 Attribute Groups will look like
 
 | attribute_set_name | based_on | entity_type_code | sort_order | attribute_group_name       | attribute_group_code       | attribute_group_tab_group_code | attribute_group_sort_order | default_id |
 |:-------------------|:---------|:-----------------|:-----------|:---------------------------|:---------------------------|:-------------------------------|:---------------------------|:-----------|
