@@ -9,7 +9,7 @@ To import the tier prices with the default product import, two steps are necessa
 
 First step is to add the column `tier_prices` to the CSV file with the product data. For example, the column **MUST** contain the data in the following structure, e. g.
 
-```
+```csv
 "qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|qty=20,price=30,value_type=fixed,website=All Websites,customer_group=ALL GROUPS"
 ```
 
