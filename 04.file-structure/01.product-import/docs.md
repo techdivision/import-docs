@@ -9,6 +9,12 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 > ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
 
+### Unique Identifier
+
+The unique identifier for the product import is the SKU. The SKU is a mandatory field that has be available on **EVERY** row of the CSV file.
+
+### Compatibility & Extensions
+
 The structure for the Product import is nearly 100 % compatible with the Magento 2 CSV structure. Have a look at the Magento 2 [documentation](http://docs.magento.com/m2/ce/user_guide/system/data-attributes-product.html) for a detailed description of the CSV file structure.
 
 Especially for the product import, Magento extends the default CSV format for some special cases called complex data, which provides some kind of data serialization to extend the default CSV format. Magento describes this on a dedicated [page](https://docs.magento.com/m2/ce/user_guide/system/data-complex.html) on their website. Beside the topics that has been described on that page by Magento itself, there is a column with additional attributes that also uses a complex data format like [Additional Attributes](/file-structure/product-import/additional-attributes).
