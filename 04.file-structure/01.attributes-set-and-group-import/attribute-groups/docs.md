@@ -3,15 +3,19 @@ title: 'Attribute Groups'
 visible: true
 ---
 
-| attribute_set_name | entity_type_code | sort_order | attribute_group_name       | attribute_group_code       | attribute_group_tab_group_code | attribute_group_sort_order | default_id |
-|:-------------------|:-----------------|:-----------|:---------------------------|:---------------------------|:-------------------------------|:---------------------------|:-----------|
-| Bag                | catalog_product  | 2          | Product Details            | product-details            | basic                          | 10                         | 1          |
-|                    |                  |            | Content                    | content                    | basic                          | 15                         | 0          |
-|                    |                  |            | Bundle Items               | bundle-items               |                                | 16                         | 0          | 
-|                    |                  |            | Images                     | image-management           | basic                          | 20                         | 0          |
-|                    |                  |            | Search Engine Optimization | search-engine-optimization | basic                          | 30                         | 0          |
-|                    |                  |            | Advanced Pricing           | advanced-pricing           | advanced                       | 40                         | 0          |
-|                    |                  |            | Design                     | design                     | advanced                       | 50                         | 0          |
-|                    |                  |            | Schedule Design Update     | schedule-design-update     | advanced                       | 55                         | 0          |
-|                    |                  |            | Autosettings               | autosettings               | advanced                       | 60                         | 0          |
-|                    |                  |            | Gift Options               | gift-options               |                                | 61                         | 0          |
+When creating new attribute sets, it'll be necessary in most cases to create attribute groups too.
+
+Beside the possiblity to copy the attribute groups with the column `based_on` from the *Default* attribute set, it'll also will be possible to create them on-the-fly. The default attribute group can be defined in the same row the attribute set has been defined. Whereas for any additional attribute group a new row has to be added, 
+
+| attribute_set_name | based_on | entity_type_code | sort_order | attribute_group_name       | attribute_group_code       | attribute_group_tab_group_code | attribute_group_sort_order | default_id |
+|:-------------------|:---------|:-----------------|:-----------|:---------------------------|:---------------------------|:-------------------------------|:---------------------------|:-----------|
+| Bag                |          | catalog_product  | 2          | Product Details            | product-details            | basic                          | 10                         | 1          |
+|                    |          |                  |            | Content                    | content                    | basic                          | 15                         | 0          |
+|                    |          |                  |            | Bundle Items               | bundle-items               |                                | 16                         | 0          | 
+|                    |          |                  |            | Images                     | image-management           | basic                          | 20                         | 0          |
+|                    |          |                  |            | Search Engine Optimization | search-engine-optimization | basic                          | 30                         | 0          |
+|                    |          |                  |            | Advanced Pricing           | advanced-pricing           | advanced                       | 40                         | 0          |
+|                    |          |                  |            | Design                     | design                     | advanced                       | 50                         | 0          |
+|                    |          |                  |            | Schedule Design Update     | schedule-design-update     | advanced                       | 55                         | 0          |
+|                    |          |                  |            | Autosettings               | autosettings               | advanced                       | 60                         | 0          |
+|                    |          |                  |            | Gift Options               | gift-options               |                                | 61                         | 0          |
