@@ -1,5 +1,5 @@
 ---
-title: Scope
+title: Scopes
 visible: true
 ---
 
