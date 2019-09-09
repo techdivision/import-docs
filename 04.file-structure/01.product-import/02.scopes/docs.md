@@ -16,7 +16,7 @@ The import functionality provides a possiblity to import values on different sco
 
 The column `store_view_code` **MUST** contain the appropriate Magento store view code.
 
-### Which Attributes that can be Translated
+### Translateable Values
 
 For sure, not all attributes can have different values per scope. In general all product attributes that has been created with scope *Store View* can be translated. To find out which attributes have the scope *Store View* open the Backend and go to the overview with the product attributes by clicking on the navigation path *Stores > Attributes > Products*. Select the filter *Store View* and press enter, the result should look like
 
