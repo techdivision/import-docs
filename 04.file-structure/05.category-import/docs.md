@@ -9,6 +9,12 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 > ATTENTION: Please be aware that the three parts **MUST** be separated with an underscore "_" as there is meaning for the bunch import behind its structure.
 
+### Unique Identifier
+
+For the product import, the SKU is for sure the unique identifier of a product. In case of the categories this is a bit more complicated as Magento uses a string of the imploded category IDs, separated by a slash (/), e. g. `1/2/120/1502`. 
+
+### Columns
+
 The CSV file with the categories for the Magento 2 CE/EE consists of the following columns
 
 | Column Name                | Type     | Mandatory | Description                                                                           | Example |
