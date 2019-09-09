@@ -13,9 +13,11 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 For the product import, the SKU is for sure the unique identifier of a product. In case of the categories this is a bit more complicated as Magento uses a string of the imploded category IDs, separated by a slash (/), e. g. `1/2/120/1502`. As it is simply not possible that e. g. the PIM system is aware of those IDs, the category instead needs a string with the admin store category names instead of the ID and expects it in the column *path*. This results in values that looks like `Default Category/Women/Tops/Hoodies & Sweatshirts`.
 
-A common problem can be, that one of those category names itself contain a slash (/). In that case, the category name has to be enclosed with the default enclosing character, e. g. the double aposthrophe ("). As for the [Additional Attributes](/file-structure/product-import/additional-attributes) column of the product import this is necessary to make sure that the path can be extracted and the category will be added to the correct parent node.
+A common problem can be, that one of those category names itself contain a slash (/). In that case, the category name has to be enclosed with the default enclosing character, e. g. the double aposthrophe ("). As for the [Additional Attributes](/file-structure/product-import/additional-attributes) column of the product import this is necessary to make sure that the path can be extracted and the category will be added to the correct parent node. The value for a category path that contains slashes has to look like 
 
+```
 "Default Category/Dachdecker- & Spenglerarbeiten/""Kehl-/Traufenanschlüsse & -Belüftungen""/""Trauf-/Lüftungsrollen"""
+```
 
 ### Columns
 
