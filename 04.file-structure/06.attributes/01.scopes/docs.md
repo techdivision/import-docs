@@ -12,9 +12,7 @@ As well as for products, the import functionality for attributes provides the po
 | fr_FR           | activity       | Activité         | Gymnastique,Randonnée Pédestre,Sentier,D'urbanisme |         |
 | es_ES           | activity       | Actuación        | Gimnasio,Senderismo,Rezagarse,Urbano               |         |
 
-The example below shows a part of a CSV file with scope specific values for the columns *frontend_label* and *attribute_option_values*
-
-The column `store_view_code` **MUST** contain the appropriate Magento store view code, whereas the value in column *attribute_code* is mandatory for **EVERY** row. 
+The example above shows a part of a CSV file with scope specific values for the columns `frontend_label` and `attribute_option_values`. The column `store_view_code` **MUST** contain the appropriate Magento store view code, whereas the value in column `attribute_code` is mandatory for **EVERY** row. 
 
 ### Translateable Values
 
@@ -25,7 +23,7 @@ In general, the label of for every attribute can be translated. Depending on the
 * Visual Swatch
 * Text Swatch
 
-the translations can be provided in a separate row for every store view in the column *attribute_option_values* (see the chapter above).
+the translations can be provided in a separate row for every store view in the column `attribute_option_values` (see the chapter above).
 
 
 
