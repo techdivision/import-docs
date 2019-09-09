@@ -20,6 +20,7 @@ The CSV file with the attribute sets for the Magento 2 CE/EE consists of the fol
 | Column Name                    | Type     | Description                                                                           | Example |
 |:-------------------------------|:---------|---------------------------------------------------------------------------------------|:--------|
 | attribute_set_name             | varchar  | The unique attribute set name.                                                        | Bag |
+| based_on                       | varchar  | The name of the attribute set to copy the attributes from.                            | Default |
 | entity_type_code               | varchar  | The entity type code the attribute has to be bound to.                                | catalog_product |
 | sort_order                     | integer  | The sort order of the attribute set.                                                  | 1 |
 | attribute_group_name           | varchar  | The name of the attribute group.                                                      | Product Details |
