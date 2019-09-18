@@ -11,12 +11,12 @@ M2IF provides a clean-up functionality that provides the possiblity to remove va
 
 Clean-Up functionality for the product import is available for
 
-* Media Gallery (`clean-up-media-gallery`)
 * Images (`clean-up-empty-image-columns`)
+* Media Gallery (`clean-up-media-gallery`)
 * Category Relations (`clean-up-category-product-relations`)
 * Website Relations (`clean-up-website-product-relations`)
 
-as well as for all product attributes (`clean-up-empty-columns`). These attributes has to be set on subject level like
+as well as for all product attributes (`clean-up-empty-columns`). These flags has to be set on subject level like
 
 ```json
 {
@@ -53,4 +53,16 @@ as well as for all product attributes (`clean-up-empty-columns`). These attribut
     }
   ]
 }
-```
+``` 
+
+#### Images
+
+In most cases it'll be useful, if images that are **NOT** referenced in the appropriate colum of the CSV file anymore, will be removed from the database. This can either be done by specifying the column names manually in this `clean-up-empty-columns`, e. g. if only a dedicated one should be cleaned-up, or and that will be more comfortable, by setting the flag `clean-up-empty-image-columns` to `true`. Setting the flag to `true` will load all attributes that has the value `media_image` in the `frontend_input` and adds the appropriate attribute code to the array with the colum names to clean-up.
+
+#### Media Gallery
+
+Beside clean-up the attribute values of the images, it'll also be necessary to clean-up the media gallery that holds the relations between the images and the products by setting the flag `clean-up-media-gallery` to `true`. This is mandatory if `clean-up-empty-image-columns` is set to `true` or if at least one image column name has been added to `clean-up-empty-columns`. 
+
+#### Category Relations
+
+#### Website Relations
