@@ -110,7 +110,7 @@ Cleaning-Up URL rewrites will be ncessary in most cases and should be activated 
 
 Clean-Up functionality for the category import is available for
 
-* URL Rewrites (`clean-up-url-rewrites`)
+* [URL Rewrites](#url-rewrites-category) (`clean-up-url-rewrites`)
 
 #### <a name="url-rewrites-category"></a>URL Rewrites
 
