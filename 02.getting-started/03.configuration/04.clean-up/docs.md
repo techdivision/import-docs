@@ -12,11 +12,11 @@ M2IF provides a clean-up functionality that provides the possiblity to remove va
 Clean-Up functionality for the product import is available for
 
 * [Images](#images) (`clean-up-empty-image-columns`)
-* Media Gallery (`clean-up-media-gallery`)
-* Category Relations (`clean-up-category-product-relations`)
-* Website Relations (`clean-up-website-product-relations`)
-* URL Rewrites (`clean-up-url-rewrites`)
-* Tier Prices (`clean-up-tier-prices`)
+* [Media Gallery](#media-gallery) (`clean-up-media-gallery`)
+* [Category Relations](#category-relations) (`clean-up-category-product-relations`)
+* [Website Relations](#website-relations) (`clean-up-website-product-relations`)
+* [Tier Prices](#tier-prices) (`clean-up-tier-prices`)
+* [URL Rewrites](#url-rewrites) (`clean-up-url-rewrites`)
 
 as well as for all product attributes (`clean-up-empty-columns`). These flags has to be set on subject level like
 
