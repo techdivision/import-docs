@@ -11,11 +11,12 @@ M2IF provides a clean-up functionality that provides the possiblity to remove va
 
 Clean-Up functionality for the product import is available for
 
-* Images (`clean-up-empty-image-columns`)
+* [Images](#images) (`clean-up-empty-image-columns`)
 * Media Gallery (`clean-up-media-gallery`)
 * Category Relations (`clean-up-category-product-relations`)
 * Website Relations (`clean-up-website-product-relations`)
 * URL Rewrites (`clean-up-url-rewrites`)
+* Tier Prices (`clean-up-tier-prices`)
 
 as well as for all product attributes (`clean-up-empty-columns`). These flags has to be set on subject level like
 
@@ -50,6 +51,7 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
             },
             {
               "id": "import_product_url_rewrite.subject.url.rewrite",
+              "identifier": "files",
               "file-resolver": {
                 "prefix": "url-rewrite"
               },
@@ -59,6 +61,18 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                 }
               ]
               ...
+            },
+            {
+              "id": "import_product_tier_price.subject.tier_price",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "tier-price"
+              },
+              "params" : [
+                {
+                  "clean-up-tier-prices" : true
+                }
+              ]
             }
           ]
         }
@@ -83,6 +97,10 @@ In many cases product category relations doesn't change at all or change not rea
 #### Website Relations
 
 In many cases product website relations doesn't change at all or change not really often. In case the product website relations will change frequently and it'll be necessary to update them with the `add-update` operation, this can be done by setting the flag `clean-up-website-product-relations` to `true`. As the product website relation is not only persisted in a column, this relation can **NOT** be cleaned-up by adding a column name to the array `clean-up-empty-columns`.
+
+#### Tier Prices
+
+Prices nearly always needs to be up-to-date, so if tier prices will be imported the clean-up functionality should be activated by setting the flag `clean-up-tier-prices` to `true`.
 
 #### URL Rewrites
 
