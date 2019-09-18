@@ -15,6 +15,7 @@ Clean-Up functionality for the product import is available for
 * Media Gallery (`clean-up-media-gallery`)
 * Category Relations (`clean-up-category-product-relations`)
 * Website Relations (`clean-up-website-product-relations`)
+* URL Rewrites (`clean-up-url-rewrites`)
 
 as well as for all product attributes (`clean-up-empty-columns`). These flags has to be set on subject level like
 
@@ -46,6 +47,18 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                 }
               ]
               ...
+            },
+            {
+              "id": "import_product_url_rewrite.subject.url.rewrite",
+              "file-resolver": {
+                "prefix": "url-rewrite"
+              },
+              "params" : [
+                {
+                  "clean-up-url-rewrites" : true
+                }
+              ]
+              ...
             }
           ]
         }
@@ -70,3 +83,17 @@ In many cases product category relations doesn't change at all or change not rea
 #### Website Relations
 
 In many cases product website relations doesn't change at all or change not really often. In case the product website relations will change frequently and it'll be necessary to update them with the `add-update` operation, this can be done by setting the flag `clean-up-website-product-relations` to `true`. As the product website relation is not only persisted in a column, this relation can **NOT** be cleaned-up by adding a column name to the array `clean-up-empty-columns`.
+
+#### URL Rewrites
+
+Cleaning-Up URL rewrites will be ncessary in most cases and should be activated by setting the flag `clean-up-url-rewrites` to `true`,
+
+### Categories
+
+Clean-Up functionality for the category import is available for
+
+* URL Rewrites (`clean-up-url-rewrites`)
+
+#### URL Rewrites
+
+Cleaning-Up URL rewrites will be ncessary in most cases and should be activated by setting the flag `clean-up-url-rewrites` to `true`,
