@@ -39,9 +39,9 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                 {
                   "copy-images" : true,
                   "clean-up-media-gallery" : true,
+                  "clean-up-empty-image-columns" : true,
                   "clean-up-website-product-relations" : true,
                   "clean-up-category-product-relations" : true,
-                  "clean-up-empty-image-columns" : true,
                   "clean-up-empty-columns" : [ ... ]
                 }
               ]
@@ -65,4 +65,8 @@ Beside clean-up the attribute values of the images, it'll also be necessary to c
 
 #### Category Relations
 
+In many cases product category relations doesn't change at all or change not really often. In case the product category relations will change frequently and it'll be necessary to update them with the `add-update` operation, this can be done by setting the flag `clean-up-category-product-relations` to `true`. As the product category relation is not only persisted in a column, this relation can **NOT** be cleaned-up by adding a column name to the array `clean-up-empty-columns`.
+
 #### Website Relations
+
+In many cases product website relations doesn't change at all or change not really often. In case the product website relations will change frequently and it'll be necessary to update them with the `add-update` operation, this can be done by setting the flag `clean-up-website-product-relations` to `true`. As the product website relation is not only persisted in a column, this relation can **NOT** be cleaned-up by adding a column name to the array `clean-up-empty-columns`.
