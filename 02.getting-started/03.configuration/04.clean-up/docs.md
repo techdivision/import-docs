@@ -72,7 +72,7 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                 {
                   "clean-up-tier-prices" : true
                 }
-              ],
+              ]
               ...
             }
           ]
