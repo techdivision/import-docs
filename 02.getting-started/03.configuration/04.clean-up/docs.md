@@ -7,7 +7,7 @@ M2IF provides a clean-up functionality that provides the possiblity to remove va
 
 > As deleting data can reduce performance significantly, is should be used carefully!
 
-##### Product Import
+### Product Import
 
 Clean-Up functionality for the product import is available for
 
