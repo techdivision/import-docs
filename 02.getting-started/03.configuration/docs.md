@@ -674,3 +674,57 @@ In some cases, it can be very handy to map column names to the appropriate attri
 In the example above, column name `my_sku_column` will automatically be mapped to the mandatory column `sku`. This happens **BEFORE** any columns will be processed and allows vendors to configure any column to the appropriate attribute without custom development.
 
 > Keep in mind, that the header mappings are valid for all operations within the configuration file!
+
+#### Clean-Up
+
+M2IF provides a clean-up functionality that provides the possiblity to remove values for empty columns. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
+
+> As deleting data can reduce performance significantly, is should be used carefully!
+
+##### Product Import
+
+Clean-Up functionality for the product import is available for
+
+* Media Gallery (`clean-up-media-gallery`)
+* Images (`clean-up-empty-image-columns`)
+* Category Relations (`clean-up-category-product-relations`)
+* Website Relations (`clean-up-website-product-relations`)
+
+as well as for all product attributes (`clean-up-empty-columns`). These attributes has to be set on subject level like
+
+```json
+{
+  ...
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        ...
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            {
+              "id": "import_product.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "product-import"
+              },
+              "params" : [
+                {
+                  "copy-images" : true,
+                  "clean-up-media-gallery" : true,
+                  "clean-up-website-product-relations" : true,
+                  "clean-up-category-product-relations" : true,
+                  "clean-up-empty-image-columns" : true,
+                  "clean-up-empty-columns" : [ ... ]
+                }
+              ]
+              ...
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
