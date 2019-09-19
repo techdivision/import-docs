@@ -113,6 +113,42 @@ As the category functionality in Magento is less complicated, the clean-up actua
 
 * [URL Rewrites](#url-rewrites-category) (`clean-up-url-rewrites`)
 
+As for the product import the flags has to be set on subject level like
+
+```json
+{
+  ...
+  "operations" : [
+    {
+      "name" : "add-update",
+      "plugins" : [
+        ...
+        {
+          "id": "import.plugin.subject",
+          "subjects": [
+            ...
+            {
+              "id": "import_category.subject.bunch",
+              "identifier": "files",
+              "file-resolver": {
+                "prefix": "category-url-rewrite"
+              },
+              "params" : [
+                {
+                  "clean-up-url-rewrites" : true
+                }
+              ]
+              ...
+            }
+          ]
+        }
+        ...
+      ]
+    }
+  ]
+}
+```
+
 #### <a name="url-rewrites-category"></a>URL Rewrites
 
 Cleaning-Up URL rewrites will be ncessary in most cases and should be activated by setting the flag `clean-up-url-rewrites` to `true`,
