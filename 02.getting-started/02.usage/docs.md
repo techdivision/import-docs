@@ -76,6 +76,7 @@ The following configuration options are available:
 | <nobr>--db-pdo-dsn</nobr>         | The DSN used to connect to the Magento database where the data has to be imported, e. g. `mysql:host=127.0.0.1;dbname=magento` | n/a |
 | <nobr>--db-username</nobr>        | The username used to connect to the Magento database | n/a |
 | <nobr>--db-password</nobr>        | The password used to connect to the Magento database | n/a |
+| <nobr>--db-table-prefix</nobr>    | The table prefix used by the Magento database | n/a |
 | <nobr>--debug-mode</nobr>         | The flag to activate the debug mode | `false` |
 | <nobr>--log-level</nobr>          | The log level to use (see Monolog documentation for further information) | `info` |
 | <nobr>--single-transaction</nobr> | The flag to wrap the import process into a single transaction | `false` |
