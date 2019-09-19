@@ -109,7 +109,7 @@ Cleaning-Up URL rewrites will be ncessary in most cases and should be activated 
 
 ### Categories
 
-Clean-Up functionality for the category import is available for
+As the category functionality in Magento is less complicated, the clean-up actually only provides one flag for the
 
 * [URL Rewrites](#url-rewrites-category) (`clean-up-url-rewrites`)
 
