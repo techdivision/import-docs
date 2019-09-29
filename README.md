@@ -6,7 +6,7 @@
   * Produkte
 * [ ] Noch nicht veröffentlichte Use Cases anonymisieren
 * [ ] Beschreibung aller möglichen Parameter
-* [ ] Integration des Videos
+* [x] Integration des Videos
 * [ ] Überarbeitung aller Meta-Informationen hinsichtlich SEO
 * [ ] Beschreiben für was die anderen Commands gut sind und wie sie funktionieren
   * import:clear:pid-file
@@ -30,5 +30,7 @@
   * Wie kann M2IF in eigenen Projekten eingesetzt werden
   * Wie baue, registriere und setze ich eine Extension in M2IF um
 * Framework um "Callback" ergänzen
+  * Wann brauche ich ein Modul
+  * Wie kann ich ein Modul implementieren?
   * Wann brauche ich einen Callback?
   * Wie kann ich einen Callback implementieren?
