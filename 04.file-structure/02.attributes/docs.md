@@ -64,4 +64,4 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 | is_visible_in_grid            | int      | Is visible in grid.                                                                   | 0       |
 | is_filterable_in_grid         | int      | Is filterable in grid.                                                                | 0       |
 | search_weight                 | float    | Search weight.                                                                        | 1       |
-| additional_data               | text     | A comma (,) separated list with dditional attributes, which are necessary to create Visual Swatch or Text Swatch attributes. | swatch_input_type=visual,update_product_preview_image=0,use_product_image_for_swatch=0 |
+| additional_data               | text     | A comma (,) separated list with additional attributes, which are necessary to create Visual Swatch or Text Swatch attributes. | swatch_input_type=visual,update_product_preview_image=0,use_product_image_for_swatch=0 |
