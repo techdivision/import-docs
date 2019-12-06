@@ -25,7 +25,7 @@ The CSV file with the categories for the Magento 2 CE/EE consists of the followi
 
 | Column Name                | Type     | Mandatory | Description                                                                           | Example |
 |:---------------------------|:---------|:----------| :-------------------------------------------------------------------------------------|:--------|
-| store_view_code            | varchar  | yes       | The specific store view(s) where the category is available. If blank, the category is available at the default store view. | default,german,english |
+| store_view_code            | varchar  | yes       | The specific store view(s) where the category is available. If blank, the category is available at the default store view. | e.g. en_US or [read](/file-structure/category-import/scopes) more about scopes |
 | attribute_set_code         | varchar  | yes       | Assigns the product to a specific attribute set or product template, according to product type. Once the product is created, the attribute set cannot be changed. | default |
 | path                       | varchar  | yes       | The complete category path, including the root category.                              | Default Category/MyCategory |
 | name                       | varchar  | yes       | The category name appears the naviagtion, and is the name that customers use to identify the category. | My Category |
