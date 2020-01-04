@@ -653,6 +653,8 @@ In case images for categories has to copied from directory `var/importexport/med
 
 In the CSV file the path to the images has to start with a `/` like `/womens/womens-main.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/master/generic/data/categories/add-update/category-import_20161024-194026_01.csv);
 
+> ATTENTION: When you copy images, you **MUST** create resized versions of them. Therefore, you can invoke the command `bin/magento catalog:images:resize` on the CLI. If you missed that, the images will be rendered in the admin area but **NOT** on the frontend!
+
 > ATTENTION: Keep in mind that it won't usually make sense to copy the images during the import process as this will slow down the performance sigenifcantly. It is strongly recommended to copy the images to the apropriate folder in your Magento installation and only importing the path to the images.
 
 #### Header Mappings
