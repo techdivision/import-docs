@@ -8,7 +8,7 @@ The objective of M2IF is to provide a fully functional replacement for the Magen
 
 A simple command line implementation should give a brief overview of how a simple import application could look like. For more information, have a look at the [M2IF - Simple Console Tool](https://github.com/techdivision/import-cli-simple) repository.
 
-## Feature Requestt
+## Feature Request
 
 Do you have a [Feature Request](https://feathub.com/techdivision/import-cli-simple) or want to vote for one of the already requested Features? Click on one of the Features below to up-vote it.
 
