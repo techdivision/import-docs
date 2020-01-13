@@ -2,7 +2,7 @@
 title: Welcome
 ---
 
-M2IF - Magento 2 Import Framework - provides a components to build import solutions for Magento 2
+M2IF - Magento 2 Import Framework - provides a components to build import solutions for Magento 2.2
 
 The objective of M2IF is to provide a fully functional replacement for the Magento 2 standard import functionality with a 100 % CSV file compatibility. In contrast to other approaches, the framework is not build as a Magento 2 extension, although it has no dependencies to other frameworks like Symfony, Laravel or others. Instead, it provides independent components, that can be tied together as needed, by adding them as composer dependency.
 
