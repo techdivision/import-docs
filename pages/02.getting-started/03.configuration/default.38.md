@@ -330,65 +330,51 @@ M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic log
 To add additional loggers, or override the default one with name `system, the configuration file can be extended like
 
 ```json
-"loggers": [
-  {
-    "name": "system",
-    "channel-name": "logger/system",
-    "type": "Monolog\\Logger",
-    "handlers": [
-      {
-        "type": "Monolog\\Handler\\ErrorLogHandler",
-        "params" : [
-          {
-            "message-type" : 0,
-            "log-level" : "debug"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "mail",
-    "channel-name" : "logger/mail",
-    "type" : "Monolog\\Logger",
-    "handlers" : [
-      {
-        "type": "Monolog\\Handler\\SwiftMailerHandler",
-        "params" : [
-          {
-            "log-level" : "error",
-            "bubble" : false
-          }
-        ],
-        "swift-mailer" : {
-          "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SmtpTransportMailerFactory",
-          "mailer-factory" : "\\Swift_Mailer",
+{
+  "loggers": [
+    "mail": {
+      "name": "mail",
+      "channel-name" : "logger/mail",
+      "type" : "Monolog\\Logger",
+      "handlers" : [
+        {
+          "type": "Monolog\\Handler\\SwiftMailerHandler",
           "params" : [
             {
-              "to" : "info@my-domain.tld",
-              "from" : "info@my-domain.tld",
-              "subject": "Something Went Wrong",
-              "content-type" : "text/plain"
+              "log-level" : "error",
+              "bubble" : false
             }
           ],
-          "transport" : {
-            "transport-factory" : "\\Swift_SmtpTransport",
+          "swift-mailer" : {
+            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SmtpTransportMailerFactory",
+            "mailer-factory" : "\\Swift_Mailer",
             "params" : [
               {
-                "smtp-host" : "my-domain.tld",
-                "smtp-port" : 25,
-                "smtp-security" : "tls",
-                "smtp-auth-mode" : "LOGIN",
-                "smtp-username" : "your-username",
-                "smtp-password" : "your-password"
+                "to" : "info@my-domain.tld",
+                "from" : "info@my-domain.tld",
+                "subject": "Something Went Wrong",
+                "content-type" : "text/plain"
               }
-            ]
+            ],
+            "transport" : {
+              "transport-factory" : "\\Swift_SmtpTransport",
+              "params" : [
+                {
+                  "smtp-host" : "my-domain.tld",
+                  "smtp-port" : 25,
+                  "smtp-security" : "tls",
+                  "smtp-auth-mode" : "LOGIN",
+                  "smtp-username" : "your-username",
+                  "smtp-password" : "your-password"
+                }
+              ]
+            }
           }
         }
-      }
-    ]
-  }
-]
+      ]
+    }
+  ]
+}
 ```
 
 This will override the system logger, as the name is `system`, and set the default log level to **debug**.
