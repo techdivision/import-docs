@@ -192,36 +192,31 @@ Beside to possiblity to register global events, up with version 3.4.0 it is poss
 
 ##### Plug-In Level
 
-The listeners will only be executed before, after or on failure of the plugin, for which the event has been  configured for. Configuration will look like
+The listeners will only be executed before, after or on failure of the plugin, for which the event has been  configured for. Configuration in a snippet, e. g. `<customer-installation-dir>/operations.json` can look like
 
 ```json
 {
-  ...
-  "operations" : [
-    {
-      "name" : "add-update",
-      "plugins" : [
-        {
-          "id": "import.plugin.cache.warmer"
-        },
-        {
-          "id": "import.plugin.global.data"
-        },
-        {
-          "id": "import.plugin.subject",
-          "listeners" : [
-             {
-              "plugin.process.success" : [
-                "import_product_tier_price.listener.delete.obsolete.tier_prices"
-              ]
+  "operations": {
+    "general": {
+      "catalog_product_tier_price": {
+        "add-update": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "listeners": [
+                {
+                  "plugin.process.success": [
+                    "import_product_tier_price.listener.delete.obsolete.tier_prices"
+                  ]
+                }
+              ],
+              "subjects": [ ... ]
             }
-          ]
-          ...
+          }
         }
-      ]
+      }
     }
-    ...
-  ]
+  }
 }
 ```
 
