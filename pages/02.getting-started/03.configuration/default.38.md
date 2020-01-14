@@ -676,13 +676,13 @@ In some cases, it can be very handy to map column names to the appropriate attri
 
 ```json
 {
-  "header-mappings" : [
-    {
+  "header-mappings" : {
+    "catalog_product": {
       "my_sku_column": "sku",
       "my_qty_column": "qty",
       ...,
     }
-  ]
+  }
 }
 ```
 
