@@ -21,8 +21,7 @@ An operation can not be implemented as it is a set of plug-ins that will be exec
   "operations" : {
     "general": {
       "catalog_product": {
-        {
-          "name" : "my-operation",
+        "my-operation": {
           "plugins" : [
             {
               "id": "import.plugin.subject",
@@ -42,3 +41,5 @@ An operation can not be implemented as it is a set of plug-ins that will be exec
   }
 }
 ```
+
+The operations has to be defined under the Magento Edition they should be available and the entity type they are dedicated to. If the Magento Edition doesn't matter, you can use `general`, otherwise `ce` (for community) or `ee` (for commerce) are supported values. 
