@@ -43,7 +43,7 @@ from your Magento 2 root directory and your're all setup.
 The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page and make it executable, e. g. with `wget`
 
 ```sh
-wget https://github.com/techdivision/import-cli-simple/releases/download/3.7.9/import-cli-simple.phar \
+wget https://github.com/techdivision/import-cli-simple/releases/download/3.8.0/import-cli-simple.phar \
   && sudo chmod +x import-cli-simple.phar
 ```
 
