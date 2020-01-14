@@ -8,7 +8,7 @@ visible: true
 
 Depending on the requirements different installation options are available.
 
-### Install as Composer Projectt
+### Install as Composer Project
 
 To install the package as a new project, assuming composer is available, open a console and enter
 
