@@ -131,9 +131,11 @@ In more complex projects, it'll we possible, that addional libraries are necessa
 Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<magento-install-directory>/app/etc/configuration/extension-libraries.json` that contains the name of the library, like
 
 ```json
-"extension-libraries" : [
-  "techdivision/import-product-magic360"
-]
+{
+  "extension-libraries" : [
+    "techdivision/import-product-magic360"
+  ]
+}
 ```
 
 > This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does.
