@@ -142,17 +142,18 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 
 ##### Additional Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
+Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added by a snippet, e. g. `<magento-installation-directory>/app/etc/configuration/additional-vendor-dirs`, which contains the following content
 
 ```json
-"additional-vendor-dirs" : [
-  {
-    "vendor-dir" : "target/vendor",
-    "libraries": [
-      "techdivision/import-product-magic360"
-    ]
+{
+  "additional-vendor-dirs" : {
+      "vendor-dir" : "target/vendor",
+      "libraries": [
+        "techdivision/import-product-magic360"
+      ]
+    }
   }
-]
+}
 ```
 
 #### Events
