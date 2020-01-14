@@ -1,5 +1,8 @@
 ---
 title: Usage
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
@@ -31,11 +34,9 @@ Beside the import commands several other more or less helper commands are availa
 
 By default, if no other source directory has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
 
-> In general, it is possible to **ALWAYS** use the `import:products` command if a configuration file with the `--configuration` option has been specified. The different commands actually just make sure that the corresponding default configuration files will be used.
-
 ### Arguments
 
-The following configuration arguments are available:
+For the [commands](#commands) described above, the following configuration arguments are available:
 
 | Argument             | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
@@ -60,7 +61,7 @@ The following configuration options are available:
 | Option               | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
 | <nobr>--serial</nobr>             | Specify the unique identifier of this import process | Some UUID |
-| <nobr>--configuration</nobr>      | Specify the pathname to the configuration file to use | `./vendor/techdivision/import-product/etc/techdivision-import.json` |
+| <nobr>--configuration</nobr>      | Specify the pathname to the configuration file to use | n/a |
 | <nobr>--pid-filename</nobr>       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 | <nobr>--system-name</nobr>        | The system name to be used (will added to the mail subject, if mails are configured) | The hostname |
 | <nobr>--installation-dir</nobr>   | The Magento installation directory to which the files has to be imported | The actual working directory |
