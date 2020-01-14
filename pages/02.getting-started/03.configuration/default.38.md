@@ -613,7 +613,7 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 
 #### Images
 
-When you want to copy images from a source directory to the Magento `pub/media` directory, additional parameters have to be added to the subjects configuration.
+When you want to copy images from a source directory to the Magento `pub/media` directory, you can add a snippet, e. g. `<magento-installation-directory>/app/etc/configuration/operations.json`, that overrides the default operation.
 
 In case images for the products has to copied from directory `var/importexport/media/wysiwyg` to the apropriate target directory `pub/media/catalog/product` the `copy-images` flag has to be set to `true` as well as the values for the `media-directory` (which is the target directory) and the `images-file-directory` (which is the source directory) has to be specified like
 
