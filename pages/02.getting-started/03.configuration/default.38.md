@@ -618,29 +618,48 @@ When you want to copy images from a source directory to the Magento `pub/media` 
 In case images for categories has to copied from directory `var/importexport/media/wysiwyg` to the apropriate target directory `pub/media/catalog/category` the `copy-images` flag has to be set to `true` as well as the values for the `media-directory` (which is the target directory) and the `images-file-directory` (which is the source directory) has to be specified like
 
 ```json
-"subjects" : [
-   {
-     "id": "import_category_ee.subject.bunch",
-     "identifier": "files",
-     "file-resolver": {
-       "prefix": "category-import"
-     },
-     "params" : [
-       {
-         "copy-images" : true,
-         "media-directory" : "pub/media/catalog/category",
-         "images-file-directory" : "var/importexport/media/wysiwyg"
-       }
-     ],
-     "observers": [
-       {
-         "import": [
-           "import_category_ee.observer.composite.add_update"
-          ]
+{
+  "operations": {
+    "ce": {
+      "catalog_product": {
+        "add-update": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_product.subject.bunch",
+                  "file-resolver": {
+                    "prefix": "product-import"
+                  },
+                  "params": {
+                    "copy-images": false,
+                    "clean-up-media-gallery": true,
+                    "clean-up-empty-image-columns": true,
+                    "clean-up-website-product-relations": true,
+                    "clean-up-category-product-relations": true,
+                    "clean-up-empty-columns": [
+                      "special_price",
+                      "special_price_from_date",
+                      "special_price_to_date"
+                    ]
+                  },
+                  "observers": [
+                    {
+                      "import": [
+                        "import_product.observer.composite.base.add_update"
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          }
         }
-     ]
-   }
-]
+      }
+    }
+  }
+}
 ```
 
 In the CSV file the path to the images has to start with a `/` like `/womens/womens-main.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/master/generic/data/categories/add-update/category-import_20161024-194026_01.csv);
