@@ -118,7 +118,7 @@ Beside the possibility to specify the params directly as commandline option, it 
   }
 }
 ```
-> Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
+! Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
 
 #### Extend M2IF with additional libraries
 
