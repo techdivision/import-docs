@@ -1,5 +1,8 @@
 ---
 title: 'Debug Mode'
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
@@ -22,4 +25,4 @@ When the debug mode has been enabled, missing attribute option values will **NOT
 
 This will help developers to test imports with partially invalid CSV files which do **NOT** break data consistency.
 
-> To improve performance, up from version 3.6.0 metadata that allows to retrace above artefacts where the field data has been originated in is only available in debug mode. In production mode, exceptions will now only contain name and line number of the actual artefact.
+! To improve performance, up from version 3.6.0, metadata that allows to retrace above artefacts where the field data has been originated in, is only available in debug mode. In production mode, exceptions will now only contain name and line number of the actual artefact.
