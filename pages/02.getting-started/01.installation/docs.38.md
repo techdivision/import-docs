@@ -25,7 +25,7 @@ The second option, and in most Magento 2 projects the preferred way, will be the
 ```json
 {
   "require": {
-    "techdivision/import-cli-simple" : "3.7.*"
+    "techdivision/import-cli-simple" : "3.8.*"
   }
 }
 ```
