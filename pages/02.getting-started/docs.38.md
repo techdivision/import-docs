@@ -6,7 +6,7 @@ taxonomy:
 visible: true
 ---
 
-! Up from version 3.8.0 the structure how the configugration will be processed has been changed. 
+!! Up from version 3.8.0 the structure how the configugration will be processed has been changed. 
 
 To install the Magnento 2 Import Framework, composer is necessary. The framework itself is a set of components that provide import functionality for Magento 2. This repository, based on Symfony Console, uses the the package [M2IF](https://github.com/techdivision/import) and provides a command line tool with import functionality for Magento 2 standard CSV files.
 
