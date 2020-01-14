@@ -255,7 +255,7 @@ As subjects are responsible for importing **AND** exporting artefacts, events fo
 }
 ```
 
-#### Default Listeners
+##### Default Listeners
 
 By default, M2IF comes with several listeners registered. 
 
