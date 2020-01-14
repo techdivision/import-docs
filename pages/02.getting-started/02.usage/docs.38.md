@@ -66,7 +66,6 @@ The following configuration options are available:
 | <nobr>--pid-filename</nobr>       | The explicit PID filename to use | `<system-temp-dir>/importer.pid` |
 | <nobr>--system-name</nobr>        | The system name to be used (will added to the mail subject, if mails are configured) | The hostname |
 | <nobr>--installation-dir</nobr>   | The Magento installation directory to which the files has to be imported | The actual working directory |
-| <nobr>--entity-type-code</nobr>   | The Magento entity type code, **MUST** be one of `catalog_product` or `catalog_category`  | n/a |
 | <nobr>--source-dir</nobr>         | The directory that has to be watched for new files | n/a |
 | <nobr>--target-dir</nobr>         | The target directory with the files that has been imported | n/a |
 | <nobr>--archive-dir</nobr>        | The directory with the archived files that has been imported | n/a |
