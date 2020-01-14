@@ -18,23 +18,27 @@ An operation can not be implemented as it is a set of plug-ins that will be exec
 
 ```json
 {
-  "operations" : [
-    {
-      "name" : "my-operation",
-      "plugins" : [
+  "operations" : {
+    "general": {
+      "catalog_product": {
         {
-          "id": "import.plugin.subject",
-          "subjects" : [
+          "name" : "my-operation",
+          "plugins" : [
             {
-              "id": "my.subject.id",
-              "file-resolver": {
-                "prefix": "my-prefix"
-              }
+              "id": "import.plugin.subject",
+              "subjects" : [
+                {
+                  "id": "my.subject.id",
+                  "file-resolver": {
+                    "prefix": "my-prefix"
+                  }
+                }
+              ]    
             }
-          ]    
+          ]
         }
-      ]
+      }
     }
-  ]
+  }
 }
 ```
