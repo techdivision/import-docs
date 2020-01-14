@@ -8,7 +8,7 @@ visible: true
 
 !! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
 
-If **NO** configuration file is specified, it will be loaded and merged from individual parts that are delivered with the respective repositories. In case of the `import:products`, only the operations, specified by the given shortcut, e. g. `add-update`, will be used and executed. By default, the configuration contains whether database configuration nor an image directory. Whereas the database configuration can be specified by the commandline options, it is neccessary to provide a custom configuration snipped that activates the flags `"copy-images":true`, `"clean-up-media-gallery": true"` and `"clean-up-empty-image-columns": true` and contains the paths to the image files. This snippet **MUST** have the JSON format, can have a random name, e. g. `images.json` and has to be placed in the [custom configuration directory](/getting-started/usage). By default, the value for the custom configuration directory is `<magento-install-directory>/app/etc/configuration`.
+If **NO** configuration file is specified, it will be loaded and merged from individual parts that are delivered with the respective repositories. In case of the `import:products`, only the operations, specified by the given shortcut, e. g. `add-update`, will be used and executed. By default, the configuration contains whether database configuration nor an image directory. Whereas the database configuration can be specified by the commandline options, it is neccessary to provide a custom configuration snipped that activates the flags `"copy-images":true`, `"clean-up-media-gallery": true"` and `"clean-up-empty-image-columns": true` and contains the paths to the image files. This snippet **MUST** have the JSON format, can have a random name, e. g. `images.json` and has to be placed in the [custom configuration dir](/getting-started/usage). By default, the value for the `custom-configuration-dir` is `<magento-install-directory>/app/etc/configuration`.
 
 ### Configuration Snippets
 
@@ -18,7 +18,7 @@ The structure is separated into a general configuration section, the database co
 
 #### General Configuration
 
-The general configuration contains basic metadata like the Magento edition and version, which will be necessary when M2IF will be invoked from a directory other than the Magento installation directory and without the `--installation-dir` option. Additionally it can be used to specify default values, if you want to change the default operation from `add-update` to `replace` for example. The change those general metadata we recommend to place a snipped, e. g. with the name `configuration.json` in the custom configuration directory.
+The general configuration contains basic metadata like the Magento edition and version, which will be necessary when M2IF will be invoked from a directory other than the Magento installation directory and without the `--installation-dir` option. Additionally it can be used to specify default values, if you want to change the default operation from `add-update` to `replace` for example. The change those general metadata we recommend to place a snipped, e. g. with the name `<custom-configuration-dir>/configuration.json` in the custom configuration directory.
 
 ```json
 {
@@ -35,7 +35,7 @@ Global parameters in the configuration file enables developers to pass specific 
 
 ##### In a Configuration Snippet
 
-It's possible to create a snippet with params, e. g. `<magento-install-directory>/app/etc/configuration/params.json` which contains values like
+It's possible to create a snippet with params, e. g. `<custom-configuration-dir>/params.json` which contains values like
 
 ```json
 {
@@ -124,11 +124,11 @@ Beside the possibility to specify the params directly as commandline option, it 
 
 In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
 
-> Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
+! Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
 
 ##### Extension Libraries
 
-Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<magento-install-directory>/app/etc/configuration/extension-libraries.json` that contains the name of the library, like
+Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<custom-configuration-dir>/extension-libraries.json` that contains the name of the library, like
 
 ```json
 {
@@ -142,7 +142,7 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 
 ##### Additional Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added by a snippet, e. g. `<magento-installation-directory>/app/etc/configuration/additional-vendor-dirs`, which contains the following content
+Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added by a snippet, e. g. `<custom-configuration-dir>/additional-vendor-dirs`, which contains the following content
 
 ```json
 {
@@ -614,7 +614,7 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 
 #### Images
 
-When you want to copy images from a source directory to the Magento `pub/media` directory, you can add a snippet, e. g. `<magento-installation-directory>/app/etc/configuration/operations.json`, that overrides the default operation.
+When you want to copy images from a source directory to the Magento `pub/media` directory, you can add a snippet, e. g. `<custom-configuration-dir>/operations.json`, that overrides the default operation.
 
 In case images for the products has to copied from directory `var/importexport/media/wysiwyg` to the apropriate target directory `pub/media/catalog/product` the `copy-images` flag has to be set to `true` as well as the values for the `media-directory` (which is the target directory) and the `images-file-directory` (which is the source directory) has to be specified like
 
@@ -671,7 +671,7 @@ In the CSV file the path to the images has to start with a `/` like `/m/b/mb01-b
 
 #### Header Mappings
 
-In some cases, it can be very handy to map column names to the appropriate attributes. This is a built-in feature and can simply be configured by adding a snippet, e. g. `<magento-installation-directory>/app/etc/configuration/header-mappings.json` that contains an array with header mappings like
+In some cases, it can be very handy to map column names to the appropriate attributes. This is a built-in feature and can simply be configured by adding a snippet, e. g. `<custom-configuration-dir>/header-mappings.json` that contains an array with header mappings like
 
 ```json
 {
