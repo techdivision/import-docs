@@ -6,11 +6,9 @@ taxonomy:
 visible: true
 ---
 
-The necessary configuration has to be defined in a simple JSON file. Examples that imports the Magento 2 sample data into several Magento 2 CE versions can be found in our [examples](https://github.com/techdivision/import-sample-data).
+!! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
 
-If **NO** configuration file (option `--configuration`) has been specified, the default one, defined by the executed command will be used. In case of the `import:products`, the configuration file provided by the library `techdivision/import-product` in the directory `etc/techdivision-import.json` will be used. This default configuration contains **NO** database configuration and **NO** image directory.
-
-The database configuration can be specified by the commandline options, but if images should be imported.
+If **NO** configuration file is specified, it will be loaded and merged from individual parts that are delivered with the respective repositories. In case of the `import:products`, only the operations, specified by the given shortcut, e. g. `add-update`, will be used and executed. By default, the configuration contains **NO** database configuration and **NO** image directory, whereas the database configuration can be specified by the commandline options.
 
 !! If images should be imported, a custom configuration snipped that activates the flags for the image copy and clean-up functionality as well as the paths to the image files has to be placed in the [custom configuration dir](/getting-started#options).
 
