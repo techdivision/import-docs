@@ -6,7 +6,7 @@ taxonomy:
 visible: true
 ---
 
-!! ATTENTION: Up from version 3.8.0 the structure how the configugration will be processed has been changed. Your old configuration files can **NOT** be processed anymore and you've to customize your configuration when you switch from 3.7.x to 3.8.x. In general version 3.8.x should make custom configuration more or less obsolete on the one hand. On the other, it has been build to allow override only that part of the configuration which you want to change, e. g. the log level.
+!! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
 
 To install the Magnento 2 Import Framework, composer is necessary. The framework itself is a set of components that provide import functionality for Magento 2. This repository, based on Symfony Console, uses the the package [M2IF](https://github.com/techdivision/import) and provides a command line tool with import functionality for Magento 2 standard CSV files.
 
