@@ -160,27 +160,33 @@ Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is n
 
 Beside the configured worklfow with Plugins, Subjects, Observers and Callbacks, addtional events are available to add custom functionality.
 
-| Event Name                           | Description                                                                                                                    | Since Version |
-|:-------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:--------------|
-| app.set.up                           | Is triggered before the import will be processed.                                                                              |               |
-| app.tear.down                        | Is triggered after the import has been processed.                                                                              |               |
-| app.process.transaction.start        | Is triggered before the application start's the transaction (if single transaction mode has been activated).                   |               |
-| app.process.transaction.success      | Is triggered after the application has the transaction committed successfully (if single transaction mode has been activated). |               |
-| app.process.transaction.failure      | Is triggered after the application rollbacked the transaction (if single transaction mode has been activated).                 |               |
-| subject.artefact.process.start       | Is triggered before an import artefact will be processed.                                                                      |               |
-| subject.artefact.process.success     | Is triggered when an import artefact has successfully been processed.                                                          |               |
-| subject.artefact.process.failure     | Is triggered when an import artefact can not be processed.                                                                     |               |
-| subject.artefact.row.process.start   | Is triggered when an import artefact has successfully been processed.                                                          |               |
-| subject.artefact.row.process.success | Is triggered when an import artefact has successfully been processed.                                                          |               |
-| plugin.process.start                 | Is triggered before a subject's `import()` method will be processed.                                                           |         3.4.0 |
-| plugin.process.success               | Is triggered after a subject's `import()` method has been processed.                                                           |         3.4.0 |
-| plugin.process.failure               | Is triggered when an exception has been thrown during the subject's `import()` is processed.                                   |         3.4.0 |
-| subject.import.start                 | Is triggered before a subject's `import()` method will be processed.                                                           |         3.4.0 |
-| subject.import.success               | Is triggered after a subject's `import()` method has been processed.                                                           |         3.4.0 |
-| subject.import.failure               | Is triggered when an exception has been thrown during the subject's `import()` is processed.                                   |         3.4.0 |
-| subject.export.start                 | Is triggered before a subject's `export()` method will be processed.                                                           |         3.4.0 |
-| subject.export.success               | Is triggered after a subject's `export()` method has been processed.                                                           |         3.4.0 |
-| subject.export.failure               | Is triggered when an exception has been thrown during the subject's `export()` is processed.                                   |         3.4.0 |
+| Event Name                                | Description                                                                                                                    | Since Version |
+|:------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------|:--------------|
+| app.set.up                                | Is triggered before the import will be processed.                                                                              |               |
+| app.tear.down                             | Is triggered after the import has been processed.                                                                              |               |
+| app.process.transaction.start             | Is triggered before the application start's the transaction.                                                                   |               |
+| app.process.transaction.success           | Is triggered after the application has the transaction committed successfully.                                                 |               |
+| app.process.transaction.failure           | Is triggered after the application rollbacked the transaction.                                                                 |               |
+| app.process.transaction.finished          | Is triggered after the application transaction has been finished (either it has been successful or not).                       |        3.8.0  |
+| subject.artefact.process.start            | Is triggered before an import artefact will be processed.                                                                      |               |
+| subject.artefact.process.success          | Is triggered when an import artefact has successfully been processed.                                                          |               |
+| subject.artefact.process.failure          | Is triggered when an import artefact can not be processed.                                                                     |               |
+| subject.artefact.row.process.start        | Is triggered when an import artefact has successfully been processed.                                                          |               |
+| subject.artefact.row.process.success      | Is triggered when an import artefact has successfully been processed.                                                          |               |
+| subject.artefact.header.row.process.start | Is triggered before an import artefact's header row will be processed.                                                         |         3.8.0 |
+| subject.artefact.header.row.process.start | Is triggered when an import artefact's header row has successfully been processed.                                             |         3.8.0 |
+| plugin.process.start                      | Is triggered before the plugin's `process()` method will be processed.                                                         |         3.4.0 |
+| plugin.process.success                    | Is triggered after a plugin's `process()` method has been processed.                                                           |         3.4.0 |
+| plugin.process.failure                    | Is triggered when an exception has been thrown during the plugin's `process()` method is processed.                            |         3.4.0 |
+| plugin.export.start                       | Is triggered before a plugin's `export()` method will be processed.                                                            |         3.8.0 |
+| plugin.export.success                     | Is triggered after a plugin's `export()` method has been processed.                                                            |         3.8.0 |
+| plugin.export.failure                     | Is triggered when an exception has been thrown during the plugin's `export()` method is processed.                             |         3.8.0 |
+| subject.import.start                      | Is triggered before a subject's `import()` method will be processed.                                                           |         3.4.0 |
+| subject.import.success                    | Is triggered after a subject's `import()` method has been processed.                                                           |         3.4.0 |
+| subject.import.failure                    | Is triggered when an exception has been thrown during the subject's `import()` is processed.                                   |         3.4.0 |
+| subject.export.start                      | Is triggered before a subject's `export()` method will be processed.                                                           |         3.4.0 |
+| subject.export.success                    | Is triggered after a subject's `export()` method has been processed.                                                           |         3.4.0 |
+| subject.export.failure                    | Is triggered when an exception has been thrown during the subject's `export()` is processed.                                   |         3.4.0 |
 
 Beside to possiblity to register global events, up with version 3.4.0 it is possible to register events on plugin and subject level. This avoids execution of events that only provide functionality for a dedicated plugin or subject, so keep in mind, that they will **NOT** be fired for every plugin or every subject.
 
