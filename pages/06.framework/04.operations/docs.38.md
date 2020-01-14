@@ -6,77 +6,35 @@ taxonomy:
 visible: true
 ---
 
-A operation reflects an import command like the `delete` operation and combines the necessary functionality as as simple container, that allows to have a custom plugin configuration. Usually, most of the operations are at least build out of the tree plugins
+An operation reflects a step on an import command like the `add-update` and combines the necessary functionality as something like a container. It allows you to add a custom configuration for an existing operation or to add a new one. 
 
-* TechDivision\Import\Plugins\GlobalDataPlugin
-* TechDivision\Import\Plugins\SubjectPlugin
-* TechDivision\Import\Plugins\ArchivePlugin
+#### When do i need an operation?
 
-Each plugin usually implements a specific functionality like the `GlobalDataPlugin` that pre-loads the global data like attributes or attribute sets. Other plugins like the `SubjectPlugin` are again only a container that can be configured with several subjects, that'll be executed synchronously for each matching file a subject can find.
+You'll need an operation, if you want to integrate your own custom implementation e. g. based on a plug-in, subjects or observers. An operation allows you to combine these classes based on your needs.
 
-The example above shows a short excerpt of a complete configuration file and should give a impression how the `delete` operation for products is configured by default.
+#### How to implement an operation?
 
-The `GlobalDataPlugin` loads the global data that'll be needed in other plugins into the memory. This prevents other plugins to load these data again and again and avoids unnecessary database traffic therfore. 
-
-The next plugin, called `SubjectPlugin`, is configured with two subject. The `MoveFilesSubject` simply moves the CSV files into a temporary folder, where the `BunchSubject` starts to import them into the database.
-
-Finally, the `ArchivePlugin` archives the imported files additionally artefacts into a ZIP archive and moves it to the configured archive directory.
+An operation can not be implemented as it is a set of plug-ins that will be executed in the configured order. Up since version 3.8.0, most operations only have **ONE** plugin, as the chaining of operations and the order in which they have to be executed can be defined in the shortcuts. In general, you can configure an operation that matches your requirements, like 
 
 ```json
 {
-  "magento-edition": "CE",
-  "magento-version": "2.3.1",
-  "operation-name" : "replace",
-  "installation-dir" : "/var/www/magento",
-  "source-dir": "projects/sample-data/tmp",
-  "target-dir": "projects/sample-data/tmp",
-  "archive-artefacts" : false,
-  "archive-dir" : "archive",
-  "debug-mode" : false,
-  "ignore-pid" : false,
-  "pid-filename" : "projects/sample-data/tmp/importer.pid",
-  "databases" : [ ... ],
   "operations" : [
     {
-      "name" : "delete",
+      "name" : "my-operation",
       "plugins" : [
-        {
-          "id": "import.plugin.global.data"
-        },
         {
           "id": "import.plugin.subject",
           "subjects" : [
             {
-              "id": "import.subject.move.files",
-              "identifier": "move-files",
+              "id": "my.subject.id",
               "file-resolver": {
-                "prefix": "product-import"
-              },
-              "ok-file-needed": true
-            },
-            {
-              "id": "import_product.subject.bunch",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "product-import"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product.observer.clear.product"
-                  ]
-                }
-              ]
+                "prefix": "my-prefix"
+              }
             }
-          ]
-        },
-        {
-          "id": "import.plugin.archive"
+          ]    
         }
       ]
     }
   ]
 }
 ```
-
-Most of the available configuration options has to be specified on the subject level, which is nested under the plugins.
