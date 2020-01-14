@@ -6,8 +6,6 @@ taxonomy:
 visible: true
 ---
 
-
-
 #### When do i need a callback?
 
 Callbacks can be used to transform values, found in the CSV file into the necessary types that needs to be stored into the database. For example, the default Magento 2 CSV format allows the values
