@@ -373,7 +373,7 @@ To add additional loggers, e. g. in case you want to send mails if an exception 
 }
 ```
 
-This will override the system logger, as the name is `system`, and set the default log level to **debug**.
+This will add a mail logger and set the default log level to **error**.
 
 #### Cache
 
