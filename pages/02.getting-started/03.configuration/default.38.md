@@ -667,4 +667,4 @@ In some cases, it can be very handy to map column names to the appropriate attri
 
 In the example above, column name `my_sku_column` will automatically be mapped to the mandatory column `sku`. This happens **BEFORE** any columns will be processed and allows vendors to configure any column to the appropriate attribute without custom development.
 
-> Keep in mind, that the header mappings are valid for all operations within the configuration file!
+! Keep in mind, that the header mappings are valid for all operations within the configuration file!
