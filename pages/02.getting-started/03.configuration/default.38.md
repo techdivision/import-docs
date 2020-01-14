@@ -192,7 +192,7 @@ Beside to possiblity to register global events, up with version 3.4.0 it is poss
 
 ##### Plug-In Level
 
-The listeners will only be executed before, after or on failure of the plugin, for which the event has been  configured for. Configuration in a snippet, e. g. `<customer-installation-dir>/operations.json` can look like
+The listeners will only be executed before, after or on failure of the plugin, for which the event has been  configured for. Configuration in a snippet, e. g. `<customer-installation-dir>/operations.json`, can look like
 
 ```json
 {
@@ -222,9 +222,7 @@ The listeners will only be executed before, after or on failure of the plugin, f
 
 ##### Subject Level
 
-As subjects are responsible for importing **AND** exporting artefacts, events for both steps has been added.
-
-The listeners will only be executed before, after or on failure of the subject, for which the event has been configured for. Configuration will look like
+As subjects are responsible for importing **AND** exporting artefacts, events for both steps has been added. The listeners will only be executed before, after or on failure of the subject, for which the event has been configured for. Configuration in an appropriate snippet, e. g. `<customer-installation-dir>/operations.json`, can look like
 
 ```json
 {
@@ -259,60 +257,66 @@ The listeners will only be executed before, after or on failure of the subject, 
 
 #### Default Listeners
 
-By default, M2IF comes with 3 listeners registered. 
+By default, M2IF comes with several listeners registered. 
 
 ```json
 {
-  "magento-edition": "CE",
-  "magento-version": "2.3.0",
-  "operation-name" : "add-update",
-  "archive-artefacts" : true,
-  "debug-mode" : false,
-  "source-dir" : "projects/sample-data/tmp",
-  "target-dir" : "projects/sample-data/tmp",
-  "entity-type-code" : "catalog_product",
-  "listeners" : [
+  "listeners": [
     {
-      "app.set.up" : [
+      "app.set.up": [
         "import.listener.render.ansi.art",
+        "import.listener.render.operation.info",
+        "import.listener.render.mysql.info",
+        "import.listener.render.debug.info",
         "import.listener.initialize.registry"
-      ]
-    },
-    {
-      "app.tear.down" : [
+      ],
+      "app.process.transaction.success": [
+        "import.listener.finalize.registry",
+        "import.listener.archive",
+        "import.listener.clear.artefacts",
+        "import.listener.clear.directories",
+        "import.listener.operation.report"
+      ],
+      "app.process.transaction.failure": [
+        "import.listener.finalize.registry",
+        "import.listener.render.validations"
+      ],
+      "app.tear.down": [
+        "import.listener.import.history",
         "import.listener.clear.registry"
       ]
     }
-  ],
-  ...
+  ]
 }
 ```
 
 The first one named `import.listener.render.ansi.art` is renders the nice ASCII art when invoking the CLI. The second and the third one are mandatory as they are responsible to initialize the registry of the actual import.
 
-> As solution partner, feel free to replace the ASCII art renderer with one of your choice, e. g. rendering the logo of your company.
+!!!! As solution partner, feel free to replace the ASCII art renderer with one of your choice, e. g. rendering the logo of your company.
 
 #### Database
 
-The configuration allows the registration of multiple databases like
+The configuration allows the registration of multiple databases, for example in a snippet `<custom-configuration-dir>/databases.json`, which can look like
 
 ```json
-"databases": [
-  {
-    "id": "local",
-    "default": false,
-    "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
-    "username": "your-username",
-    "password": "your-password"
-  },
-  {
-    "id": "remote",
-    "default": true,
-    "pdo-dsn": "mysql:host=127.0.0.130;dbname=appserver_magento2_ee212",
-    "username": "your-username",
-    "password": "your-password"
-  }
-]
+{
+  "databases": [
+    {
+      "id": "local",
+      "default": false,
+      "pdo-dsn": "mysql:host=127.0.0.1;dbname=appserver_magento2_ee212",
+      "username": "your-username",
+      "password": "your-password"
+    },
+    {
+      "id": "remote",
+      "default": true,
+      "pdo-dsn": "mysql:host=127.0.0.130;dbname=appserver_magento2_ee212",
+      "username": "your-username",
+      "password": "your-password"
+    }
+  ]
+}
 ```
 
 Depending whether the commandline option `--use-db-id` and the specified value, the database with the given ID will be used. If the commandline options is **NOT** specified, the one with the  flag `"default": true` will be used, if not found, the first configured database will be use.
