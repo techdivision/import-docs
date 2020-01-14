@@ -1,5 +1,8 @@
 ---
 title: Configuration
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
@@ -9,7 +12,7 @@ If **NO** configuration file (option `--configuration`) has been specified, the 
 
 The database configuration can be specified by the commandline options, but if images should be imported.
 
-> If images should be imported, a custom configuration file with the paths to the image files has to be specified.
+!! If images should be imported, a custom configuration snipped that activates the flags for the image copy and clean-up functionality as well as the paths to the image files has to be placed in the [custom configuration dir](/getting-started#options).
 
 ### Configuration File
 
