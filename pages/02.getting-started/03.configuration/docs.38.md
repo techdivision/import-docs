@@ -31,9 +31,11 @@ The general configuration contains basic metadata like the Magento edition and v
 
 #### Global Parameters
 
-Global parameters in the configuration file enables developers to pass specific configuration values from the configuration file itself, from the commandline (using the --params option) or an addtional file (using the --params-file option) through to their import logic, e. g. project specifc observers.
+Global parameters in the configuration file enables developers to pass specific configuration values from the configuration file itself, from the commandline (using the `--params` option) or an addtional file (using the `--params-file` option) through to their import logic, e. g. project specifc observers.
 
-##### In the Configuration File itself
+##### In a Configuration Snippet
+
+It's possible to create a snippet with params, e. g. `<magento-install-directory>/app/etc/configuration/params.json` which contains values like
 
 ```json
 {
@@ -46,7 +48,7 @@ Global parameters in the configuration file enables developers to pass specific 
 }
 ```
 
-These params can be used wherever access to the configuration object is available, e. g. in an observer like
+These params can then be used wherever access to the configuration object is available, e. g. in an observer like
 
 ```php
 
@@ -98,8 +100,7 @@ Beside the params that can be defined in the configuration file itself, addition
 
 ```sh
 bin/import-cli-simple.phar import:products \
-     --configuration=projects/sample-data/ce/2.3.x/conf/products/techdivision-import.json \
-     --params='{ "params": [ { "my-website-country-mapping": { "DE": [ "de_LI" ] } } ] }'
+     --params='{ "params": { "my-website-country-mapping": { "DE": [ "de_LI" ] } } }'
 ```
 
 which will append the value `de_LI` to the `DE` param of the `my-website-country-mapping`.
@@ -110,13 +111,11 @@ Beside the possibility to specify the params directly as commandline option, it 
 
 ```json
 { 
-  "params": [ 
-    { 
-      "my-website-country-mapping": { 
-        "DE": [ "de_LI" ]
-      } 
+  "params": { 
+    "my-website-country-mapping": { 
+      "DE": [ "de_LI" ]
     } 
-  ] 
+  }
 }
 ```
 > Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
@@ -129,7 +128,7 @@ In more complex projects, it'll we possible, that addional libraries are necessa
 
 ##### Extension Libraries
 
-Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension will be adding it as a extension library like
+Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<magento-install-directory>/app/etc/configuration/extension-libraries.json` that contains the name of the library, like
 
 ```json
 "extension-libraries" : [
