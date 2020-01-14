@@ -228,56 +228,32 @@ The listeners will only be executed before, after or on failure of the subject, 
 
 ```json
 {
-  ...
-  "operations" : [
-    {
-      "name" : "add-update",
-      "plugins" : [
-        {
-          "id": "import.plugin.cache.warmer"
-        },
-        {
-          "id": "import.plugin.global.data"
-        },
-        {
-          "id": "import.plugin.subject",
-          "listeners" : [
-             {
-              "plugin.process.success" : [
-                "import_product_tier_price.listener.delete.obsolete.tier_prices"
+  "operations": {
+    "general": {
+      "catalog_product_tier_price": {
+        "add-update": {
+          "plugins": {
+            "subject": {
+              "id": "import.plugin.subject",
+              "subjects": [
+                {
+                  "id": "import_product_tier_price.subject.tier_price",
+                  "listeners": [
+                    {
+                      "subject.import.success": [
+                        "import_product.listener.register.sku.to.pk.mapping"
+                      ]
+                    }
+                  ],
+                  "observers": [ ... ]
+                }
               ]
             }
-          ]
-          "subjects": [
-            ...
-            {
-              "id": "import_product_tier_price.subject.tier_price",
-              "identifier": "files",
-              "listeners": [
-                 {
-                  "subject.import.success" : [
-                    "import_product.listener.register.sku.to.pk.mapping"
-                  ]
-                }
-              ],
-              "file-resolver": {
-                "prefix": "product-import-tier-price"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product_tier_price.observer.tier_price.update"
-                  ]
-                }
-              ]
-            },
-          },
-          ...
-        ]
-      ]
+          }
+        }
+      }
     }
-    ...
-  ]
+  }
 }
 ```
 
