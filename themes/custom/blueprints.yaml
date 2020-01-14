@@ -1,0 +1,9 @@
+name: M2IF Custom Learn2 Git Sync Theme
+version: 1.0.0
+description: "A customized version of the Learn2 theme for use with the Learn2 with Git Sync skeleton package. Includes selectable visual styles."
+icon: git
+license: MIT
+
+dependencies:
+  - { name: grav, version: '>=1.6.0' }
+  - learn2-git-sync
