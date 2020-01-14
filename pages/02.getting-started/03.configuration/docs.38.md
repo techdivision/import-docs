@@ -8,23 +8,24 @@ visible: true
 
 !! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
 
-If **NO** configuration file is specified, it will be loaded and merged from individual parts that are delivered with the respective repositories. In case of the `import:products`, only the operations, specified by the given shortcut, e. g. `add-update`, will be used and executed. By default, the configuration contains whether database configuration nor an image directory. Whereas the database configuration can be specified by the commandline options, it is neccessary to provide a custom configuration snipped that activates the flags `"copy-images":true`, `"clean-up-media-gallery": true"` and `"clean-up-empty-image-columns": true` and contains the paths to the image files. This snippet **MUST** have the JSON format, can have a random name, e. g. `images.json` and has to be placed in the [custom configuration dir](/getting-started/usage). By default, the value for the custom configuration directory is `<magento-install-directory>/app/etc/configuration`.
+If **NO** configuration file is specified, it will be loaded and merged from individual parts that are delivered with the respective repositories. In case of the `import:products`, only the operations, specified by the given shortcut, e. g. `add-update`, will be used and executed. By default, the configuration contains whether database configuration nor an image directory. Whereas the database configuration can be specified by the commandline options, it is neccessary to provide a custom configuration snipped that activates the flags `"copy-images":true`, `"clean-up-media-gallery": true"` and `"clean-up-empty-image-columns": true` and contains the paths to the image files. This snippet **MUST** have the JSON format, can have a random name, e. g. `images.json` and has to be placed in the [custom configuration directory](/getting-started/usage). By default, the value for the custom configuration directory is `<magento-install-directory>/app/etc/configuration`.
 
 ### Configuration Snippets
 
-All configuration snippets **MUST** be in JSON format and have to be located in the custom configuration directory. In general, nearly all available configuration options/arguments can and **SHOULD** be defined in those snippets, instead of passing them as commandline options. The possiblity to override configuration values on the commandline should only be used during development or in special cases, e. g. when the values will be loaded from a third party system. 
+All configuration snippets **MUST** be in JSON format and have to be located in the [custom configuration directory](/getting-started/usage). In general, nearly all available configuration options/arguments can and **SHOULD** be defined in those snippets, instead of passing them as commandline options. The possiblity to override configuration values on the commandline should only be used during development or in special cases, e. g. when the values will be loaded from a third party system. 
 
-The structure is separated into a general configuration section, the database configuration and the configuration for the available operations.
+The structure is separated into a general configuration section, the database configuration, the logger configuration and the configuration for the available operations.
+
+#### General Configuration
+
+The general configuration contains basic metadata like the Magento edition and version, which will be necessary when M2IF will be invoked from a directory other than the Magento installation directory and without the `--installation-dir` option. Additionally it can be used to specify default values, if you want to change the default operation from `add-update` to `replace` for example. The change those general metadata we recommend to place a snipped, e. g. with the name `configuration.json` in the custom configuration directory.
 
 ```json
 {
   "magento-edition": "CE",
   "magento-version": "2.3.1",
   "operation-name" : "replace",
-  "installation-dir" : "/var/www/magento",
-  "databases" : [ ... ],
-  "loggers" : [ ... ],
-  "operations" : { ... }
+  "installation-dir" : "/var/www/magento"
 }
 ```
 
@@ -36,21 +37,12 @@ Global parameters in the configuration file enables developers to pass specific 
 
 ```json
 {
-  "magento-edition": "CE",
-  "magento-version": "2.3.1",
-  "operation-name" : "replace",
-  "installation-dir" : "/var/www/magento",
-  "params": [ 
-    { 
-      "my-website-country-mapping": { 
-        "DE": [ "de_DE", "de_AT", "de_CH" ], 
-        "EN": [ "en_US", "en_UK" ] 
-      } 
+  "params": { 
+    "my-website-country-mapping": { 
+      "DE": [ "de_DE", "de_AT", "de_CH" ], 
+      "EN": [ "en_US", "en_UK" ] 
     } 
-  ],
-  "databases" : [ ... ],
-  "loggers" : [ ... ],
-  "operations" : { ... }
+  }
 }
 ```
 
