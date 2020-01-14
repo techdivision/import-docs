@@ -327,53 +327,49 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 
 M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
 
-To add additional loggers, or override the default one with name `system, the configuration file can be extended like
+To add additional loggers, e. g. in case you want to send mails if an exception has been thrown, the configuration can be extended, e. g. with a snippet `<custom-configuration-dir>/loggers.json` which looks like
 
 ```json
 {
-  "loggers": [
+  "loggers": {
     "mail": {
-      "name": "mail",
-      "channel-name" : "logger/mail",
-      "type" : "Monolog\\Logger",
-      "handlers" : [
+      "id": "import.logger.factory.monolog",
+      "channel-name": "logger/mail",
+      "handlers": [
         {
-          "type": "Monolog\\Handler\\SwiftMailerHandler",
-          "params" : [
-            {
-              "log-level" : "error",
-              "bubble" : false
+          "id": "import.logger.factory.handler.swift",
+          "formatter": {
+            "id": "import.logger.factory.formatter.line",
+            "params": {
+              "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
+              "date-format": "Y-m-d H:i:s",
+              "allow-inline-line-breaks": true,
+              "ignore-empty-context-and-extra": true
             }
-          ],
+          },
+          "params": {
+            "log-level": "error",
+            "bubble": false
+          },
           "swift-mailer" : {
-            "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SmtpTransportMailerFactory",
-            "mailer-factory" : "\\Swift_Mailer",
-            "params" : [
-              {
-                "to" : "info@my-domain.tld",
-                "from" : "info@my-domain.tld",
-                "subject": "Something Went Wrong",
-                "content-type" : "text/plain"
-              }
-            ],
+            "id" : "import.logger.factory.transport.swift.smtp",
+            "params" : {
+              "to" : "tw@techdivision.com",
+              "from" : "m2if@techdivision.com",
+              "subject": "Something Went Wrong",
+              "content-type" : "text/plain"
+            },
             "transport" : {
-              "transport-factory" : "\\Swift_SmtpTransport",
-              "params" : [
-                {
-                  "smtp-host" : "my-domain.tld",
-                  "smtp-port" : 25,
-                  "smtp-security" : "tls",
-                  "smtp-auth-mode" : "LOGIN",
-                  "smtp-username" : "your-username",
-                  "smtp-password" : "your-password"
-                }
-              ]
+              "params" : {
+                "smtp-host" : "mail.techdivision.com",
+                "smtp-port" : 25
+              }
             }
           }
         }
       ]
     }
-  ]
+  }
 }
 ```
 
