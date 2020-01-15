@@ -21,41 +21,25 @@ You should think about implementing a plug-in in either one of these cases
 
 #### How to implement a plug-in?
 
-The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
+The good example is the `TechDivision\Import\Plugins\GlobalDataPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
 
 ```json
 {
-  "id": "import.plugin.cache.warmer",
-  "params": {
-  	"cache-warmers": [
-      "import.repository.cache.warmer.eav.attribute.option.value"
-    ] 
-  }
+  "id": "import.plugin.global.data"
 }
 ```
 
 and the `process()` method that'll have to implement the plug-ins main functionality.
 
-The `TechDivision\Import\Plugins\CacheWarmerPlugin` loads the repository with the ID `import.repository.cache.warmer.eav.attribute.option.value` (that implements the `TechDivision\Import\Repositories\CacheWarmer\CacheWarmerInterface`) from the DI container and invokes it's `warm()` method which pre-loads the repository data and add's it to the cache. For sure, this can be done before the main import process to minimize database queries and system load. 
+The `TechDivision\Import\Plugins\GlobalDataPlugin` loads the global data, e. g. entity types from the import processor and injects it into the registry. This makes it available by all following plug-ins, subjects and observers and helps to avoid unnecessary database access. 
 
 ```php
 namespace TechDivision\Import\Plugins;
 
-use TechDivision\Import\Utils\ConfigurationKeys;
-use TechDivision\Import\Utils\DependencyInjectionKeys;
+use TechDivision\Import\Utils\RegistryKeys;
 
-class CacheWarmerPlugin extends AbstractPlugin
+class GlobalDataPlugin extends AbstractPlugin
 {
-
-    /**
-     * Array with the default cache warmers.
-     *
-     * @var array
-     */
-    protected $cacheWarmers = array(
-        DependencyInjectionKeys::IMPORT_CACHE_WARMER_EAV_ATTRIBUTE_OPTION_VALUE_REPOSITORY
-    );
-
     /**
      * Process the plugin functionality.
      *
@@ -65,31 +49,25 @@ class CacheWarmerPlugin extends AbstractPlugin
     public function process()
     {
 
-        // query whether or not additional cache warmers has been configured
-        if ($this->getPluginConfiguration()->hasParam(ConfigurationKeys::CACHE_WARMERS)) {
-            // try ot load the cache warmers and merge them with the default ones
-            $this->cacheWarmers = array_merge(
-                $this->cacheWarmers,
-                $this->getPluginConfiguration()->getParam(ConfigurationKeys::CACHE_WARMERS)
-            );
-        }
+        // load the global data from the import processor
+        $globalData = $this->getImportProcessor()->getGlobalData();
 
-        // create the instances and warm the repository caches
-        foreach ($this->cacheWarmers as $id) {
-            $this->getApplication()->getContainer()->get($id)->warm();
-        }
+        // add the status with the global data
+        $this->getRegistryProcessor()->mergeAttributesRecursive(
+            RegistryKeys::STATUS,
+            array(RegistryKeys::GLOBAL_DATA => $globalData)
+        );
     }
 }
 ```
-!!!! Whenever another class has the repository injected, the data has been pre-loaded and no additional database queries will be necessary.
-
-#### Cache Warmer
-
-Has been removed up with version 3.8.0
 
 #### OOTB Plug-Ins
 
 The standard plugins are part of the M2IF core and can be used OOTB. When it'll be necessary to implement your own components, you'll go fine in most cases, if you don't implement your own plug-in, but instead use the `SubjectPlugin` and provide your functionality in form of subjects, observers and services.
+
+##### Cache Warmer
+
+Has been removed up with version 3.8.0
 
 ##### Global Data
 
