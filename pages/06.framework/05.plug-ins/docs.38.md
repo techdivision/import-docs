@@ -17,7 +17,7 @@ You should think about implementing a plug-in in either one of these cases
 * You need to pre-initialize something, before the main import process starts, e. g. like the cache warmer plug-in that warms the registered repository
 * You need to do something after the import has been finished, e. g. like the missing options plug-in that sends a list with missing option values a configurable receiver
 
-> Generally you probably need a plug-in, when you want to do something before or after the main import step, or you have to implement some business logic that need access to **ALL IMPORT ARTEFACTS** at the same time.
+!!! Generally you probably need a plug-in, when you want to do something before or after the main import step, or you have to implement some business logic that need access to **ALL IMPORT ARTEFACTS** at the same time.
 
 #### How to implement a plug-in?
 
