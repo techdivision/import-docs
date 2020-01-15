@@ -8,7 +8,7 @@ visible: true
 
 Depending on the required functionality, it'll be necessary to implement a plug-in. A plug-in is the highest level when starting a component and in many cases it'll not be necessary to implement a plug-in, as subject or observer level can cover the required needs.
 
-#### When do i need a plug-in?
+### When do i need a plug-in?
 
 You should think about implementing a plug-in in either one of these cases
 
@@ -19,7 +19,7 @@ You should think about implementing a plug-in in either one of these cases
 
 !!!! In general, you need a plug-in, when you want to do something before or after the main import step, or you have to implement some business logic that need access to **ALL IMPORT ARTEFACTS** at the same time.
 
-#### How to implement a plug-in?
+### How to implement a plug-in?
 
 The good example is the `TechDivision\Import\Plugins\GlobalDataPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
 
