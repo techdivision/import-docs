@@ -7,56 +7,12 @@ Up with version 3.8.0, validation for all entity types will be activated by defa
 
 ### Switch-Off Validaton
 
-If you don't want your CSV files validated, you can override the appropriate shortcuts with a snippet, e. g. `etc/configuration/shortcuts.json`. For example, if you want to complete remove the validation from your product, inventory and price import, delete the operation `"general/catalog_product/validate"`, the snippet then has to look like
+If you don't want your CSV files validated, you can override the appropriate shortcuts with a snippet, e. g. `etc/configuration/shortcuts.json`. For example, if you want to complete remove the validation from the `add-update` process of your product import, delete the operation `"general/catalog_product/validate"` from the appropriate shortcut. Finally, the snippet has to look like
 
 ```json
 {
   "shortcuts": {
     "ce": {
-      "catalog_product_inventory": {
-        "add-update": [
-          "general/general/move-files",
-          "general/general/global-data",
-          "ce/catalog_product_inventory/add-update"
-        ]
-      },
-      "catalog_product_price": {
-        "add-update": [
-          "general/general/move-files",
-          "general/general/global-data",
-          "ce/catalog_product_price/add-update"
-        ]
-      },
-      "catalog_product": {
-        "delete": [
-          "general/general/global-data",
-          "general/general/move-files",
-          "ce/catalog_product/delete",
-          "general/catalog_product/delete.msi"
-        ],
-        "replace": [
-          "general/general/global-data",
-          "general/general/move-files",
-          "general/catalog_product/collect-data",
-          "general/eav_attribute/convert",
-          "general/eav_attribute/add-update.options",
-          "general/eav_attribute/add-update.option-values",
-          "general/eav_attribute/add-update.swatch-values",
-          "general/catalog_category/convert",
-          "ce/catalog_category/sort",
-          "ce/catalog_category/add-update",
-          "ce/catalog_category/add-update.path",
-          "ce/catalog_category/add-update.url-rewrite",
-          "general/catalog_category/children-count",
-          "ce/catalog_product/replace",
-          "ce/catalog_product/replace.variants",
-          "ce/catalog_product/replace.bundles",
-          "ce/catalog_product/replace.links",
-          "ce/catalog_product/replace.grouped",
-          "ce/catalog_product/replace.media",
-          "general/catalog_product/replace.msi",
-          "general/catalog_product/replace.url-rewrites"
-        ],
         "add-update": [
           "general/general/global-data",
           "general/general/move-files",
@@ -92,7 +48,7 @@ For each entity type a snippet, that declares the available operations, is avail
 
 In general, the validation operation is based on a validator subject, an observer, some listeners and a bunch of callbacks. Finally, the validations are implemented as callbacks which allows you register one or more validation callbacks for each column. M2IF comes with some specialized callbacks that only can used for the corresponding columns and a custom regex validator that can be used to integrate custom, regex based validations.
 
-To go into details, let's have a look at the validation operation of the `catalog_product` entity in the [techdivision/import-product](https://github.com/techdivision/import-product/blob/19.x/etc/configuration/operations.json#L118) repository. In order to make it easier to understand, we've removed the unimportant parts.
+To go into details, let's have a look at the validation operation of the product import, which is declared in the [operations.json](https://github.com/techdivision/import-product/blob/19.x/etc/configuration/operations.json#L118) of the [techdivision/import-product](https://github.com/techdivision/import-product) repository. In order to make it easier to understand, we've removed the unimportant parts.
 
 ```json
 {
