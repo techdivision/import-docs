@@ -136,7 +136,7 @@ as well as for all product attributes (`clean-up-empty-columns`). To deactivate 
 
 #### Images
 
-In most cases it'll be useful, if images that are **NOT** referenced in the appropriate colum of the CSV file anymore, will be removed from the database. This can either be done by specifying the column names manually in this `clean-up-empty-columns`, e. g. if only a dedicated one should be cleaned-up, or and that will be more comfortable, by setting the flag `clean-up-empty-image-columns` to `true`. Setting the flag to `true` will load all attributes that has the value `media_image` in the `frontend_input` and adds the appropriate attribute code to the array with the colum names to clean-up.
+In most cases it'll be useful, if images that are **NOT** referenced in the appropriate colum of the CSV file anymore, will be removed from the database. This can either be done by specifying the column names manually in this `clean-up-empty-columns`, e. g. if only a dedicated one should be cleaned-up, or and that will be more comfortable, by setting the flag `clean-up-empty-image-columns` to `true`, which is the default value. Setting the flag to `false` will ignore the clean-up functionality and let existing product-image relations as they are.
 
 #### Media Gallery
 
