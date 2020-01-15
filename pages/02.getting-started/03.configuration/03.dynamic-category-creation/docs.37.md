@@ -1,5 +1,5 @@
 ---
-title: 'Dynamic Option Creation'
+title: 'Dynamic Category Creation'
 taxonomy:
     category:
         - docs
