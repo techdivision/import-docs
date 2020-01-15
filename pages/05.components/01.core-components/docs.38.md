@@ -8,10 +8,6 @@ visible: true
 
 This page lists the main components, that provides Magento 2 import core functionality to import products, categories and attributes.
 
-### Working Implementations
-
-* [import-cli-simple](https://github.com/techdivision/import) CLI providing single-threaded Magento 2 importing functionality based on M2IF
-
 ### General (Independent from Edition)
 
 * [import](https://github.com/techdivision/import) - A core library supporting generic Magento 2 import functionality
