@@ -6,64 +6,54 @@ taxonomy:
 visible: true
 ---
 
-Up from version 3.8.0 missing product option values for the `admin` store will be created by default. To disable this, override the default `add-update` operation by adding a snippet, e. g. <custom-configuration-dir>/operations.json` and remove the additional frontend input callbacks
-
-```json
-"frontend-input-callbacks": [
-  {
-    "select": [
-      "import_attribute.callback.create.select.option.value",
-      "import_product.callback.select"
-    ],
-    "multiselect": [
-      "import_attribute.callback.create.multiselect.option.value",
-      "import_product.callback.multiselect"
-    ]
-  }
-] 
-```
-    
-that have to be registered, for the operation. The operation configuration should look like this
+Up from version 3.8.0 missing product option values for the `admin` store will be created by default. To disable this, override the default `operation` operation by adding a snippet, e. g. <custom-configuration-dir>/shortcuts.json` and remove the operations 
 
 ```json
 {
-  "operations": {
+  "shortcuts": {
     "ce": {
       "catalog_product": {
-        "add-update": {
-          "plugins": {
-            "subject": {
-              "id": "import.plugin.subject",
-              "subjects": [
-                {
-                  "id": "import_product.subject.bunch",
-                  "file-resolver": {
-                    "prefix": "product-import"
-                  },
-                  "params": {
-                    "copy-images": false,
-                    "clean-up-media-gallery": true,
-                    "clean-up-empty-image-columns": true,
-                    "clean-up-website-product-relations": true,
-                    "clean-up-category-product-relations": true,
-                    "clean-up-empty-columns": [
-                      "special_price",
-                      "special_price_from_date",
-                      "special_price_to_date"
-                    ]
-                  },
-                  "observers": [
-                    {
-                      "import": [
-                        "import_product.observer.composite.base.add_update"
-                      ]
-                    }
-                  ]
-                }
-              ]
-            }
-          }
-        }
+        "add-update": [
+          ...
+          "general/eav_attribute/convert",
+          "general/eav_attribute/add-update.options",
+          "general/eav_attribute/add-update.option-values",
+          "general/eav_attribute/add-update.swatch-values",
+          ...
+        ]
+      }
+    }
+  }
+}
+```
+    
+the result should look like
+
+```json
+{
+  "shortcuts": {
+    "ce": {
+      "catalog_product": {
+        "add-update": [
+          "general/general/global-data",
+          "general/general/move-files",
+          "general/catalog_product/collect-data",
+          "general/catalog_category/convert",
+          "ce/catalog_category/sort",
+          "ce/catalog_category/add-update",
+          "ce/catalog_category/add-update.path",
+          "ce/catalog_category/add-update.url-rewrite",
+          "general/catalog_category/children-count",
+          "general/catalog_product/validate",
+          "ce/catalog_product/add-update",
+          "ce/catalog_product/add-update.variants",
+          "ce/catalog_product/add-update.bundles",
+          "ce/catalog_product/add-update.links",
+          "ce/catalog_product/add-update.grouped",
+          "ce/catalog_product/add-update.media",
+          "general/catalog_product/add-update.msi",
+          "general/catalog_product/add-update.url-rewrites"
+        ]
       }
     }
   }
