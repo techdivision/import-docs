@@ -40,7 +40,7 @@ These are the M2IF core components for the Magento 2 Community Edition (CE).
 * [import-converter-product-category](https://github.com/techdivision/import-converter-product-category) - Provides the functionality to convert a CSV file with category from a CSV file with products
 * [import-converter-product-attribute](https://github.com/techdivision/import-converter-product-attribute) - Provides the functionality to convert a CSV file with attribute option values from a CSV file with products.
 
-> Components like import-attribute will also work with the EE, so there is not separate implementation.
+!!!! Several components, like import-attribute, will also work with the EE, so there is not separate implementation.
 
 ### Components for Enterprise Edition (EE)
 
