@@ -35,7 +35,7 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 ]
 ```
 
-> Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
+!!!! In general, you need a callback, if you want to do something with the **VALUE** on as specific column in each row of a CSV file. Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
 
 #### How to implement a callback?
 
