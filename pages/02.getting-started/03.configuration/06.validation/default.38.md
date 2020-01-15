@@ -5,6 +5,87 @@ published: true
 
 Up with version 3.8.0, validation for all entity types will be activated by default. Especially in case of huge CSV files, lets say > 100 MB, validation can slow down the import process massively. Therefore, the validation is highly customizable and can, if necessary, completely be switched off.
 
+### Switch-Off Validaton
+
+If you don't want your CSV files validated, you can override the appropriate shortcuts with a snippet, e. g. `etc/configuration/shortcuts.json`. For example, if you want to complete remove the validation from your product, inventory and price import, delete the operation `"general/catalog_product/validate"`, the snippet then has to look like
+
+```json
+{
+  "shortcuts": {
+    "ce": {
+      "catalog_product_inventory": {
+        "add-update": [
+          "general/general/move-files",
+          "general/general/global-data",
+          "ce/catalog_product_inventory/add-update"
+        ]
+      },
+      "catalog_product_price": {
+        "add-update": [
+          "general/general/move-files",
+          "general/general/global-data",
+          "ce/catalog_product_price/add-update"
+        ]
+      },
+      "catalog_product": {
+        "delete": [
+          "general/general/global-data",
+          "general/general/move-files",
+          "ce/catalog_product/delete",
+          "general/catalog_product/delete.msi"
+        ],
+        "replace": [
+          "general/general/global-data",
+          "general/general/move-files",
+          "general/catalog_product/collect-data",
+          "general/eav_attribute/convert",
+          "general/eav_attribute/add-update.options",
+          "general/eav_attribute/add-update.option-values",
+          "general/eav_attribute/add-update.swatch-values",
+          "general/catalog_category/convert",
+          "ce/catalog_category/sort",
+          "ce/catalog_category/add-update",
+          "ce/catalog_category/add-update.path",
+          "ce/catalog_category/add-update.url-rewrite",
+          "general/catalog_category/children-count",
+          "ce/catalog_product/replace",
+          "ce/catalog_product/replace.variants",
+          "ce/catalog_product/replace.bundles",
+          "ce/catalog_product/replace.links",
+          "ce/catalog_product/replace.grouped",
+          "ce/catalog_product/replace.media",
+          "general/catalog_product/replace.msi",
+          "general/catalog_product/replace.url-rewrites"
+        ],
+        "add-update": [
+          "general/general/global-data",
+          "general/general/move-files",
+          "general/catalog_product/collect-data",
+          "general/eav_attribute/convert",
+          "general/eav_attribute/add-update.options",
+          "general/eav_attribute/add-update.option-values",
+          "general/eav_attribute/add-update.swatch-values",
+          "general/catalog_category/convert",
+          "ce/catalog_category/sort",
+          "ce/catalog_category/add-update",
+          "ce/catalog_category/add-update.path",
+          "ce/catalog_category/add-update.url-rewrite",
+          "general/catalog_category/children-count",
+          "ce/catalog_product/add-update",
+          "ce/catalog_product/add-update.variants",
+          "ce/catalog_product/add-update.bundles",
+          "ce/catalog_product/add-update.links",
+          "ce/catalog_product/add-update.grouped",
+          "ce/catalog_product/add-update.media",
+          "general/catalog_product/add-update.msi",
+          "general/catalog_product/add-update.url-rewrites"
+        ]
+      }
+    }
+  }
+}
+```
+
 ### Custom Validations
 
 For each entity type a snippet, that declares the available operations, is available in the corresponding repositories configuration folder `etc/configuration/operations.json`. Each of This files contain's the configuration for the validation operation. By overriding this definition, e. g. with a custom snippet like `custom-configuration-dir>/operations.json`, you've full control what will be validated and how the validation works.
