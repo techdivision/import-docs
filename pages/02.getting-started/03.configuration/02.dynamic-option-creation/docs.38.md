@@ -6,9 +6,7 @@ taxonomy:
 visible: true
 ---
 
-Up from version 3.8.0 missing product option values for the `admin` store will be created by default. 
-
-To disable this, override the default `add-update` operation by adding a snippet, e. g. <custom-configuration-dir>/operations.json` and remove the additional frontend input callbacks
+Up from version 3.8.0 missing product option values for the `admin` store will be created by default. To disable this, override the default `add-update` operation by adding a snippet, e. g. <custom-configuration-dir>/operations.json` and remove the additional frontend input callbacks
 
 ```json
 "frontend-input-callbacks": [
