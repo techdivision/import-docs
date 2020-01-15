@@ -46,7 +46,7 @@ For the [commands](#commands) described above, the following configuration argum
 
 ### Operations
 
-As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
+In contrast to the Magento 2 standard import functionality, up from version 3.8.0, M2IF will provide 2 additional import operations:
 
 | Operation                 | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|
