@@ -18,7 +18,7 @@ So, usually you need to implement a subject when
 * You want to share data between observers or pass the data to the following subjects
 * You need to customize the file parsing, e. g. not parsing a single row, but a bunch of rows
 
-!!!! Generally you need a subject, when you want to do something with a **FILE**.
+!!!! In general, you need a subject, when you want to do something with a **FILE**.
 
 ### How to implement a subject?
 
