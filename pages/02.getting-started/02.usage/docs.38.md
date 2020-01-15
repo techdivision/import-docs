@@ -42,13 +42,13 @@ For the [commands](#commands) described above, the following configuration argum
 
 | Argument             | Description                                                     | Default value |
 |:---------------------|:----------------------------------------------------------------|:--------------|
-| operation            | Specify the operation name to execute, either one of add-update, replace or delete (for further information look at the next [section](#operations))| n/a |
+| shortcut             | Specify the shortcut name to execute, either one of validate, convert, add-update, replace or delete (for further information look at the next [section](#shortcuts))| n/a |
 
-### Operations
+### Shortcuts
 
-In contrast to the Magento 2 standard import functionality, up from version 3.8.0, M2IF will provide 2 additional import operations:
+In contrast to the Magento 2 standard import functionality, up from version 3.8.0, M2IF will provide 2 additional import shortcuts (formerly operations):
 
-| Operation                 | Description
+| Shortcut                  | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|
 | <nobr>validate</nobr>     | Performs an explicit validation of the data in the respective CSV file (available for **ALL** entities)  |
 | <nobr>convert</nobr>      | Extracts the attributes or categories from a given CSV files with products (available for **ATTRIBUTES** and **CATEGORIES**)  |
