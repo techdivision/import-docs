@@ -6,7 +6,7 @@ taxonomy:
 visible: true
 ---
 
-Up from version 3.8.0 missing product option values for the `admin` store will be created by default. To disable this, override the default `operation` operation by adding a snippet, e. g. <custom-configuration-dir>/shortcuts.json` and remove the operations 
+Up from version 3.8.0 missing product option values for the `admin` store will be created by default. To disable this, override the [default](https://github.com/techdivision/import-product/blob/19.x/etc/configuration/shortcuts.json) `add-update` shortcut, by adding a snippet, e. g. <custom-configuration-dir>/shortcuts.json` and remove the `eav_attribute` related operations
 
 ```json
 {
@@ -27,7 +27,7 @@ Up from version 3.8.0 missing product option values for the `admin` store will b
 }
 ```
     
-the result should look like
+This should result a file that looks like
 
 ```json
 {
