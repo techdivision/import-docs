@@ -1,5 +1,8 @@
 ---
 title: Observers
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
@@ -13,7 +16,7 @@ As a subject itself usually will **NOT** implement the main import business logi
 * You want to load data to make it available for the following observers or subjects
 * You want to persist data assembled from values you found in a row of an import file
 
-> Generally you need an observer, when you want to do something with a **ROW**.
+!!!! In general, you need an observer, when you want to do something with a **ROW**.
 
 ### How to implement an observer?
 
