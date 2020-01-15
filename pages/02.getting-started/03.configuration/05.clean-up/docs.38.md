@@ -164,7 +164,7 @@ As the category functionality in Magento is less complicated, the clean-up actua
 
 * [URL Rewrites](#url-rewrites-category) (`clean-up-url-rewrites`)
 
-As for the product import the flags has to be set on subject level like
+As for the product import the flags has to be configured on subject level like
 
 ```json
 {
