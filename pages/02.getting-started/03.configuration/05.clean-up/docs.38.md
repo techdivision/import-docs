@@ -6,9 +6,9 @@ taxonomy:
 visible: true
 ---
 
-M2IF provides a *clean-up* functionality that provides the possiblity to remove values for empty columns or relattions that are not any longer part of the CSV file. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
+!! As deleting data can reduce performance significantly, the clean-up functionality should be used carefully!
 
-!! As deleting data can reduce performance significantly, is should be used carefully!
+M2IF provides a *clean-up* functionality that provides the possiblity to remove values for empty columns or relattions that are not any longer part of the CSV file. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
 
 ### Product Import
 
