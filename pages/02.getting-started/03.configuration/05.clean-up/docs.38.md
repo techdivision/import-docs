@@ -6,13 +6,13 @@ taxonomy:
 visible: true
 ---
 
-M2IF provides a clean-up functionality that provides the possiblity to remove values for empty columns. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
+M2IF provides a *clean-up* functionality that provides the possiblity to remove values for empty columns or relattions that are not any longer part of the CSV file. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
 
-> As deleting data can reduce performance significantly, is should be used carefully!
+!!! As deleting data can reduce performance significantly, is should be used carefully!
 
 ### Product Import
 
-Clean-Up functionality for the product import is available for
+Clean-Up functionality for the product import is **activated** by default and available for
 
 * [Images](#images) (`clean-up-empty-image-columns`)
 * [Media Gallery](#media-gallery) (`clean-up-media-gallery`)
@@ -21,7 +21,7 @@ Clean-Up functionality for the product import is available for
 * [Tier Prices](#tier-prices) (`clean-up-tier-prices`)
 * [URL Rewrites](#url-rewrites) (`clean-up-url-rewrites`)
 
-as well as for all product attributes (`clean-up-empty-columns`). These flags has to be set on subject level like
+as well as for all product attributes (`clean-up-empty-columns`). To deactivate the *clean-up* functionality, add a snippet, e. g. `<custom-configuration-dir>/operations.json` and override the corresponding `clean-up-*` flags like
 
 ```json
 {
@@ -67,7 +67,7 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                 }
               ],
               "params": {
-                "clean-up-tier-prices": true
+                "clean-up-tier-prices": false
               },
               "subjects": [
                 {
@@ -110,15 +110,11 @@ as well as for all product attributes (`clean-up-empty-columns`). These flags ha
                   },
                   "params": {
                     "copy-images": false,
-                    "clean-up-media-gallery": true,
-                    "clean-up-empty-image-columns": true,
-                    "clean-up-website-product-relations": true,
-                    "clean-up-category-product-relations": true,
-                    "clean-up-empty-columns": [
-                      "special_price",
-                      "special_price_from_date",
-                      "special_price_to_date"
-                    ]
+                    "clean-up-media-gallery": false,
+                    "clean-up-empty-image-columns": false,
+                    "clean-up-website-product-relations": false,
+                    "clean-up-category-product-relations": false,
+                    "clean-up-empty-columns": []
                   },
                   "observers": [
                     {
