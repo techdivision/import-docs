@@ -1,6 +1,6 @@
 ---
 title: Validation
-published: false
+published: true
 ---
 
 Up with version 3.8.0, validation for all entity types will be activated by default. Especially in case of huge CSV files, lets say > 100 MB, validation can slow down the import process massively. Therefore, the validation is highly customizable and can, if necessary, completely be switched off.
