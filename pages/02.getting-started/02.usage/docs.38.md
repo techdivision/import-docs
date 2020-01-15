@@ -50,11 +50,11 @@ As well as the Magento 2 standard import functionality, M2IF will provide 3 diff
 
 | Operation                 | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|
-| validate                  | Performs an explicit validation of the data in the respective CSV file (available for all entities)  |
-| convert                   | Extracts the attributes or categories from a given CSV files with products (available for attributes and categories)  |
-| add-update                | New product data is added to the existing product data for the existing entries in the database. All fields except sku can be updated. New tax classes that are specified in the import data are created automatically. New SKUs that are specified in the import file are created automatically. |
-| replace                   | The existing product data is replaced with new data. If a SKU in the import data matches the SKU of an existing entity, all fields, including the SKU are deleted, and a new record is created using the CSV data. An error occurs if the CSV file references a SKU that does not exist in the database. |
-| delete                    | Any entities in the import data that already exist in the database are deleted from the database. Delete ignores all columns in the import data, except for SKU. You can disregard all other attributes in the data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+| <nobr>validate</nobr>     | Performs an explicit validation of the data in the respective CSV file (available for all entities)  |
+| <nobr>convert</nobr>      | Extracts the attributes or categories from a given CSV files with products (available for attributes and categories)  |
+| <nobr>add-update</nobr>   | New product data is added to the existing product data for the existing entries in the database. All fields except sku can be updated. New tax classes that are specified in the import data are created automatically. New SKUs that are specified in the import file are created automatically. |
+| <nobr>replace</nobr>      | The existing product data is replaced with new data. If a SKU in the import data matches the SKU of an existing entity, all fields, including the SKU are deleted, and a new record is created using the CSV data. An error occurs if the CSV file references a SKU that does not exist in the database. |
+| <nobr>delete</nobr>       | Any entities in the import data that already exist in the database are deleted from the database. Delete ignores all columns in the import data, except for SKU. You can disregard all other attributes in the data. An error occurs if the CSV file references a SKU that does not exist in the database. |
 
 !! Exercise caution when replacing data because the existing product data will be completely cleared and all references in the system will be lost.
 
