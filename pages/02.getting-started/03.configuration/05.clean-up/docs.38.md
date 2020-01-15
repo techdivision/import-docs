@@ -181,6 +181,9 @@ As for the product import the flags has to be set on subject level like
                   "file-resolver": {
                     "prefix": "category-url-rewrite"
                   },
+                  "params": {
+                    "clean-up-url-rewrites": false
+                  },
                   "observers": [
                     {
                       "import": [
@@ -201,4 +204,4 @@ As for the product import the flags has to be set on subject level like
 
 #### <a name="url-rewrites-category"></a>Category URL Rewrites
 
-Cleaning-Up URL rewrites will be ncessary in most cases and should be activated by setting the flag `clean-up-url-rewrites` to `true`,
+Cleaning-Up URL rewrites will be ncessary in most cases. To *deactivate* it, set the flag `clean-up-url-rewrites` to `false`.
