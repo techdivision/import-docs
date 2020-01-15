@@ -87,25 +87,6 @@ class CacheWarmerPlugin extends AbstractPlugin
 
 The standard plugins are part of the M2IF core and can be used OOTB. When it'll be necessary to implement your own components, you'll go fine in most cases, if you don't implement your own plug-in, but instead use the `SubjectPlugin` and provide your functionality in form of subjects, observers and services.
 
-##### Cache Warmer
-
-The Cache Warmer plug-in pre-loads data from the database on repository level. So, to avoid unnecessary database access, the data for the EAV attribute option values, that'll be loaded by the `EavAttributeOptionValueRepository` for **EVERY** row can be pre-loaded by registering the repository for the Cache Warmer plug-in. This is only an example and it'll be not necessary to add this to your configuration, as the repository will be registered by default.
-
-To register another repository, add the repository ID to the `cache-warmers` parameter like 
-
-```json
-{
-  "class-name": "TechDivision\\Import\\Plugins\\CacheWarmerPlugin",
-  "params": {
-  	"cache-warmers": [
-      "import.repository.cache.warmer.eav.attribute.option.value"
-    ] 
-  }
-}
-```
-
-> Be aware, that only repositories that implement the `TechDivision\Import\Repositories\CacheWarmer\CacheWarmerInterface` can be registered here!
-
 ##### Global Data
 
 Load's the global data, necessary for the import process from the database and add's it to the registry, so that every plugin can access it. This 
