@@ -71,9 +71,7 @@ Has been removed up with version 3.8.0
 
 ##### Global Data
 
-Load's the global data, necessary for the import process from the database and add's it to the registry, so that every plugin can access it. This 
-
-The configuration has to be like
+Load's the global data, necessary for the import process from the database and add's it to the registry, so that every plugin can access it. You can find a more detailed exaplanation of the plugin in the section above. The configuration simply has to look like
 
 ```json
 {
