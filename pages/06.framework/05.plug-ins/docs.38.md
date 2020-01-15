@@ -1,5 +1,8 @@
 ---
 title: Plug-Ins
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
@@ -22,7 +25,7 @@ The good example is the `TechDivision\Import\Plugins\CacheWarmerPlugin` that is 
 
 ```json
 {
-  "class-name": "import.plugin.cache.warmer",
+  "id": "import.plugin.cache.warmer",
   "params": {
   	"cache-warmers": [
       "import.repository.cache.warmer.eav.attribute.option.value"
@@ -78,7 +81,7 @@ class CacheWarmerPlugin extends AbstractPlugin
     }
 }
 ```
-> Whenever another class has the repository injected, the data has been pre-loaded and no additional database queries will be necessary.
+!!! Whenever another class has the repository injected, the data has been pre-loaded and no additional database queries will be necessary.
 
 #### OOTB Plug-Ins
 
@@ -111,7 +114,7 @@ The configuration has to be like
 
 ```json
 {
-  "class-name": "TechDivision\\Import\\Plugins\\GlobalsPlugin"
+  "id": "import.plugin.global.data"
 }
 ```
 
@@ -123,35 +126,12 @@ The plug-in configuration is
 
 ```json
 {
-  "class-name": "TechDivision\\Import\\Plugins\\SubjectPlugin",
+  "id": "import.plugin.subject",
   "subjects": [ ... ]
 }
 ```
 
 whereas you can register as many subjects and observers as necessary.
-
-##### Archive
-
-The archive plug-in zip's the import artefacts and moves them to the configured archive folder.
-
-```json
-{
-  "class-name": "TechDivision\\Import\\Plugins\\ArchivePlugin"
-}
-```
-
-To activate the archive functionality, you've to activate the `archive-artefacts` node in your configuration file like
-
-```json
-{
-  "magento-edition": "EE",
-  "magento-version": "2.1.7",
-  "operation-name" : "add-update",
-  "source-date-format": "n/d/y, g:i A",
-  "archive-artefacts" : true,
-  ...
-}
-```
 
 ##### Missing Option Values
 
@@ -161,30 +141,20 @@ The configuration of the plugin can look like
 
 ```json
 {
-  "class-name": "TechDivision\\Import\\Plugins\\MissingOptionValuesPlugin",
+  "id": "import.plugin.missing.option.values",
   "swift-mailer" : {
-    "factory" : "TechDivision\\Import\\Utils\\SwiftMailer\\SmtpTransportMailerFactory",
-    "mailer-factory" : "\\Swift_Mailer",
-    "params" : [
-      {
-        "to" : "info@my-domain.tld",
-        "from" : "info@my-domain.tld",
-        "subject": "Something Went Wrong",
-        "content-type" : "text/plain"
-      }
-    ],
+    "id" : "import.logger.factory.transport.swift.smtp",
+    "params" : {
+      "to" : "tw@techdivision.com",
+      "from" : "m2if@techdivision.com",
+      "subject": "Something Went Wrong",
+      "content-type" : "text/plain"
+    },
     "transport" : {
-      "transport-factory" : "\\Swift_SmtpTransport",
-      "params" : [
-        {
-          "smtp-host" : "my-domain.tld",
-          "smtp-port" : 25,
-          "smtp-security" : "tls",
-          "smtp-auth-mode" : "LOGIN",
-          "smtp-username" : "your-username",
-          "smtp-password" : "your-password"
-        }
-      ]
+      "params" : {
+        "smtp-host" : "mail.techdivision.com",
+        "smtp-port" : 25
+      }
     }
   }
 }
