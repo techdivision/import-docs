@@ -6,7 +6,7 @@ taxonomy:
 visible: true
 ---
 
-#### When do i need a callback?
+### When do i need a callback?
 
 Callbacks can be used to transform values, found in the CSV file into the necessary types that needs to be stored into the database. For example, the default Magento 2 CSV format allows the values
 
@@ -27,7 +27,7 @@ By default, the necessary callbacks to transform the Magento 2 standard attribut
 
 !!!! In general, you need a callback, if you want to do something with the **VALUE** on as specific column in each row of a CSV file. Please be aware, that a custom callback will **REPLACE** the default callback and will **NOT** be appended!
 
-#### How to implement a callback?
+### How to implement a callback?
 
 To implement a callback, you can extend the abstract class `TechDivision\Import\Callbacks\AbstractCallback`. The callback's `handle()` method expects the invoking observer as parameter which provides the method `getAttributeValue` that you access to the value that you want to process. The callback **MUST** return the processed value to allow the following callbacks to also process it.
 
