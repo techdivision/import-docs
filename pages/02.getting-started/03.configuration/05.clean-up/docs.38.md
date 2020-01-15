@@ -12,7 +12,7 @@ M2IF provides a *clean-up* functionality that provides the possiblity to remove 
 
 ### Product Import
 
-Clean-Up functionality for the product import is **activated** by default and available for
+*Clean-Up* functionality for the product import is **activated** by default and available for
 
 * [Images](#images) (`clean-up-empty-image-columns`)
 * [Media Gallery](#media-gallery) (`clean-up-media-gallery`)
@@ -134,13 +134,9 @@ as well as for all product attributes (`clean-up-empty-columns`). To deactivate 
 }
 ```
 
-#### Images
+#### Images + Media Gallery
 
-In most cases it'll be useful, if images that are **NOT** referenced in the appropriate colum of the CSV file anymore, will be removed from the database. This can either be done by specifying the column names manually in this `clean-up-empty-columns`, e. g. if only a dedicated one should be cleaned-up, or and that will be more comfortable, by setting the flag `clean-up-empty-image-columns` to `true`, which is the default value. Setting the flag to `false` will ignore the clean-up functionality and existing existing images names will not be touched.
-
-#### Media Gallery
-
-Beside clean-up the attribute values of the images, it'll also be necessary to clean-up the media gallery that holds the relations between the images and the products by setting the flag `clean-up-media-gallery` to `true`. This is mandatory if `clean-up-empty-image-columns` is set to `true` or if at least one image column name has been added to `clean-up-empty-columns`. 
+In most cases it is very helpful to delete images that are **NO** longer contained in the CSV files from the database. The image type, e.g. thumbnail as attribute, the link to the product, the name and the position are stored in separate tables. To clean-up both of them, it is necessary to set the flags `clean-up-empty-image-columns` and `clean-up-media-gallery` to `true`, which are the default values. Until you're not absolutely sure what you're doing, both flags should have the same value.
 
 #### Category Relations
 
