@@ -61,15 +61,15 @@ class GlobalDataPlugin extends AbstractPlugin
 }
 ```
 
-#### OOTB Plug-Ins
+### OOTB Plug-Ins
 
 The standard plugins are part of the M2IF core and can be used OOTB. When it'll be necessary to implement your own components, you'll go fine in most cases, if you don't implement your own plug-in, but instead use the `SubjectPlugin` and provide your functionality in form of subjects, observers and services.
 
-##### Cache Warmer
+#### Cache Warmer
 
 Has been removed up with version 3.8.0
 
-##### Global Data
+#### Global Data
 
 Load's the global data, necessary for the import process from the database and add's it to the registry, so that every plugin can access it. You can find a more detailed exaplanation of the plugin in the section above. The configuration simply has to look like
 
@@ -79,7 +79,7 @@ Load's the global data, necessary for the import process from the database and a
 }
 ```
 
-##### Subject
+#### Subject
 
 This is the plug-in that does the main work by invoking the registered subjects as well as their registered observers and callbacks. When using M2IF as a framework, this plug-in will be a really good entrypoint to add your custom functionality. In most cases, it'll be quite enough to write a subject and observers that provides the necessary functionality and will be invoke by this plug-in. 
 
@@ -94,7 +94,7 @@ The plug-in configuration is
 
 whereas you can register as many subjects and observers as necessary.
 
-##### Missing Option Values
+#### Missing Option Values
 
 This plugin provides the extended functionality to track whether an attribute option value, referenced in a CSV import file, is available or not, depending on `debug mode` enabled or not. If the `debug mode` is **NOT** enabled, an exception will be thrown immediately, else each missing attribute option value will be written to the CSV file `missing-option-values.csv` that'll stored in the temporary import directory and optionally sent to the specified mail recipients.
 
