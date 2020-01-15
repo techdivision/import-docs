@@ -107,6 +107,8 @@ To go into details, let's have a look at the validation operation of the product
 }
 ```
 
+!!!! So, if you face a problem with a validator or you don't need it, because your file doesn't contain the column, simply remove the corresponding callback from your overriding snippet.  
+
 #### Regex Validator
 
 The regex validator, used to validate the SKU uses a regular expression to validate the value of the corresponding column. For the SKU, the regular expression simply results in `/.+/` what allows any character with at least one char. So if you want to allow digitals only, you can change the regular expression in the `params/custom-validations` array from `/.+/` to `/\+d/`. Our recommendation for a regex builder is https://regex101.com/ which will help you a lot to find the right expression for your needs.
