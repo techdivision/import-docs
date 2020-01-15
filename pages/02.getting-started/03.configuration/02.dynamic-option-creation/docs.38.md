@@ -23,7 +23,7 @@ Up from version 3.8.0 missing product option values for the `admin` store will b
 ] 
 ```
     
-, that have to be registered, for the operation. The operation configuration should look like this
+that have to be registered, for the operation. The operation configuration should look like this
 
 ```json
 {
