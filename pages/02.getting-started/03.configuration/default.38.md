@@ -25,6 +25,7 @@ The general configuration contains basic metadata like the Magento edition and v
   "magento-edition": "CE",
   "magento-version": "2.3.1",
   "operation-name" : "replace",
+  "table-prefix": "test_",
   "installation-dir" : "/var/www/magento"
 }
 ```
