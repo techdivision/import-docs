@@ -12,7 +12,7 @@ Our fully functional CLI implementation should will be a good start to show you 
 
 ## Feature Request
 
-!!!! We've released version 3.8.0 which contains many of the features you've requested, check it out now!!!
+!!!! THANKS FOR VOTING: We've released version 3.8.0 which contains many of the features you've requested, check it out now!!!
 
 Do you have a [Feature Request](https://feathub.com/techdivision/import-cli-simple) or want to vote for one of the already requested Features? Click on one of the Features below to up-vote it.
 
