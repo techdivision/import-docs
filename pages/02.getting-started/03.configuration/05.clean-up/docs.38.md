@@ -14,7 +14,7 @@ M2IF provides a *clean-up* functionality that provides the possiblity to remove 
 
 *Clean-Up* functionality for the product import is **activated** by default and available for
 
-* [Images](#images) (`clean-up-empty-image-columns`)
+* [Images](#media-gallery) (`clean-up-empty-image-columns`)
 * [Media Gallery](#media-gallery) (`clean-up-media-gallery`)
 * [Category Relations](#category-relations) (`clean-up-category-product-relations`)
 * [Website Relations](#website-relations) (`clean-up-website-product-relations`)
@@ -134,7 +134,7 @@ as well as for all product attributes (`clean-up-empty-columns`). To deactivate 
 }
 ```
 
-#### Images + Media Gallery
+#### <a name="media-gallery"></a>Images + Media Gallery
 
 In most cases it is very helpful to delete images that are **NO** longer contained in the CSV files from the database. The image type, e.g. thumbnail as attribute, the link to the product, the name and the position are stored in separate tables. To clean-up both of them, it is necessary to set the flags `clean-up-empty-image-columns` and `clean-up-media-gallery` to `true`, which are the default values. Until you're not absolutely sure what you're doing, both flags should have the same value.
 
