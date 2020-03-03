@@ -353,7 +353,9 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 
 M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
 
-To add additional loggers, or override the default one with name `system, the configuration file can be extended like
+To add additional loggers, or override the default one with name `system`, the configuration file can be extended like
+
+*Swift Mailer*
 
 ```json
 "loggers": [
@@ -416,72 +418,37 @@ To add additional loggers, or override the default one with name `system, the co
   }
 ]
 ```
+This will also override the system logger, as the name is `system`, and set the default log level to **debug**.
 
-*Use send mail as mail transport:*
-```
- "loggers": [
-    {
-      "name": "system",
-      "channel-name": "logger/system",
-      "type": "Monolog\\Logger",
-      "handlers": [
-        {
-          "type": "Monolog\\Handler\\ErrorLogHandler",
-          "formatter": {
-            "type": "Monolog\\Formatter\\LineFormatter",
-            "params" : [
-              {
-                "format": "[%datetime%] %channel%.%level_name%: %message% %context% %extra%",
-                "date-format": "Y-m-d H:i:s",
-                "allow-inline-line-breaks": true,
-                "ignore-empty-context-and-extra": true
-              }
-            ]
-          }
-        }
-      ],
-      "processors": [
-        {
-          "type": "Monolog\\Processor\\MemoryPeakUsageProcessor"
-        }
-      ]
-    },
-    {
-      "name": "mail",
-      "channel-name": "logger/mail",
-      "type": "Monolog\\Logger",
-      "handlers": [
-        {
-          "type": "Monolog\\Handler\\SwiftMailerHandler",
-          "params": [
-            {
-              "log-level": "error",
-              "bubble": false
-            }
-          ],
-          "swift-mailer": {
-            "factory": "TechDivision\\Import\\Utils\\SwiftMailer\\SendmailTransportMailerFactory",
-            "mailer-factory": "\\Swift_Mailer",
-            "params": [
-              {
-                "to": [
-                  "info@my-domain.tld",
-                  "Web.Support@my-domain.tld"
-                ],
-                "from": "info@my-domain.tld",
-                "subject": "Something Went Wrong",
-                "content-type": "text/plain"
-              }
+*PHP mail*
+
+```json
+"loggers": [
+  ...
+  {
+    "name": "mail",
+    "channel-name": "logger/mail",
+    "type": "Monolog\\Logger",
+    "handlers": [
+      {
+        "type": "Monolog\\Handler\\NativeMailerHandler",
+        "params": [
+          {
+            "log-level": "error",
+            "bubble": false,
+            "to": [
+              "info@my-domain.tld",
+              "additional@my-domain.tld",
             ],
-            "transport": {
-              "transport-factory": "\\Swift_SendmailTransport"
-            }
+            "from" : "info@my-domain.tld",
+            "subject": "Something Went Wrong"
           }
-        }
-      ]
+        ]
+      }
+    ]
+  }
+]
 ```
-
-This will override the system logger, as the name is `system`, and set the default log level to **debug**.
 
 #### Cache
 
