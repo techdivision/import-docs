@@ -33,6 +33,7 @@ Beside the import commands several other more or less helper commands are availa
 | import:products:inventory:msi | Starts importing product MSI inventory, expects that the products are available | [Product Import // MSI](/file-structure/product-import-msi) |
 | import:products:price         | Starts importing product prices, expects that the products are available | [Product Import](/file-structure/product-import) |
 | import:products:price:tier    | Starts importing product tier prices, expects that the products are available | [Product Import // Tier Price](/file-structure/product-import-tier-price) |
+| import:products:url           | Starts importing product product URLs, expects that the products are available | [Product Import // URL Rewrites](/file-structure/product-url-rewrites) |
 
 By default, if no other source directory has been configured, either as command line option or in the configuration file, all commands are searching for the CSV files and the matching OK file in the `var/importexport` directory of your Magento installation.
 
