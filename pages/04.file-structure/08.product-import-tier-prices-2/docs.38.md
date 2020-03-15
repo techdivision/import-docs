@@ -16,11 +16,11 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 
 | Column Name      | Type     | Description                                                                               | Example      |
 |:-----------------|:---------|-------------------------------------------------------------------------------------------|:-------------|
-| sku              | varchar  | The product SKU to import the tier price for                                              |      24-MB01 |
-| store_view_code  | varchar  | The website code to import the tier price for, or `All Websites` for all websites         | All Websites |
-| categories       | varchar  | The customer group the import the tier price for, or `ALL GROUPS` for all customer groups |   ALL GROUPS |
-| product_websites | varchar  | The quantity the tier price is valid from                                                 |         20.0 |
-| visibility       | varchar  | The tier price itself                                                                     |         98.0 |
-| url_key          | varchar  | The value type which can either be one of `Fixed` or `Discount`                           |        Fixed |
+| sku              | varchar  | The product SKU to import the tier price for                                              |     `24-MB01`|
+| store_view_code  | varchar  | The specific store view(s) for attribute translations. If blank, the row provides the data for the admin store view. | `default` |
+| categories       | varchar  | The comma (,) separated list with related categories, URL rewrites has to be created for  | `Default Category/Gear,Default Category/Gear/Bags` |
+| product_websites | varchar  | The comma (,) separated list with website codes, URL rewrites has to be created for       |       `base` |
+| visibility       | varchar  | The products visibility (URL rewrites will **NOT** be created for value `Not Visible Individually` | `Catalog, Search` |
+| url_key          | varchar  | The URL key used to create the URL rewrite                                                | `joust-duffle-bag` |
 
 By default, the product URL rewrites will be imported with the full product import, read the apropriate documentation [section](https://docs.m2if.com/file-structure/product-import) therefore.
