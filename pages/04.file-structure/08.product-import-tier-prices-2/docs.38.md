@@ -20,7 +20,7 @@ The CSV file with the attributes for the Magento 2 CE/EE consists of the followi
 | store_view_code  | varchar  | The specific store view(s) for attribute translations. If blank, the row provides the data for the admin store view. | `default` |
 | categories       | varchar  | The comma (,) separated list with related categories, URL rewrites has to be created for  | `Default Category/Gear,Default Category/Gear/Bags` |
 | product_websites | varchar  | The comma (,) separated list with website codes, URL rewrites has to be created for       |       `base` |
-| visibility       | varchar  | The products visibility (URL rewrites will **NOT** be created for value `Not Visible Individually` | `Catalog, Search` |
+| visibility       | varchar  | The products visibility (URL rewrites will **NOT** be created for value `Not Visible Individually`) | `Catalog, Search` |
 | url_key          | varchar  | The URL key used to create the URL rewrite                                                | `joust-duffle-bag` |
 
 By default, the product URL rewrites will be imported with the full product import, read the apropriate documentation [section](https://docs.m2if.com/file-structure/product-import) therefore.
