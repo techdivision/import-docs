@@ -1,5 +1,8 @@
 ---
-title: 'Tier Prices'
+title: 'Product Links'
+taxonomy:
+    category:
+        - docs
 visible: true
 ---
 
