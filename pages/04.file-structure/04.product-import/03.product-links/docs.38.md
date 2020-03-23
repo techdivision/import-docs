@@ -6,138 +6,90 @@ taxonomy:
 visible: true
 ---
 
-To import the tier prices with the default product import, two steps are necessary. 
+This module provides the functionality to import the product links as well as the link positions, 
+defined in the CSV file. Actually Related, Upsell + Crosssell links are supported.
 
-### Add Additional Column
+### Configuration
 
-First step is to add the column `tier_prices` to the CSV file with the product data. For example, the column **MUST** contain the data in the following structure, e. g.
-
-```csv
-"qty=10,price=20,value_type=fixed,website=All Websites,customer_group=ALL GROUPS|qty=20,price=30,value_type=fixed,website=All Websites,customer_group=ALL GROUPS"
-```
-
-The example above has two rows with tier prices, but there is no limiitation in how much rows of tier prices the column comtains. Each row with tier prices will be separated by `|` whereas each column of a row, containing the `attribute_code` to `value` pairs will be separated by the common `,`. The `attribute_code` to `value` pairs itself will use the `=` char for separation. Our sample data comes with an [example](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/data/products/configurable/product-import_20190226-095345_01.csv) how the file should look like. 
-
-### Extend Configuration
-
-The second step is, to add the listener, the subjects and the observers that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
-
-Basically, the configuration for the apropriate operations has to be extended with
-
-* the subject `import_product_tier_price.subject.tier_price` with the observer `import_product_tier_price.observer.tier_price.update` for the `add-update` and the observer `import_product_tier_price.observer.tier_price` for the `replace` operation
-* the observer `import_product_tier_price.observer.product.tier_price` that has to be added **AFTER** the first observer of the first `import_product.subject.bunch` subject
-* a listener `import_product_tier_price.listener.delete.obsolete.tier_prices` for the event `plugin.process.success` on subject level (*only for `add-update` operation*)
-* param `clean-up-tier-prices` on subject level either with the value `true` or `false` which decides whether or not tier-prices should be cleaned-up (*only for `add-update` operation*)
-
-> If the clean-up functionality is activated with the param `clean-up-tier-prices` set to `true`, all tier prices that are **NOT** anymore part of the SKUs in the CSV file will be **REMOVED**.  
-
-For the `replace` operation, the configuration has to look like
+In case that the [M2IF - Simple Console Tool](https://github.com/techdivision/import-cli-simple) 
+is used, the funcationality can be enabled by adding the following snippets to the configuration 
+file
 
 ```json
 {
-  ...,
+  "magento-edition": "CE",
+  "magento-version": "2.1.2",
+  "operation-name" : "add-update",
+  "installation-dir" : "/var/www/magento",
+  "database": { ... },
   "operations": [
-       {
-      "name" : "replace",
-      "plugins" : [
-        ...,
+    {
+      "name": "replace",
+      "subjects": [
+        { ... },
         {
-          "id": "import.plugin.subject",
-          "subjects": [
+          "id": "import_product_link.subject.link",
+          "prefix": "links",
+          "observers": [
             {
-              "id": "import_product.subject.bunch",
-    	      ...,
-              "observers": [
-                {
-                  "import": [
-                    "import_product.observer.composite.base.replace",
-                    "import_product_tier_price.observer.product.tier_price"
-                  ]
-                }
-              ]
-            },
-            ...,
-            {
-              "id": "import_product_tier_price.subject.tier_price",
-              "identifier": "files",
-              "file-resolver": {
-                "prefix": "tier-price"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product_tier_price.observer.tier_price"
-                  ]
-                }
+              "import": [
+                "import_product_link.observer.link",
+                "import_product_link.observer.link.attribute.position"
               ]
             }
           ]
         }
-        ...,
       ]
-    }
-  ]
-}
-```
-
-For the `add-update` operation, the configuration has to look like
-
-```json
-{
- ...,
- "operations": [
-   {
+    },
+    {
       "name" : "add-update",
-      "plugins" : [,
+      "subjects": [
+        { ... },
         {
-          "id": "import.plugin.subject",
-          "listeners" : [
-             {
-              "plugin.process.success" : [
-                "import_product_tier_price.listener.delete.obsolete.tier_prices"
-              ]
-            }
-          ],
-          "params" : [
+          "id": "import_product_link.subject.link",
+          "prefix": "links",
+          "observers": [
             {
-              "clean-up-tier-prices" : true
-            }
-          ],
-          "subjects": [
-            ...,
-            {
-              "id": "import_product.subject.bunch",
-              ...,
-              "observers": [
-                {
-                  "import": [
-                    "import_product.observer.composite.base.add_update",
-                    "import_product_tier_price.observer.product.tier_price"
-                  ]
-                }
-              ]
-            },
-			...,
-            {
-              "id": "import_product_tier_price.subject.tier_price",
-              "file-resolver": {
-                "prefix": "tier-price"
-              },
-              "observers": [
-                {
-                  "import": [
-                    "import_product_tier_price.observer.tier_price.update"
-                  ]
-                }
+              "import": [
+                "import_product_link.observer.link.update",
+                "import_product_link.observer.link.attribute.position.update"
               ]
             }
           ]
         }
-        ...,
       ]
     }
   ]
 }
 ```
 
-For both operations, it has to be be addeded after the `import_product_url_rewrite.subject.url.rewrite`. The configuration of the `delete` operation don't need any customizations as the tier prices will be cleaned-up by their foreign keys.
+### Product Link Positions (CE)
+
+Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to 
+version 2.1.6, importing product positions is **NOT** possible in the CE, because the database 
+of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
+
+In case, that the rows are not available, the positions, defined in the CSV file's columns 
+
+* `related_position`
+* `crosssell_position`
+* `upsell_position`
+
+will be ignored.
+
+To enable importing positions, add the following rows the Magento 2 CE database
+
+```sql
+INSERT INTO 
+        `catalog_product_link_attribute` (
+            `link_type_id`, 
+            `product_link_attribute_code`, 
+            `data_type`
+        ) 
+    VALUES
+        (1,'position','int'),
+        (4,'position','int'),
+        (5,'position','int');
+```
+
+> Make sure, that the values are **NOT** already available, before adding them!
