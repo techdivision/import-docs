@@ -60,4 +60,4 @@ INSERT INTO
         (5,'position','int');
 ```
 
-!! Make sure, that the values are **NOT** already available, before adding them!
+! Make sure, that the values are **NOT** already available, before adding them!
