@@ -6,7 +6,20 @@ taxonomy:
 visible: true
 ---
 
-M2IF provides the functionality to import product links as well as their positions. Actually *related*, *upsell* and *crosssell* links are supported. As M2IF also supports the import of *grouped* products, which are nothing else than the additional link type `super`, it is possible to import the position of the products that are linked to a grouped product.  
+M2IF provides the functionality to import product links as well as their positions. Actually *related*, *upsell* and *crosssell* links are supported. As M2IF also supports the import of *grouped* products, which are nothing else than the additional link type `super`, it is possible to import the position of the products that are linked to a grouped product.
+
+To import those link types, simply a comma (,) separated list of the linked products has to be specified in the appropriate column
+
+* column `related_skus` for related products that'll be rendered on the product detail page
+* column `upsell_skus` for upsell products that'll be rendered on the product detail page
+* column `crosssell_skus` for crosssell products that'll be rendered on the shopping cart
+* column `associated_skus` for products that will be part of a grouped product, which will also be rendered on the product detail page
+
+For example, the columns to import those link types may look like
+
+| sku     | ... | related_skus    | upsell_skus     | crosssell_skus  | associated_skus | ... |
+|:--------|:----|:----------------|:----------------|:----------------|:----------------|:----|
+| 24-MB01 |     | 24-MB02,24-MB03 | 24-WG03,24-WG04 | 24-SB01,24-SB02 | 24-AS01,24-AS02 |     |
 
 ### Link Positions
 
