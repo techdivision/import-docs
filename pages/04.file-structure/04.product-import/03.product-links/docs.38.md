@@ -31,7 +31,7 @@ Beside the SKUs of the linked product itself, it is also possible to specify the
 
 The position also has to be a comma (,) separated list, but it contains numbers instead of the SKUs. The numbers finally are the position the linked product will be rendered in the GUI.
 
-> Please be aware, that the positions are **NOT** mandatory and the columns can be empty. If so, the M2IF creates the position itself, based on the order of the given SKUs. If positions will be changed in the Magento backend, they will be **OVERWRITTEN** within the next import process!!
+!! Please be aware, that the positions are **NOT** mandatory and the columns can be empty. If so, the M2IF creates the position itself, based on the order of the given SKUs. If positions will be changed in the Magento backend, they will be **OVERWRITTEN** within the next import process!!
 
 ### Magento 2 CE < 2.1.6
 
@@ -60,4 +60,4 @@ INSERT INTO
         (5,'position','int');
 ```
 
-> Make sure, that the values are **NOT** already available, before adding them!
+!! Make sure, that the values are **NOT** already available, before adding them!
