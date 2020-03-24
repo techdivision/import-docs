@@ -6,68 +6,36 @@ taxonomy:
 visible: true
 ---
 
-This module provides the functionality to import the product links as well as the link positions, 
-defined in the CSV file. Actually Related, Upsell + Crosssell links are supported.
+M2IF provides the functionality to import product links as well as their positions. Actually *related*, *upsell* and *crosssell* links are supported. As M2IF also supports the import of *grouped* products, which are nothing else than the additional link type `super`, it is possible to import the position of the products that are linked to a grouped product.
 
-### Configuration
+To import those link types, simply a comma (,) separated list of the linked products has to be specified in the appropriate column
 
-In case that the [M2IF - Simple Console Tool](https://github.com/techdivision/import-cli-simple) 
-is used, the funcationality can be enabled by adding the following snippets to the configuration 
-file
+* column `related_skus` for related products that'll be rendered on the product detail page
+* column `upsell_skus` for upsell products that'll be rendered on the product detail page
+* column `crosssell_skus` for crosssell products that'll be rendered on the shopping cart
+* column `associated_skus` for products that will be part of a grouped product, which will also be rendered on the product detail page
 
-```json
-{
-  "magento-edition": "CE",
-  "magento-version": "2.1.2",
-  "operation-name" : "add-update",
-  "installation-dir" : "/var/www/magento",
-  "database": { ... },
-  "operations": [
-    {
-      "name": "replace",
-      "subjects": [
-        { ... },
-        {
-          "id": "import_product_link.subject.link",
-          "prefix": "links",
-          "observers": [
-            {
-              "import": [
-                "import_product_link.observer.link",
-                "import_product_link.observer.link.attribute.position"
-              ]
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "name" : "add-update",
-      "subjects": [
-        { ... },
-        {
-          "id": "import_product_link.subject.link",
-          "prefix": "links",
-          "observers": [
-            {
-              "import": [
-                "import_product_link.observer.link.update",
-                "import_product_link.observer.link.attribute.position.update"
-              ]
-            }
-          ]
-        }
-      ]
-    }
-  ]
-}
-```
+For example, the columns to import those link types may look like
 
-### Product Link Positions (CE)
+| sku     | ... | related_skus    | upsell_skus     | crosssell_skus  | associated_skus | ... |
+|:--------|:----|:----------------|:----------------|:----------------|:----------------|:----|
+| 24-MB01 |     | 24-MB02,24-MB03 | 24-WG03,24-WG04 | 24-SB01,24-SB02 | 24-AS01,24-AS02 |     |
 
-Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to 
-version 2.1.6, importing product positions is **NOT** possible in the CE, because the database 
-of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
+### Link Positions
+
+Beside the SKUs of the linked product itself, it is also possible to specify the position of the linked products
+
+| sku     | ... | related_position | upsell_position | crosssell_position | associated_position | ... |
+|:--------|:----|:-----------------|:----------------|:-------------------|:--------------------|:----|
+| 24-MB01 |     | 1,2              | 2,1             |                    | 1,2                 |     |
+
+The position also has to be a comma (,) separated list, but it contains numbers instead of the SKUs. The numbers finally are the position the linked product will be rendered in the GUI.
+
+!! Please be aware, that the positions are **NOT** mandatory and the columns can be empty. If so, the M2IF creates the position itself, based on the order of the given SKUs. If positions will be changed in the Magento backend, they will be **OVERWRITTEN** within the next import process!!
+
+### Magento 2 CE < 2.1.6
+
+Magento 2 CE supports positions for product links, as well as Magento 2 EE. By default, up to version 2.1.6, importing product positions is **NOT** possible in the CE, because the database of the CE lack's of missing rows in the `catalog_product_link_attribute` table.
 
 In case, that the rows are not available, the positions, defined in the CSV file's columns 
 
@@ -92,4 +60,4 @@ INSERT INTO
         (5,'position','int');
 ```
 
-> Make sure, that the values are **NOT** already available, before adding them!
+! Make sure, that the values are **NOT** already available, before adding them!
