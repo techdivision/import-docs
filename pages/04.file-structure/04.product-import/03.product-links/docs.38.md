@@ -23,7 +23,15 @@ For example, the columns to import those link types may look like
 
 ### Link Positions
 
+Beside the SKUs of the linked product itself, it is also possible to specify the position of the linked products
 
+| sku     | ... | related_position | upsell_position | crosssell_position | associated_position | ... |
+|:--------|:----|:-----------------|:----------------|:-------------------|:--------------------|:----|
+| 24-MB01 |     | 1,2              | 2,1             |                    | 1,2                 |     |
+
+The position also has to be a comma (,) separated list, but it contains numbers instead of the SKUs. The numbers finally are the position the linked product will be rendered in the GUI.
+
+> Please be aware, that the positions are **NOT** mandatory and the columns can be empty. If so, the M2IF creates the position itself, based on the order of the given SKUs. If positions will be changed in the Magento backend, they will be **OVERWRITTEN** within the next import process!!
 
 ### Magento 2 CE < 2.1.6
 
