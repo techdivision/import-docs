@@ -1,5 +1,9 @@
 ---
 title: 'Product Links'
+taxonomy:
+    category:
+        - docs
+redirect: /file-structure/product-import/product-links
 visible: true
 ---
 
