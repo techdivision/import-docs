@@ -23,7 +23,7 @@
   * Welche Möglichkeiten tun sich damit auf (siehe Gabor)
   * Was heißt Bunch im M2IF Kontext
   * Wie müssen die Dateinamen + die .ok Datei aufgebaut sein
-* [ ] Erstellen eines Bereichs Best Practices 
+* [ ] Erstellen eines Bereichs "Best Practices"
   * M2IF als Whitelabel Lösung
   * Wie kann man einen neuen Image Type anlegen
   * Wie kann M2IF als Basis für andere Extensions verwendet werden (siehe Brickfox)
