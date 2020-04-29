@@ -26,7 +26,7 @@ M2IF provides a *clean-up* functionality that provides the possiblity to remove 
 as well as for all product attributes (`clean-up-empty-columns`) which needs additional configuration. To activate the *clean-up* functionality for product attributes, 
 as well as additional attributes, the columns that has to be *cleaned-up* has to be specified in the `clean-up-empty-columns` array like `"clean-up-empty-columns": [ "activity", "erin_recommends" ]`.
 
-! Keep in mind, that columns that are specified in the `additional_attributes` column have to be *cleaned-up* **MUST** be available with empty values, e. g. if the column `activity` and `erin_recommends` has to be *cleaned-up* the column `additiona_attributes` needs the value '"activity=,erin_recommends="'.
+! Keep in mind, that columns that are specified in the `additional_attributes` column have to be *cleaned-up* **MUST** be available with empty values, e. g. if the column `activity` and `erin_recommends` has to be *cleaned-up* the column `additional_attributes` needs the value '"activity=,erin_recommends="'.
 
 To deactivate the *clean-up* functionality, add a snippet, e. g. `<custom-configuration-dir>/operations.json` and override the corresponding `clean-up-*` flags like
 
