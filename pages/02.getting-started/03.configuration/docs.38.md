@@ -378,29 +378,6 @@ To add additional loggers, e. g. in case you want to send mails if an exception 
 
 This will add a mail logger and set the default log level to **error**.
 
-#### Cache
-
-M2IF uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. M2IF distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import.
-
-In most cases it should not be necessary to change cache configurations or disable it. We provide this functionality to support scenarios where M2IF has to work in a distributed environment and e. g. Redis will be used to share the cached data. In contrast to that, the cache with the DI identifier `cache.configurable` will be used to cache e. g. products that has been loaded once during the import process. To enabled/disabled a cache type or change the TTL, you can add a snippet `<custom-configuration-dir>/cache.json` which contains something like
-
-```json
-{
-  "caches": [
-    {
-      "type": "cache.static"
-    },
-    {
-      "type": "cache.configurable",
-      "enabled" : true,
-      "time": 1440
-    }
-  ]
-}
-```
-
-!! In most cases we do not recommend to change the default cache settings as can have a massive impact on performance on the one hand and a deep understanding of the impact on the main functionality will be necessary to avoid errors and disfunctions. 
-
 #### Aliases
 
 Aliases can be used to override classes with custom functionality, e. g. provided by a project specific library. For example. if a custom adapter for caching should be used, the default class behind the Symfony DI configuration of the `cache.adapter` can be replaced by the customer DI identifier `import_parallel.cache.adapter.redis` in a snippet, e. g. `<custom-installation-dir>/aliases.json`.
