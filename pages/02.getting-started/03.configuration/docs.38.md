@@ -4,6 +4,8 @@ recaptchacontact:
 taxonomy:
     category:
         - docs
+title: Configuration
+visible: true
 ---
 
 !! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
