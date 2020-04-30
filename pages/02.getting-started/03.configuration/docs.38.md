@@ -1,0 +1,5 @@
+---
+recaptchacontact:
+    enabled: false
+---
+
