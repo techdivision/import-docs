@@ -4,6 +4,8 @@ taxonomy:
     category:
         - docs
 visible: true
+recaptchacontact:
+    enabled: false
 ---
 
 !! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
@@ -45,7 +47,7 @@ from your Magento 2 root directory and your're all setup.
 The last, but for sure not the worst installation option, is to download the latest PHAR from our [Github](https://github.com/techdivision/import-cli-simple/releases) release page and make it executable, e. g. with `wget`
 
 ```sh
-wget https://github.com/techdivision/import-cli-simple/releases/download/3.8.9/import-cli-simple.phar \
+wget https://github.com/techdivision/import-cli-simple/releases/download/3.8.12/import-cli-simple.phar \
   && sudo chmod +x import-cli-simple.phar
 ```
 
