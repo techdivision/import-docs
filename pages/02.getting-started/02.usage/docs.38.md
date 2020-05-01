@@ -4,6 +4,8 @@ taxonomy:
     category:
         - docs
 visible: true
+recaptchacontact:
+    enabled: false
 ---
 
 !! ATTENTION: As of version 3.8.0, the structure of the configuration has changed considerably and the previous configuration files can no longer be used. In order to avoid complex adjustments of the configuration, version 3.8.0 merged the configuration for all entities into one, but dedicated overwriting of individual settings is now possible, e. g. for the log level.
@@ -75,6 +77,7 @@ The following configuration options are available:
 | <nobr>--target-dir</nobr>         | The target directory with the files that has been imported | n/a |
 | <nobr>--archive-dir</nobr>        | The directory with the archived files that has been imported | n/a |
 | <nobr>--archive-artefacts</nobr>  | The flag to activate the artefact archiving functionality | `true` |
+| <nobr>--clear-artefacts</nobr>  | The flag whether or not the import artefacts have to be cleared | `true` |
 | <nobr>--magento-edition</nobr>    | The Magento edition to be used, either one of CE or EE | n/a |
 | <nobr>--magento-version</nobr>    | The Magento version to be used, e. g. 2.1.2 | n/a |
 | <nobr>--use-db-id</nobr>          | The ID of the database to use, if not specified, the database with the default flag will be used | n/a |
@@ -87,7 +90,7 @@ The following configuration options are available:
 | <nobr>--single-transaction</nobr> | The flag to wrap the import process into a single transaction | `false` |
 | <nobr>--params</nobr>             | A JSON encoded string that'll be merged with the params from the configuration file (has to be in the same format) | n/a |
 | <nobr>--params-file</nobr>        | The path to a file with the JSON encoded params that will be merged with the params from the configuration file  (has to be in the same format)| n/a |
-| <nobr>--cache-enabled</nobr>      | Whether or not the cache functionality for cache with the type `cache.configurable` should be enabled | `true` |
+| <nobr>--cache-enabled</nobr>      | Whether or not the cache functionality for cache with the type `cache.configurable` should be enabled | `false` |
 | <nobr>--move-files-prefix</nobr>  | Prefix of the files that should be imported and moved to the temporary directory of the import | Defaults to the prefix of the first of the first plugin subject |
 
 Beside the `configuration` option, all options can and **SHOULD** be defined in the configuration file. The commandline options should only be used to override these values in some circumstances.
