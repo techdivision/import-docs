@@ -149,13 +149,15 @@ Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is n
 
 ```json
 {
-  "additional-vendor-dirs" : {
-      "vendor-dir" : "target/vendor",
+  "additional-vendor-dirs" : [
+    {
+      "vendor-dir": "vendor",
+      "relative": true,
       "libraries": [
-        "techdivision/import-product-magic360"
+        "techdivision/import-adapter-custom"
       ]
     }
-  }
+  ]
 }
 ```
 
