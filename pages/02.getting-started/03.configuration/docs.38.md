@@ -141,7 +141,7 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 }
 ```
 
-> This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does.
+> This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does. This means, if you're using the PHAR version of M2IF, **MUST** use the `additional-vendor-dirs` directive!!!!
 
 ##### Additional Vendor Directories
 
