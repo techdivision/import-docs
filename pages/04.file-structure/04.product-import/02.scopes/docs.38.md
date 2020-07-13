@@ -15,11 +15,11 @@ The import functionality provides a possiblity to import values on different sco
 | sku     | store_view_code | attribute_set_code | product_type | name          | description                          | url_key       | ...     |
 |:--------|:----------------|:-------------------|:-------------|:--------------|:-------------------------------------|:--------------|:--------|
 | MB-2401 |                 | Default            | simple       | Duffle Bag    | This the default description.        | duffle-bag    |         |
-| MB-2401 | de_DE           |                    | simple       | Reisetasche   | Das ist die deutsche Beschreibung.   | reisetasche   |         |
-| MB-2401 | fr_FR           |                    | simple       | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
-| MB-2401 | es_ES           |                    | simple       | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
+| MB-2401 | de_DE           | Default            |              | Reisetasche   | Das ist die deutsche Beschreibung.   | reisetasche   |         |
+| MB-2401 | fr_FR           | Default            |              | Sac Marin     | C'est la description par défaut.     | sac-marin     |         |
+| MB-2401 | es_ES           | Default            |              | Bolsa de Lona | Esta es la descripción por defecto.  | bolsa-de-lona |         |
 
-The column `store_view_code` **MUST** contain the appropriate Magento store view code.
+The column `store_view_code` **MUST** contain the appropriate Magento store view code, as well as the column `attribute_set_code` **MUST** have a valid attribute set code. 
 
 ### Translateable Values
 
