@@ -1,6 +1,11 @@
 ---
 title: 'Attribute Import'
 visible: true
+taxonomy:
+    category:
+        - docs
+recaptchacontact:
+    enabled: false
 ---
 
 Pacemaker Community comes with an attribute import and the apropriate command `import:attributes` therefore. You can find more information about how to invoke the command in the [Usage](/getting-started/usage) section.
