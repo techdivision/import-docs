@@ -16,7 +16,7 @@ In general the filename for the dedicated MSI import **MUST** match the followin
 
 ### Unique Identifier
 
-The unique identifier for the attribute import is the attribute code. The attribute code is a mandatory field that has be available in the column `attribute_code` on **EVERY** row of the CSV file.
+The unique identifier for the attribute import is the attribute code. The attribute code is a mandatory field that has be available in the column `attribute_code` on **EVERY** row of the CSV file..
 
 ### Columns
 
