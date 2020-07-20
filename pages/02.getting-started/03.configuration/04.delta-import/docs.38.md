@@ -3,7 +3,7 @@ title: 'Delta Import'
 visible: true
 ---
 
-Beside the full import functionality, M2IF also supports delta import functionality. The delta import supports SKUs for
+Beside the full import functionality, Pacemaker Community also supports delta import functionality. The delta import supports SKUs for
 
 * all link types (up-sell, cross-sell + related)
 * variant products

@@ -49,7 +49,7 @@ For the [commands](#commands) described above, the following configuration argum
 
 ### Shortcuts
 
-In contrast to the Magento 2 standard import functionality, up from version 3.8.0, M2IF will provide 2 additional import shortcuts (formerly operations):
+In contrast to the Magento 2 standard import functionality, up from version 3.8.0, Pacemaker Community will provide 2 additional import shortcuts (formerly operations):
 
 | Shortcut                  | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|

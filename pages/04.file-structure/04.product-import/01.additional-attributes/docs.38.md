@@ -42,7 +42,7 @@ In case of Multiselect Attributes, mostly more than one value for an attribute w
 
 ### Configuration
 
-Beside the general CSV configuration on subject level M2IF allows to override the default values, which are a comma (,) for the multiple field and a pipe (|) for the muliple value separator. In contrast to the general CSV configuration this has to be done on the global level and is therefore valid for all operations, subjects and observers.
+Beside the general CSV configuration on subject level Pacemaker Community allows to override the default values, which are a comma (,) for the multiple field and a pipe (|) for the muliple value separator. In contrast to the general CSV configuration this has to be done on the global level and is therefore valid for all operations, subjects and observers.
 
 The default configuration can be overwritten by adding either one of or both `multiple-field-delimiter` and `mulitple-value-delimiter` to the confifguration file like
 

@@ -21,7 +21,7 @@ You should think about implementing a plug-in in either one of these cases
 
 ### How to implement a plug-in?
 
-The good example is the `TechDivision\Import\Plugins\GlobalDataPlugin` that is part of the M2IF core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
+The good example is the `TechDivision\Import\Plugins\GlobalDataPlugin` that is part of the Pacemaker Community core. Usually you don't have to write the plug-in from scratch, instead extend the `TechDivision\Import\Plugins\AbstractPlugin` class, that implements the `TechDivision\Import\Plugins\PluginInterface` which **MUST** be implemented by every plug-in. The interface defines the `setPluginConfiguration()` method, which expects the plug-in configuration with the optional parameters
 
 ```json
 {
@@ -63,7 +63,7 @@ class GlobalDataPlugin extends AbstractPlugin
 
 ### OOTB Plug-Ins
 
-The standard plugins are part of the M2IF core and can be used OOTB. When it'll be necessary to implement your own components, you'll go fine in most cases, if you don't implement your own plug-in, but instead use the `SubjectPlugin` and provide your functionality in form of subjects, observers and services.
+The standard plugins are part of the Pacemaker Community core and can be used OOTB. When it'll be necessary to implement your own components, you'll go fine in most cases, if you don't implement your own plug-in, but instead use the `SubjectPlugin` and provide your functionality in form of subjects, observers and services.
 
 #### Cache Warmer
 
@@ -81,7 +81,7 @@ Load's the global data, necessary for the import process from the database and a
 
 #### Subject
 
-This is the plug-in that does the main work by invoking the registered subjects as well as their registered observers and callbacks. When using M2IF as a framework, this plug-in will be a really good entrypoint to add your custom functionality. In most cases, it'll be quite enough to write a subject and observers that provides the necessary functionality and will be invoke by this plug-in. 
+This is the plug-in that does the main work by invoking the registered subjects as well as their registered observers and callbacks. When using Pacemaker Community as a framework, this plug-in will be a really good entrypoint to add your custom functionality. In most cases, it'll be quite enough to write a subject and observers that provides the necessary functionality and will be invoke by this plug-in. 
 
 The plug-in configuration is
 
@@ -107,7 +107,7 @@ The configuration of the plugin can look like
     "id" : "import.logger.factory.transport.swift.smtp",
     "params" : {
       "to" : "tw@techdivision.com",
-      "from" : "m2if@techdivision.com",
+      "from" : "pacemaker@techdivision.com",
       "subject": "Something Went Wrong",
       "content-type" : "text/plain"
     },

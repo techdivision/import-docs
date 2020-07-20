@@ -17,7 +17,7 @@ As for the tier prices, the column with the MSI inventory source items supports 
 
 ### Extend Configuration
 
-The second step is, to add the subject that processes the MSI to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-inventory-msi.json) Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
+The second step is, to add the subject that processes the MSI to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-inventory-msi.json) Edition is part of the Pacemaker Community [commandline tool](https://github.com/techdivision/import-cli-simple).
 
 Basically, the configuration for the apropriate operations has to be extended with
 

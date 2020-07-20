@@ -7,12 +7,12 @@ This page lists the main components, that provides Magento 2 import core functio
 
 ### General (Independent from Edition)
 
-* [import-app-simple](https://github.com/techdivision/import-app-simple) - Application implementation that uses Symfony Console + DI as well as M2IF to provide Magento 2 CE/EE import functionality
-* [import-configuration-jms](https://github.com/techdivision/import-configuration-jms) - A [JMS](https://github.com/schmittjoh/serializer) based M2IF configuration implementation
+* [import-app-simple](https://github.com/techdivision/import-app-simple) - Application implementation that uses Symfony Console + DI as well as Pacemaker Community to provide Magento 2 CE/EE import functionality
+* [import-configuration-jms](https://github.com/techdivision/import-configuration-jms) - A [JMS](https://github.com/schmittjoh/serializer) based Pacemaker Community configuration implementation
 
 ### Components for Community Edition (CE)
 
-These are the M2IF core components for the Magento 2 Community Edition (CE).
+These are the Pacemaker Community core components for the Magento 2 Community Edition (CE).
 
 * [import-product](https://github.com/techdivision/import-product) - Provides Product Import functionality
 * [import-product-url-rewrite](https://github.com/techdivision/import-product-url-rewrite) - Provides Product URL Rewrite Import functionality
@@ -32,7 +32,7 @@ These are the M2IF core components for the Magento 2 Community Edition (CE).
 
 ### Components for Enterprise Edition (EE)
 
-These are the M2IF core components for the Magento 2 Enterprise Edition (EE).
+These are the Pacemaker Community core components for the Magento 2 Enterprise Edition (EE).
 
 * [import-ee](https://github.com/techdivision/import-ee) - Provides Core Import functionality for Magento 2 EE
 * [import-product-ee](https://github.com/techdivision/import-product-ee) - Provides Product Import functionality for Magento 2 EE

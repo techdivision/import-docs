@@ -3,11 +3,11 @@ title: 'The Registry'
 visible: true
 ---
 
-As M2IF is build to run in single and multithreaded/multiprocess environments, it needs a possibility to share the data between the components in single process, as well as between threads and/or processes. Whenever data has to be shared, the registry will be the right place. The default implementation only works in a single threaded environment, where it does not need to take care of concurrency issues that will occur in multithreaded or multriprocess ones. 
+As Pacemaker Community is build to run in single and multithreaded/multiprocess environments, it needs a possibility to share the data between the components in single process, as well as between threads and/or processes. Whenever data has to be shared, the registry will be the right place. The default implementation only works in a single threaded environment, where it does not need to take care of concurrency issues that will occur in multithreaded or multriprocess ones. 
 
 ### Further Thoughts regard Multithreading and/or Multiprocessing
 
-As the registry implementation that comes with the core components only works in a single process, which probably be the choice in mose use cases. Depending on the environment M2IF will used, it'll be necessary to implement a registry processor implementation that fits the needs of these environment. To give you an example what kind of changes will be necessary in a multithreaded environment, e. g. like [appserver.io](https://appserver.io) we'll implement the method  `mergeAttributesRecursive()`. A threadsave version of this method would look like this
+As the registry implementation that comes with the core components only works in a single process, which probably be the choice in mose use cases. Depending on the environment Pacemaker Community will used, it'll be necessary to implement a registry processor implementation that fits the needs of these environment. To give you an example what kind of changes will be necessary in a multithreaded environment, e. g. like [appserver.io](https://appserver.io) we'll implement the method  `mergeAttributesRecursive()`. A threadsave version of this method would look like this
 
 ```php
 

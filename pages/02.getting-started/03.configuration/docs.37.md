@@ -130,15 +130,15 @@ Beside the possibility to specify the params directly as commandline option, it 
 ```
 > Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
 
-#### Extend M2IF with additional libraries
+#### Extend Pacemaker Community with additional libraries
 
-In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
+In more complex projects, it'll we possible, that addional libraries are necessary. As the Pacemaker - Community Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the Pacemaker - Community Console Tool has been installed, there a two options.
 
 > Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
 
 ##### Extension Libraries
 
-Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension will be adding it as a extension library like
+Assuming, that the Pacemaker - Community Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension will be adding it as a extension library like
 
 ```json
 "extension-libraries" : [
@@ -146,11 +146,11 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 ]
 ```
 
-> This is only possible, if the additional library uses the same Composer autoloader as M2IF - Simple Console Tool does.
+> This is only possible, if the additional library uses the same Composer autoloader as Pacemaker - Community Console Tool does.
 
 ##### Additional Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
+Assuming, that the Pacemaker - Community Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added like
 
 ```json
 "additional-vendor-dirs" : [
@@ -289,7 +289,7 @@ The listeners will only be executed before, after or on failure of the subject, 
 
 #### Default Listeners
 
-By default, M2IF comes with 3 listeners registered. 
+By default, Pacemaker Community comes with 3 listeners registered. 
 
 ```json
 {
@@ -351,7 +351,7 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 
 #### Loggers
 
-M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
+Pacemaker Community uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
 
 To add additional loggers, or override the default one with name `system`, the configuration file can be extended like
 
@@ -452,9 +452,9 @@ This will also override the system logger, as the name is `system`, and set the 
 
 #### Cache
 
-M2IF uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. M2IF distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import.
+Pacemaker Community uses a cache to avoid excessive database penetration and to pre-load data when the import starts. The cache can be configured in the configuration file as well. Pacemaker Community distinguishes two different cache types. The implemented cache with the Symfony DI identifier `cache.static` can **NOT** be disabled and will be used for data that will/can not be updated during the import, e. g. like the pre-loaded EAV attributes for the product import.
 
-In most cases it should not be necessary to change cache configurations or disable it. We provide this functionality to support scenarios where M2IF has to work in a distributed environment and e. g. Redis will be used to share the cached data.
+In most cases it should not be necessary to change cache configurations or disable it. We provide this functionality to support scenarios where Pacemaker Community has to work in a distributed environment and e. g. Redis will be used to share the cached data.
 
 In contrast to that, the cache with the DI identifier `cache.configurable` will be used to cache e. g. products that has been loaded once during the import process. This cache type can be enabled/disabled or a TTL can be set like
 
@@ -630,13 +630,13 @@ Callbacks can be used to transform values, found in the CSV file into the necess
 
 for the column `visibility`. These values can not be stored in the appropriate database column, as this expects integer values. Therefore, a callback can be use to transform the string into the correct integer value, in this case the class `TechDivision\\Import\\Product\\Callbacks\\VisibilityCallback`.
 
-By default, the necessary callbacks to transform the Magento 2 standard attributes found in the CSV file are already defined. When a new, user defined attribute will be added, e. g. with a setup script, the M2IF tries to find the best matching callback, depending on the `frontend_input` value of the attribute. Actually M2IF comes whith callbacks for
+By default, the necessary callbacks to transform the Magento 2 standard attributes found in the CSV file are already defined. When a new, user defined attribute will be added, e. g. with a setup script, the Pacemaker Community tries to find the best matching callback, depending on the `frontend_input` value of the attribute. Actually Pacemaker Community comes whith callbacks for
 
 * `select`
 * `multiselect`
 * `boolean`
 
-`frontend_input` types. Callbacks for other input types will be part of upcoming versions, but can always be implemented by the developers using M2IF in their project. To register a custom callback, it has to be added to the array with the callbacks of a subject, like
+`frontend_input` types. Callbacks for other input types will be part of upcoming versions, but can always be implemented by the developers using Pacemaker Community in their project. To register a custom callback, it has to be added to the array with the callbacks of a subject, like
 
 ```json
 "callbacks": [

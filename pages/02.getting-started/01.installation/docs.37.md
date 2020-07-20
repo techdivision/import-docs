@@ -16,7 +16,7 @@ To install the package as a new project, assuming composer is available, open a 
 composer create-project techdivision/import-cli-simple --no-dev
 ```
 
-This will clone the repository from the internal Gitlab and install the M2IF, that's all.
+This will clone the repository from the internal Gitlab and install the Pacemaker Community, that's all.
 
 ### Install as Composer Library
 
@@ -51,7 +51,7 @@ To install the PHAR in your actual Magento 2 installation, move it to `<MAGENTO-
 
 ### Add Missing Indexes
 
-As the M2IF functionality differs from the Magento 2 standard, for performance reasons, it is necessary to manually add some necessary indexes. To do that, open a MySQL command line, connect to your MySQL server instance and enter the following SQL statement
+As the Pacemaker Community functionality differs from the Magento 2 standard, for performance reasons, it is necessary to manually add some necessary indexes. To do that, open a MySQL command line, connect to your MySQL server instance and enter the following SQL statement
  
 ```sql
 ALTER TABLE `eav_attribute_option_value` ADD INDEX `EAV_ATTRIBUTE_OPTION_VALUE_VALUE` (`value` ASC); \
@@ -71,4 +71,4 @@ ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_PRODUCT_ID` (`product
   ALTER TABLE `magic360_gallery` ADD INDEX `MAGIC360_GALLERY_POSITION` (`position`);
 ```
 
-> This also improves performance of the Magento 2 standard import functionality, but not at same level as for M2IF.
+> This also improves performance of the Magento 2 standard import functionality, but not at same level as for Pacemaker Community.

@@ -17,7 +17,7 @@ The example above has two rows with tier prices, but there is no limiitation in 
 
 ### Extend Configuration
 
-The second step is, to add the listener, the subjects and the observers that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the M2IF [commandline tool](https://github.com/techdivision/import-cli-simple).
+The second step is, to add the listener, the subjects and the observers that processes the tier prices to your configuration file. A example configuration file for the [Community](https://github.com/techdivision/import-cli-simple/blob/3.5.x/projects/sample-data/ce/2.3.x/conf/products/techdivision-import-price-tier.json)  Edition is part of the Pacemaker Community [commandline tool](https://github.com/techdivision/import-cli-simple).
 
 Basically, the configuration for the apropriate operations has to be extended with
 

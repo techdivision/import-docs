@@ -3,7 +3,7 @@ title: 'Attribute Set + Group Import'
 visible: true
 ---
 
-M2IF comes with an attribute import and the apropriate command `import:attributes:set` therefore. You can find more information about how to invoke the command in the [Usage](/getting-started/usage) section.
+Pacemaker Community comes with an attribute import and the apropriate command `import:attributes:set` therefore. You can find more information about how to invoke the command in the [Usage](/getting-started/usage) section.
 
 In general the filename for the dedicated MSI import **MUST** match the following pattern `<PREFIX>_<FILENAME>_<COUNTER>.csv`, whereas the default `<PREFIX>` is `attribute-set-import`, the `<FILENAME>` is a combination of date and time like `20190608-114344`, and the `<COUNTER>` is a consecutive number with two digits starting with `01`. This results in a filename like `attribute-set-import_20190608-114344_01.csv`. Additionally an apropriate `.ok` file is needed.
 

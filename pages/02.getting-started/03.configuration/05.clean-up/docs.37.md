@@ -3,7 +3,7 @@ title: Clean-Up
 visible: true
 ---
 
-M2IF provides a clean-up functionality that provides the possiblity to remove values for empty columns. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
+Pacemaker Community provides a clean-up functionality that provides the possiblity to remove values for empty columns. This is very helpful when using the `add-update` operation, because in general data will only be added or updated if already available.
 
 > As deleting data can reduce performance significantly, is should be used carefully!
 

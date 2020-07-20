@@ -20,7 +20,7 @@ The structure is separated into a general configuration section, the database co
 
 #### General Configuration
 
-The general configuration contains basic metadata like the Magento edition and version, which will be necessary when M2IF will be invoked from a directory other than the Magento installation directory and without the `--installation-dir` option. Additionally it can be used to specify default values, if you want to change the default operation from `add-update` to `replace` for example. The change those general metadata we recommend to place a snipped, e. g. with the name `<custom-configuration-dir>/configuration.json` in the custom configuration directory.
+The general configuration contains basic metadata like the Magento edition and version, which will be necessary when Pacemaker Community will be invoked from a directory other than the Magento installation directory and without the `--installation-dir` option. Additionally it can be used to specify default values, if you want to change the default operation from `add-update` to `replace` for example. The change those general metadata we recommend to place a snipped, e. g. with the name `<custom-configuration-dir>/configuration.json` in the custom configuration directory.
 
 ```json
 {
@@ -123,15 +123,15 @@ Beside the possibility to specify the params directly as commandline option, it 
 ```
 ! Please be aware, that the values from the configuration file will be overwritten with the values from the commandline which again will be overwritten with the values from an addtional file that has been specified with the `--params-file` option.
 
-#### Extend M2IF with additional libraries
+#### Extend Pacemaker Community with additional libraries
 
-In more complex projects, it'll we possible, that addional libraries are necessary. As the M2IF - Simple Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the M2IF - Simple Console Tool has been installed, there a two options.
+In more complex projects, it'll we possible, that addional libraries are necessary. As the Pacemaker - Community Console Tool uses a Symfony DI container, it is necessary to register the additional library by adding it to the configuration file. Depending on how the Pacemaker - Community Console Tool has been installed, there a two options.
 
 ! Whenever you write an extension library do NOT forget to provide the Symfony DI configuration.
 
 ##### Extension Libraries
 
-Assuming, that the M2IF - Simple Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<custom-configuration-dir>/extension-libraries.json` that contains the name of the library, like
+Assuming, that the Pacemaker - Community Console Tool has been installed as Composer library, together with a Magento 2 installation, the simplest way to register an additional extension is to add a snippet, e. g. `<custom-configuration-dir>/extension-libraries.json` that contains the name of the library, like
 
 ```json
 {
@@ -141,11 +141,11 @@ Assuming, that the M2IF - Simple Console Tool has been installed as Composer lib
 }
 ```
 
-! This is **ONLY** possible, if the extension library uses the **SAME** Composer autoloader as M2IF - Simple Console Tool does. By implication, if you're using the PHAR version of M2IF, **MUST** use the `additional-vendor-dirs` directive!!!!
+! This is **ONLY** possible, if the extension library uses the **SAME** Composer autoloader as Pacemaker - Community Console Tool does. By implication, if you're using the PHAR version of Pacemaker Community, **MUST** use the `additional-vendor-dirs` directive!!!!
 
 ##### Additional Vendor Directories
 
-Assuming, that the M2IF - Simple Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added by a snippet, e. g. `<custom-configuration-dir>/additional-vendor-dirs`, which contains the following content
+Assuming, that the Pacemaker - Community Console Tool PHAR archive will be used, it is necessary, that the Composer class loader of the additional library vendor directory will be added by a snippet, e. g. `<custom-configuration-dir>/additional-vendor-dirs`, which contains the following content
 
 ```json
 {
@@ -262,7 +262,7 @@ As subjects are responsible for importing **AND** exporting artefacts, events fo
 
 ##### Default Listeners
 
-By default, M2IF comes with several listeners registered. 
+By default, Pacemaker Community comes with several listeners registered. 
 
 ```json
 {
@@ -330,7 +330,7 @@ If a value for the commandline option `--db-pdo-dsn` has been specified, the `--
 
 #### Loggers
 
-M2IF uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
+Pacemaker Community uses [Monolog](https://github.com/Seldaek/monolog) to provide the basic logging functionality. Therefore, at least one logger instance is necessary. By default, if no logger has been configured, a system logger will be instanciated, that writes log messages to the error log that has been configured in the `php.ini` file of the used PHP installation.
 
 To add additional loggers, e. g. in case you want to send mails if an exception has been thrown, the configuration can be extended, e. g. with a snippet `<custom-configuration-dir>/loggers.json` which looks like
 
@@ -360,7 +360,7 @@ To add additional loggers, e. g. in case you want to send mails if an exception 
             "id" : "import.logger.factory.transport.swift.smtp",
             "params" : {
               "to" : "tw@techdivision.com",
-              "from" : "m2if@techdivision.com",
+              "from" : "pacemaker@techdivision.com",
               "subject": "Something Went Wrong",
               "content-type" : "text/plain"
             },

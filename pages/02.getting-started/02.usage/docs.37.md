@@ -43,7 +43,7 @@ The following configuration arguments are available:
 
 ### Operations
 
-As well as the Magento 2 standard import functionality, M2IF will provide 3 different import operations:
+As well as the Magento 2 standard import functionality, Pacemaker Community will provide 3 different import operations:
 
 | Operation                 | Description
 |:--------------------------|:-----------------------------------------------------------------------------------|
