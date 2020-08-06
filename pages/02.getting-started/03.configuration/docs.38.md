@@ -420,6 +420,7 @@ In case images for the products has to copied from directory `var/importexport/m
                   },
                   "params": {
                     "copy-images": true,
+                    "override-images": false,
                     "media-directory" : "pub/media/catalog/product",
                     "images-file-directory" : "var/importexport/media/wysiwyg",
                     "clean-up-media-gallery": true,
@@ -450,7 +451,7 @@ In case images for the products has to copied from directory `var/importexport/m
 }
 ```
 
-In the CSV file the path to the images has to start with a `/` like `/m/b/mb01-blue-0.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/4.x/generic/data/products/add-update/product-import_20161021-161909_01.csv);
+In the CSV file the path to the images has to start with a `/` like `/m/b/mb01-blue-0.jpg`. Have a look at the example files in the repository [techdivision/import-sample-data](https://github.com/techdivision/import-sample-data/blob/4.x/generic/data/products/add-update/product-import_20161021-161909_01.csv); The `"override-images": true|false` flag gives you the option to decide if new images will simply override existing ones or will be extended with a counter.
 
 ! ATTENTION: When you copy images, you **MUST** create resized versions of them. Therefore, you can invoke the command `bin/magento catalog:images:resize` on the CLI. If you missed that, the images will be rendered in the admin area but **NOT** on the frontend! Please also keep in mind that it won't usually make sense to copy the images during the import process as this will slow down the performance sigenifcantly. It is strongly recommended to copy the images to the apropriate folder in your Magento installation and only importing the path to the images.
 
